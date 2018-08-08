@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="HTML 全称Hyper Text Markup Language; &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;     charset字符集编码，gb2312国家标准2312条 和gbk国家标准扩展简单，utf-8是unicod（万国码）的升级版； &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;     en：English的简写，zh：中文简">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-08T11:19:09.033Z">
+<meta property="og:updated_time" content="2018-08-08T11:44:44.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML学习笔记">
 <meta name="twitter:description" content="HTML 全称Hyper Text Markup Language; &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;     charset字符集编码，gb2312国家标准2312条 和gbk国家标准扩展简单，utf-8是unicod（万国码）的升级版； &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;     en：English的简写，zh：中文简">
@@ -98,11 +98,62 @@
 &lt;meta content=&apos;衣服&apos; name=&quot;keyword&quot;&gt;
 &lt;meta content=&apos;这是一件漂亮的衣服&apos; name=&quot;description&quot;&gt;
     添加keyword和description便于搜索引擎搜索
+有序列表
+    &lt;ol type=&apos;1/a/A/i/I&apos; start=&apos;2&apos; reversed=&apos;reversed&apos;&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    type是排序5种方法，start=&apos;2&apos;从第二个开始排列，reversed倒序排列；
+无序列表
+    &lt;ul type=&apos;disc/square/circle&apos;&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    type=&apos;实心圆/方块/空心圆&apos;
+img标签
+    &lt;img alt=&apos;this is fang&apos; title=&apos;my name is kk&apos;&gt;
+    alt图片占位符，title图片提示符
+a标签
+    a --&gt; anchor 锚
+    href --&gt; HyperText reference
+    1.超链接
+        &lt;a href=&apos;www.baidu.com&apos;&gt;baidu&lt;/a&gt;
+        &lt;a href=&apos;www.baidu.com&apos; target=&apos;_blank&apos;&gt;baidu&lt;/a&gt;在新标签中打开
+    2.锚点
+        &lt;a href=&quot;#demo&quot;&gt;find demo&lt;/a&gt;
+    3.打电话、发邮件
+        &lt;a href=&apos;tel:1389231&apos;&gt;&lt;/a&gt;
+        &lt;a href=&apos;mailto:12345@qq.com&apos;&gt;&lt;/a&gt;
+    4.协议限定符
+        &lt;a href=&apos;javascript:void(0)&apos;&gt;&lt;/a&gt;    
+form表单
+    &lt;form method=&apos;get/post&apos; action=&apos;http://213.com&apos;&gt;
+        &lt;p&gt;
+            username:&lt;input type=&apos;text&apos; name=&apos;usename&apos;&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            password:&lt;input type=&apos;password&apos; name=&apos;password&apos;&gt;
+        &lt;/p&gt;
+        &lt;input type=&apos;submit&apos;&gt;
+    &lt;form&gt;
+input标签
+    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;1&apos;&gt;
+    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;2&apos;&gt;
+    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;male&apos; checked&gt;
+    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;female&apos;&gt;
+select标签
+    &lt;select name=&apos;province&apos;&gt;
+        &lt;option value=&apos;beijin&apos;&gt;beijing&lt;/option&gt;
+        &lt;option value=&apos;tianjin&apos;&gt;tianjian&lt;/option&gt;
+        &lt;option value=&apos;shanghai&apos;&gt;shanghai&lt;/option&gt;
+    &lt;/select&gt;
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjkl1kbkb0000v0nsvrek00c4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjkl2h2jy00019gns87puhjzc" class="article-share-link">Share</a>
       
       
     </footer>
