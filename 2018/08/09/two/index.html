@@ -5,15 +5,19 @@
   
 
   
-  <title>Hexo</title>
+  <title>vue项目流程(一) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="vue-cliaxioswebpack 构建工具mockis 模拟数据es6 eslint代码风格检查工具移动端 flex弹性布局 开发项目17个步骤：产品产出需求文档，产品原型–&amp;gt; 阅读文档，梳理需求–&amp;gt; 评审需求–&amp;gt; 拿到UI图和交互设计稿–&amp;gt; (最重要)开始做详细设计（拆分需求模块，技术选型，调研技术方案的不确定）–&amp;gt; 详细设计评审–&amp;gt; 出项目排期–&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue项目流程(一)">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/two/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vue-cliaxioswebpack 构建工具mockis 模拟数据es6 eslint代码风格检查工具移动端 flex弹性布局 开发项目17个步骤：产品产出需求文档，产品原型–&amp;gt; 阅读文档，梳理需求–&amp;gt; 评审需求–&amp;gt; 拿到UI图和交互设计稿–&amp;gt; (最重要)开始做详细设计（拆分需求模块，技术选型，调研技术方案的不确定）–&amp;gt; 详细设计评审–&amp;gt; 出项目排期–&amp;gt">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-01T03:47:54.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="vue项目流程(一)">
+<meta name="twitter:description" content="vue-cliaxioswebpack 构建工具mockis 模拟数据es6 eslint代码风格检查工具移动端 flex弹性布局 开发项目17个步骤：产品产出需求文档，产品原型–&amp;gt; 阅读文档，梳理需求–&amp;gt; 评审需求–&amp;gt; 拿到UI图和交互设计稿–&amp;gt; (最重要)开始做详细设计（拆分需求模块，技术选型，调研技术方案的不确定）–&amp;gt; 详细设计评审–&amp;gt; 出项目排期–&amp;gt">
   
     <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-two" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-two" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/08/09/two/" class="article-date">
   <time datetime="2018-08-09T01:49:53.000Z" itemprop="datePublished">2018-08-09</time>
@@ -75,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/09/two/">vue项目流程(一)</a>
+    <h1 class="article-title" itemprop="name">
+      vue项目流程(一)
     </h1>
   
 
@@ -316,263 +318,19 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-one" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/one/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/one/">HTML学习笔记</a>
-    </h1>
+    <a href="/blog/2018/08/02/one/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML学习笔记</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>HTML 全称Hyper Text Markup Language;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-    charset字符集编码，gb2312国家标准2312条 和gbk国家标准扩展简单，utf-8是unicod（万国码）的升级版；
-&lt;html lang=&quot;en&quot;&gt;
-    en：English的简写，zh：中文简写
-    告诉搜索引擎和爬虫，我们的网站是关于什么内容的；
-&lt;!DOCTYPE html&gt;
-    标准盒模型；
-    去掉或者写残的话就会变成怪异盒模型；    
-&lt;meta content=&apos;衣服&apos; name=&quot;keyword&quot;&gt;
-&lt;meta content=&apos;这是一件漂亮的衣服&apos; name=&quot;description&quot;&gt;
-    添加keyword和description便于搜索引擎搜索
-有序列表
-    &lt;ol type=&apos;1/a/A/i/I&apos; start=&apos;2&apos; reversed=&apos;reversed&apos;&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-    type是排序5种方法，start=&apos;2&apos;从第二个开始排列，reversed倒序排列；
-无序列表
-    &lt;ul type=&apos;disc/square/circle&apos;&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    type=&apos;实心圆/方块/空心圆&apos;
-img标签
-    &lt;img alt=&apos;this is fang&apos; title=&apos;my name is kk&apos;&gt;
-    alt图片占位符，title图片提示符
-a标签
-    a --&gt; anchor 锚
-    href --&gt; HyperText reference
-    1.超链接
-        &lt;a href=&apos;www.baidu.com&apos;&gt;baidu&lt;/a&gt;
-        &lt;a href=&apos;www.baidu.com&apos; target=&apos;_blank&apos;&gt;baidu&lt;/a&gt;在新标签中打开
-    2.锚点
-        &lt;a href=&quot;#demo&quot;&gt;find demo&lt;/a&gt;
-    3.打电话、发邮件
-        &lt;a href=&apos;tel:1389231&apos;&gt;&lt;/a&gt;
-        &lt;a href=&apos;mailto:12345@qq.com&apos;&gt;&lt;/a&gt;
-    4.协议限定符
-        &lt;a href=&apos;javascript:void(0)&apos;&gt;&lt;/a&gt;    
-form表单
-    &lt;form method=&apos;get/post&apos; action=&apos;http://213.com&apos;&gt;
-        &lt;p&gt;
-            username:&lt;input type=&apos;text&apos; name=&apos;usename&apos;&gt;
-        &lt;/p&gt;
-        &lt;p&gt;
-            password:&lt;input type=&apos;password&apos; name=&apos;password&apos;&gt;
-        &lt;/p&gt;
-        &lt;input type=&apos;submit&apos;&gt;
-    &lt;form&gt;
-input标签
-    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;1&apos;&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;2&apos;&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;male&apos; checked&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;female&apos;&gt;
-select标签
-    &lt;select name=&apos;province&apos;&gt;
-        &lt;option value=&apos;beijin&apos;&gt;beijing&lt;/option&gt;
-        &lt;option value=&apos;tianjin&apos;&gt;tianjian&lt;/option&gt;
-        &lt;option value=&apos;shanghai&apos;&gt;shanghai&lt;/option&gt;
-    &lt;/select&gt;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjmy5erlg0000v8nsrnks22ej" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/three/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>–&gt;进入开发<br>1.搭建项目框架<br>    npm install vue-cli -g<br>    vue init webpack mysell<br>    cd mysell<br>    cnpm install<br>    npm run dev</p>
-<p>2.模拟Mock数据 mockjs axios插件安装<br>    cnpm install mockjs –save-dev dev只在开发时候用的<br>    cnpm install axios –save</p>
-<pre><code>写好data.json，放在根目录
-根目录建mock文件夹，index.js文件
-index.js文件中导入mockjs(不是mock.js)和data.json
-然后Mock.mock()模拟接口
-
-main引入mock/index,不需要就关掉
-  created () {
-    axios.get(&apos;/good/seller&apos;).then(
-      res =&gt; {
-        console.log(res)
-        if (res.data.code === 0) {
-          console.log(res.data.data)
-        }
-      }
-    )
-  }
-查看接口是否可用
-</code></pre><p>3.图标字体 <a href="https://icomoon.io/" target="_blank" rel="noopener">https://icomoon.io/</a><br>    将svg Import Icons –&gt; Generate Font –&gt; Download<br>    将压缩后的 style.css 复制到 mysell/static<br>    fonts 复制到 src/assets 不行的话也复制到 static<br>    在用到图标的style 内导入@import ‘../../static/style.css’;<br>    安装cnpm install css-loader –save-dev</p>
-<p>4.页面实现<br>    src/app.vue实现大块 –&gt; components创建模板 –&gt; router/index.js 实现路由跳转<br>    安装cnpm install stylus –&gt; cnpm install stylus-loader<br>        cnpm install postcss-loader css模块化<br>        cnpm install css-loader 解析css文件<br>        cnpm install style-loader 将css文件放入style</p>
-<pre><code>将所需要的图片放入assets文件夹，还有常见的基础方法stylus文件夹
-将reset.css放入static将原生的一样样式替换掉，初始化的一个文件，有人在维护
---&gt; index.html 中link引入
-
-app.vue写样式 写之前 UI图的像素要减半
-&lt;style lang=&apos;stylus&apos; ref=&apos;stylesheet/stylus&apos;&gt;
-    @import &apos;assets/stylus/index.styl&apos;
-&lt;/style&gt;
-
-优惠信息图标：根据优惠信息打折、满减来匹配图标 
-    设置 ：class = classMap[seller.supports[0].type] 根据type值进行匹配
-    this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice_1&apos;, &apos;guarantee&apos;]
-    &amp;.decrease
-         bg-image(&apos;decrease_1&apos;)
-    &amp;.discount
-      bg-image(&apos;discount_1&apos;)
-    &amp;.special
-      bg-image(&apos;special_1&apos;)
-    &amp;.invoice
-      bg-image(&apos;invoice_1&apos;)
-    &amp;.guarantee
-      bg-image(&apos;guarantee_1&apos;)
-
-   滚动功能
-     样式
-     .menu-item
-    padding 0 12px
-    font-size 0
-    line-height 16px
-    &amp;.current
-      position relative
-      margin-top -1px
-      background-color #fff
-      &amp;:after
-        border-top 1px solid #fff
-      .text
-        font-size 12px
-        line-height 14px
-        font-weight 500
-    添加ref  通过ref 把menu-wrapper的信息注册到父组件的$refs对象上
-   &lt;div id=&quot;goods&quot;&gt;
-     &lt;div class=&quot;menu-wrapper&quot; ref=&quot;menuWrapper&quot;&gt;
-     &lt;div class=&quot;foods-wrapper&quot; ref=&quot;foodsWrapper&quot;&gt;
-
-      @click=&quot;selectIndex(index, $event)
-      // dom绑定一个scroll
-      // 计算一下foods高度
-      安装//better-scroll
-      cnpm install better-scroll --save
-
-购物功能
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjmy5erm10001v8nsdejbasfj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/hello-world/" class="article-date">
-  <time datetime="2018-08-02T10:13:14.894Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjmy5ermi0003v8nspljk9fs7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         

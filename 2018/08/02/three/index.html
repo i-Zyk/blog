@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue练习项目流程(二) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="–&amp;gt;进入开发1.搭建项目框架    npm install vue-cli -g    vue init webpack mysell    cd mysell    cnpm install    npm run dev 2.模拟Mock数据 mockjs axios插件安装    cnpm install mockjs –save-dev dev只在开发时候用的    cnpm inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue练习项目流程(二)">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/three/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="–&amp;gt;进入开发1.搭建项目框架    npm install vue-cli -g    vue init webpack mysell    cd mysell    cnpm install    npm run dev 2.模拟Mock数据 mockjs axios插件安装    cnpm install mockjs –save-dev dev只在开发时候用的    cnpm inst">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-06T11:47:28.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue练习项目流程(二)">
+<meta name="twitter:description" content="–&amp;gt;进入开发1.搭建项目框架    npm install vue-cli -g    vue init webpack mysell    cd mysell    cnpm install    npm run dev 2.模拟Mock数据 mockjs axios插件安装    cnpm install mockjs –save-dev dev只在开发时候用的    cnpm inst">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/08/02/three/" class="article-date">
+  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue练习项目流程(二)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>–&gt;进入开发<br>1.搭建项目框架<br>    npm install vue-cli -g<br>    vue init webpack mysell<br>    cd mysell<br>    cnpm install<br>    npm run dev</p>
+<p>2.模拟Mock数据 mockjs axios插件安装<br>    cnpm install mockjs –save-dev dev只在开发时候用的<br>    cnpm install axios –save</p>
+<pre><code>写好data.json，放在根目录
+根目录建mock文件夹，index.js文件
+index.js文件中导入mockjs(不是mock.js)和data.json
+然后Mock.mock()模拟接口
+
+main引入mock/index,不需要就关掉
+  created () {
+    axios.get(&apos;/good/seller&apos;).then(
+      res =&gt; {
+        console.log(res)
+        if (res.data.code === 0) {
+          console.log(res.data.data)
+        }
+      }
+    )
+  }
+查看接口是否可用
+</code></pre><p>3.图标字体 <a href="https://icomoon.io/" target="_blank" rel="noopener">https://icomoon.io/</a><br>    将svg Import Icons –&gt; Generate Font –&gt; Download<br>    将压缩后的 style.css 复制到 mysell/static<br>    fonts 复制到 src/assets 不行的话也复制到 static<br>    在用到图标的style 内导入@import ‘../../static/style.css’;<br>    安装cnpm install css-loader –save-dev</p>
+<p>4.页面实现<br>    src/app.vue实现大块 –&gt; components创建模板 –&gt; router/index.js 实现路由跳转<br>    安装cnpm install stylus –&gt; cnpm install stylus-loader<br>        cnpm install postcss-loader css模块化<br>        cnpm install css-loader 解析css文件<br>        cnpm install style-loader 将css文件放入style</p>
+<pre><code>将所需要的图片放入assets文件夹，还有常见的基础方法stylus文件夹
+将reset.css放入static将原生的一样样式替换掉，初始化的一个文件，有人在维护
+--&gt; index.html 中link引入
+
+app.vue写样式 写之前 UI图的像素要减半
+&lt;style lang=&apos;stylus&apos; ref=&apos;stylesheet/stylus&apos;&gt;
+    @import &apos;assets/stylus/index.styl&apos;
+&lt;/style&gt;
+
+优惠信息图标：根据优惠信息打折、满减来匹配图标 
+    设置 ：class = classMap[seller.supports[0].type] 根据type值进行匹配
+    this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice_1&apos;, &apos;guarantee&apos;]
+    &amp;.decrease
+         bg-image(&apos;decrease_1&apos;)
+    &amp;.discount
+      bg-image(&apos;discount_1&apos;)
+    &amp;.special
+      bg-image(&apos;special_1&apos;)
+    &amp;.invoice
+      bg-image(&apos;invoice_1&apos;)
+    &amp;.guarantee
+      bg-image(&apos;guarantee_1&apos;)
+
+   滚动功能
+     样式
+     .menu-item
+    padding 0 12px
+    font-size 0
+    line-height 16px
+    &amp;.current
+      position relative
+      margin-top -1px
+      background-color #fff
+      &amp;:after
+        border-top 1px solid #fff
+      .text
+        font-size 12px
+        line-height 14px
+        font-weight 500
+    添加ref  通过ref 把menu-wrapper的信息注册到父组件的$refs对象上
+   &lt;div id=&quot;goods&quot;&gt;
+     &lt;div class=&quot;menu-wrapper&quot; ref=&quot;menuWrapper&quot;&gt;
+     &lt;div class=&quot;foods-wrapper&quot; ref=&quot;foodsWrapper&quot;&gt;
+
+      @click=&quot;selectIndex(index, $event)
+      // dom绑定一个scroll
+      // 计算一下foods高度
+      安装//better-scroll
+      cnpm install better-scroll --save
+
+购物功能
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjmy5erm10001v8nsdejbasfj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/08/02/one/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTML学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/08/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/08/09/two/">vue项目流程(一)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/02/one/">HTML学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
