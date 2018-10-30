@@ -310,7 +310,209 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjmy5gqdm00022cnsw226yu6y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjnvtj7wv0004a0ns1oibh0a1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/08/02/CSS3/" class="article-date">
+  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/08/02/CSS3/">CSS3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>什么是css3？
+css3是css2的升级版
+
+css3的属性是向后兼容的，为了向前兼容css3做了前缀处理
+-webkit chrome/safair
+-moz firefox
+-ms IE
+-o opera
+
+css3兼容性查询网址
+canluse
+http://www.runoob.com/cssref/css3-browsersupport.html
+一、css3选择器
+    1、属性选择器
+        E[att^= &apos;val&apos;] {} 以val开头
+        E[att$= &apos;val&apos;] {} 以val结尾
+        E[att*= &apos;val&apos;] {} 包含val
+        E[att~= &apos;val&apos;] {} 存在单独demo data=”demo ccc“（可以选到demo） data=”xxdemo“（这个选不了） 
+        div[data=&quot;demo&quot;] {
+            width:100px;
+            height:100px;
+            background:red
+        }
+        &lt;div class=&quot;demo&quot; data=&quot;demo&quot;&gt;&lt;/div&gt;
+    2、初级伪类选择器：伪类用于向某些选择器添加特殊的效果
+        root 根标签选择器
+            :root {} 和 html {} 效果一样
+        :not 否定选择器
+            div:not([class=&quot;demo&quot;]) {}
+            除了class为demo的div以外
+    3、empty 空标签选择器
+        用来选择没有内容的元素、不在文档树中的元素，这里没有内容指的是一点内容都没有，哪怕是一个空格
+    4、:target 目标元素选择器
+        用来匹配被location.hash 选中的元素（即锚点元素）
+        选择器可用于选取当前活动的目标元素
+    5、伪类选择器
+       :first-child 第一个子元素
+       :last-child 最后一个子元素
+       :nth-child (n) {} 第xx个子元素，n代表变量自然数
+       :nth-last-child (n) {} 从后往前数
+       odd 2n-1奇数 even 2n偶数
+        以上四个选择器均有弊端，即如果当前位置元素不是前面所修饰的元素，那么无效
+
+        :first-of-type 第一个子元素
+        :last-of-type 最后一个子元素
+        :nth-of-type (n) {} 第xx个子元素，n代表变量自然数
+        :nth-last-of-type (n) {} 从后往前数
+        此种选择器，限制了类型，即在所修饰元素的类型下选择特定位置的元素
+
+        :only-child 唯一子元素选择器
+        选择是独生子的子元素，即该子元素不能有兄弟元素，它的父元素只有他一个直接子元素
+        注意：选择的元素是独生子子元素，而非有唯一子元素的父元素
+
+        :only-of-type
+        如果要选择第某类特定的子元素（p） 在兄弟节点中是此类元素唯一的话 就需要用到这个属性
+
+        :enabled 可用的元素
+        :disabled 不可用的元素
+        :checked 选择框的被选中状态
+         eg：&lt;input type=&apos;text&apos; name=&apos;age&apos; disabled /&gt;
+
+         :read-only 选中只读的元素
+          eg：&lt;input type=&apos;text&apos; name=&apos;age&apos; readonly=&quot;readonly&quot; /&gt;
+         :read-write 选中非只读的元素
+          eg：&lt;input type=&apos;text&apos; name=&apos;age&apos; /&gt;
+
+    6、伪元素选择器
+        css3对伪元素进行了一定的调整，在以前的基础上增加了一个：
+        也就是现在变成了::first-letter,::first-line,::before,::after
+        另外还增加了一个::selection
+
+        ::selection
+            &quot;::selection&quot;选择器是用来匹配突出显示的文本（用鼠标选择文本的时候）
+            浏览器默认情况下，用鼠标选择网页文本是以“蓝色的背景，白色的字体”显示的
+            属性：user-select:none
+            注：火狐下必须加-moz-
+            -moz-::selection
+        ::first-letter
+            选择p标签内第一个字符
+        ::first-line
+            选择p标签内文字第一行
+        ::before
+            标签前面添加样式
+        ::after
+            标签后面添加样式
+
+    7、条件选择器
+        E &gt; F 直接子元素
+        E + F 后面的紧挨着的兄弟节点
+        E ~ F 后面的兄弟节点
+
+1、border-radius  圆角
+    border-radius:20px 40px 60px 80px;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    border-bottom-left-radius:20px;
+    border-top-right-radius:20px 10px;
+2、box-shadow  盒子阴影
+    box-shadow：x轴偏移量 Y轴偏移量 [阴影模糊半径] 
+    [阴影扩展半径] [阴影颜色] [投影方式];
+    eg:
+        .box_shadow{4px 2px 6px 7px #333 inset;} 
+        同一盒子可以加多个阴影，阴影之间可用“，”隔开
+3、text-shadow  文本阴影
+    text-shadow:X-Offset Y-Offset blur color
+    text-shadow:0 1px 1px #fff
+4、颜色值RGBA
+5、渐变的背景颜色
+    css3渐变分为两种
+    1）线性渐变（linear-to）
+     liner-gradient([direction],color[percent],color[percent],..)
+     []内为选填，direction角度的单位为“deg”，也可用to bottom，
+     to left，to top left等方式表达
+    2）径向渐变（radial-at）
+     radial-gradient(shape at position,color[percent],color,...)
+     shape:放射的形状，可以为原型circle，可以为椭圆ellipse
+     postiion：圆心位置，可以两个值，也可以一个，如果为一个时，
+     第二个值默认center即50%。值类型可以为，百分数，距离像素，也可以是方位值
+     （left，top...）;/* x轴主半径 y轴次半径 */
+6、word-wrap:normal|break-word（强制换行）;
+    文字边界换行
+7、font-face 引入字体库 http：//www.w3cplus/content/css3-font-face字体库网址
+    @font-face{
+        font-family:&quot;myFirstFont&quot;;
+        src:url(&apos;Sansation_Light.ttf&apos;),
+            url(&apos;Sansation_Light.eot&apos;)format(&apos;eot&apos;);
+    }
+    p{
+        font-family:&quot;myFirstFont&quot;;
+    }
+    format:此值指的是你自定义的字体格式，主要用来帮助浏览器识别浏览器对
+    @font-face的兼容问题，这里涉及到一个字体format的问题，因为不同的浏览器
+    对字体格式支持是不一致的，浏览器自身也无法通过路径后缀来判断字体
+    兼容性写法
+        @font-face {
+            font-famil:&apos;ifont&apos;;
+            src:url(&apos;ifont.eot&apos;);//IE9+
+            src:url(&apos;ifont.eot?#iefix&apos;)format(&apos;embedded-opentype&apos;),//IE6-IE8
+                url(&apos;ifont.woff&apos;)format(&apos;woff&apos;),//chrome、firefox
+                url(&apos;ifont.ttf&apos;)format(&apos;truetype&apos;),//chrome、firefox、opera、safari、Android、ios 4.2+
+                url(&apos;ifont.svg#fontname&apos;).format(&apos;svg&apos;);//ios 4.1-
+        }
+8.border-image 边框应用背景
+    border-image:url(xxx.png) number 切割图片
+        stretch 很好理解就是拉伸，有多长拉多长，有多远滚多远
+        repeat(和4角上 同等大小图片进行平铺当边框中间区域长度不是4角上
+            的图片大小的整数倍时 会被切割)
+        铺满（round）
+        eg：border-image：url(&apos;./border.png&apos;) 27 round;
+9.background-origin 背景图片起始位置
+    语法：
+    background-origin:border-box|padding-box|content-box;
+    参数分别表示背景图片是从边框，还是内边距（默认值），或者是内容区域开始显示
+10.background-clip:border-box|padding-box|content-box|no-clip
+    默认值border-box
+
+    text：background-clip:text;
+    从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可使用背景作为填充色之类的遮罩效果
+    注意：webkit独有属性，且必须配合text-fill-color属性
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-fill-color:-webkit-background-clip;
+    -webkit-background-clip:text;
+11.background-size 背景图片尺寸
+    background-size：auto|长度值|百分比|cover|contain
+12.background-position 背景图片位置
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjnvtj7uy0000a0ns5z2ewx32" class="article-share-link">Share</a>
       
       
     </footer>
@@ -409,7 +611,7 @@ select标签
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjmy5gqcr00002cnsisdb05sw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjnvtj7vz0002a0ns9v2oudht" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,11 +715,17 @@ app.vue写样式 写之前 UI图的像素要减半
       cnpm install better-scroll --save
 
 购物功能
+
+报错：Unexpected side effect in &quot;showList&quot; computed property  
+src\components\shopcart.vue:92:9
+      this.fold = true
+       ^
+解决：
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjmy5gqdt00032cnsnljd9gqa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjnvtj7w60003a0nsh9dpr540" class="article-share-link">Share</a>
       
       
     </footer>
@@ -562,7 +770,7 @@ app.vue写样式 写之前 UI图的像素要减半
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjmy5gqdc00012cnsu0wcz67t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjnvtj7vq0001a0nsnawd6e46" class="article-share-link">Share</a>
       
       
     </footer>
@@ -604,6 +812,10 @@ app.vue写样式 写之前 UI图的像素要减半
         
           <li>
             <a href="/blog/2018/08/09/two/">vue练习项目流程(一)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/02/CSS3/">CSS3</a>
           </li>
         
           <li>
