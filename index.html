@@ -310,7 +310,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjnvtj7wv0004a0ns1oibh0a1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjnyj00ii0003s0nsbhaoms99" class="article-share-link">Share</a>
       
       
     </footer>
@@ -486,10 +486,9 @@ http://www.runoob.com/cssref/css3-browsersupport.html
         }
 8.border-image 边框应用背景
     border-image:url(xxx.png) number 切割图片
-        stretch 很好理解就是拉伸，有多长拉多长，有多远滚多远
-        repeat(和4角上 同等大小图片进行平铺当边框中间区域长度不是4角上
-            的图片大小的整数倍时 会被切割)
-        铺满（round）
+        stretch 若宽度超出border的宽度的话 拉伸
+        repeat 若宽度超出border宽度的话 复制图片
+        round （content宽度 / border相应的位置宽度）四舍五入 张图片 填充
         eg：border-image：url(&apos;./border.png&apos;) 27 round;
 9.background-origin 背景图片起始位置
     语法：
@@ -512,106 +511,7 @@ http://www.runoob.com/cssref/css3-browsersupport.html
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjnvtj7uy0000a0ns5z2ewx32" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-one" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/one/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/one/">HTML学习笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>HTML 全称Hyper Text Markup Language;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-    charset字符集编码，gb2312国家标准2312条 和gbk国家标准扩展简单，utf-8是unicod（万国码）的升级版；
-&lt;html lang=&quot;en&quot;&gt;
-    en：English的简写，zh：中文简写
-    告诉搜索引擎和爬虫，我们的网站是关于什么内容的；
-&lt;!DOCTYPE html&gt;
-    标准盒模型；
-    去掉或者写残的话就会变成怪异盒模型；    
-&lt;meta content=&apos;衣服&apos; name=&quot;keyword&quot;&gt;
-&lt;meta content=&apos;这是一件漂亮的衣服&apos; name=&quot;description&quot;&gt;
-    添加keyword和description便于搜索引擎搜索
-有序列表
-    &lt;ol type=&apos;1/a/A/i/I&apos; start=&apos;2&apos; reversed=&apos;reversed&apos;&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-    type是排序5种方法，start=&apos;2&apos;从第二个开始排列，reversed倒序排列；
-无序列表
-    &lt;ul type=&apos;disc/square/circle&apos;&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    type=&apos;实心圆/方块/空心圆&apos;
-img标签
-    &lt;img alt=&apos;this is fang&apos; title=&apos;my name is kk&apos;&gt;
-    alt图片占位符，title图片提示符
-a标签
-    a --&gt; anchor 锚
-    href --&gt; HyperText reference
-    1.超链接
-        &lt;a href=&apos;www.baidu.com&apos;&gt;baidu&lt;/a&gt;
-        &lt;a href=&apos;www.baidu.com&apos; target=&apos;_blank&apos;&gt;baidu&lt;/a&gt;在新标签中打开
-    2.锚点
-        &lt;a href=&quot;#demo&quot;&gt;find demo&lt;/a&gt;
-    3.打电话、发邮件
-        &lt;a href=&apos;tel:1389231&apos;&gt;&lt;/a&gt;
-        &lt;a href=&apos;mailto:12345@qq.com&apos;&gt;&lt;/a&gt;
-    4.协议限定符
-        &lt;a href=&apos;javascript:void(0)&apos;&gt;&lt;/a&gt;    
-form表单
-    &lt;form method=&apos;get/post&apos; action=&apos;http://213.com&apos;&gt;
-        &lt;p&gt;
-            username:&lt;input type=&apos;text&apos; name=&apos;usename&apos;&gt;
-        &lt;/p&gt;
-        &lt;p&gt;
-            password:&lt;input type=&apos;password&apos; name=&apos;password&apos;&gt;
-        &lt;/p&gt;
-        &lt;input type=&apos;submit&apos;&gt;
-    &lt;form&gt;
-input标签
-    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;1&apos;&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;2&apos;&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;male&apos; checked&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;female&apos;&gt;
-select标签
-    &lt;select name=&apos;province&apos;&gt;
-        &lt;option value=&apos;beijin&apos;&gt;beijing&lt;/option&gt;
-        &lt;option value=&apos;tianjin&apos;&gt;tianjian&lt;/option&gt;
-        &lt;option value=&apos;shanghai&apos;&gt;shanghai&lt;/option&gt;
-    &lt;/select&gt;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjnvtj7vz0002a0ns9v2oudht" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjnyj00db0000s0nsxyd83phu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -725,7 +625,7 @@ src\components\shopcart.vue:92:9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjnvtj7w60003a0nsh9dpr540" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjnyj00fg0001s0ns4omsq121" class="article-share-link">Share</a>
       
       
     </footer>
@@ -770,7 +670,7 @@ src\components\shopcart.vue:92:9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjnvtj7vq0001a0nsnawd6e46" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjnyj00ic0002s0ns8thvtbaz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -816,10 +716,6 @@ src\components\shopcart.vue:92:9
         
           <li>
             <a href="/blog/2018/08/02/CSS3/">CSS3</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/one/">HTML学习笔记</a>
           </li>
         
           <li>

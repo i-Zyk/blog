@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是css3？ css3是css2的升级版  css3的属性是向后兼容的，为了向前兼容css3做了前缀处理 -webkit chrome/safair -moz firefox -ms IE -o opera  css3兼容性查询网址 canluse http://www.runoob.com/cssref/css3-browsersupport.html 一、css3选择器     1、属性选">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-30T14:12:40.956Z">
+<meta property="og:updated_time" content="2018-10-31T10:31:20.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3">
 <meta name="twitter:description" content="什么是css3？ css3是css2的升级版  css3的属性是向后兼容的，为了向前兼容css3做了前缀处理 -webkit chrome/safair -moz firefox -ms IE -o opera  css3兼容性查询网址 canluse http://www.runoob.com/cssref/css3-browsersupport.html 一、css3选择器     1、属性选">
@@ -230,10 +230,9 @@ http://www.runoob.com/cssref/css3-browsersupport.html
         }
 8.border-image 边框应用背景
     border-image:url(xxx.png) number 切割图片
-        stretch 很好理解就是拉伸，有多长拉多长，有多远滚多远
-        repeat(和4角上 同等大小图片进行平铺当边框中间区域长度不是4角上
-            的图片大小的整数倍时 会被切割)
-        铺满（round）
+        stretch 若宽度超出border的宽度的话 拉伸
+        repeat 若宽度超出border宽度的话 复制图片
+        round （content宽度 / border相应的位置宽度）四舍五入 张图片 填充
         eg：border-image：url(&apos;./border.png&apos;) 27 round;
 9.background-origin 背景图片起始位置
     语法：
@@ -256,7 +255,7 @@ http://www.runoob.com/cssref/css3-browsersupport.html
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjnvtj7uy0000a0ns5z2ewx32" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjnyj00db0000s0nsxyd83phu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -275,9 +274,9 @@ http://www.runoob.com/cssref/css3-browsersupport.html
     </a>
   
   
-    <a href="/blog/2018/08/02/one/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2018/08/02/three/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">HTML学习笔记</div>
+      <div class="article-nav-title">vue练习项目流程(二)</div>
     </a>
   
 </nav>
@@ -319,10 +318,6 @@ http://www.runoob.com/cssref/css3-browsersupport.html
         
           <li>
             <a href="/blog/2018/08/02/CSS3/">CSS3</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/one/">HTML学习笔记</a>
           </li>
         
           <li>
