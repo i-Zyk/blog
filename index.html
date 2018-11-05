@@ -121,7 +121,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo4dr6ek0001h4nscrx5krd2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo4dw80u0006x0nsun9w4ht7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -342,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjo4dr6f70003h4nsbcdosc1u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjo4dw7zw0002x0ns31pkm48y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -399,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjo4dr6d00000h4nstv4nmckj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjo4dw8080003x0ns5kpz5ixh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjo4dr6fd0004h4ns1xluuo26" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjo4dw80g0004x0nsa6am42o7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -649,7 +649,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjo4dr6fj0005h4nsgw93zymk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjo4dw80o0005x0nsza4xqbg8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -907,121 +907,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjo4dr6lk0008h4nseyh7cpvp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/three/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>–&gt;进入开发<br>1.搭建项目框架<br>    npm install vue-cli -g<br>    vue init webpack mysell<br>    cd mysell<br>    cnpm install<br>    npm run dev</p>
-<p>2.模拟Mock数据 mockjs axios插件安装<br>    cnpm install mockjs –save-dev dev只在开发时候用的<br>    cnpm install axios –save</p>
-<pre><code>写好data.json，放在根目录
-根目录建mock文件夹，index.js文件
-index.js文件中导入mockjs(不是mock.js)和data.json
-然后Mock.mock()模拟接口
-
-main引入mock/index,不需要就关掉
-  created () {
-    axios.get(&apos;/good/seller&apos;).then(
-      res =&gt; {
-        console.log(res)
-        if (res.data.code === 0) {
-          console.log(res.data.data)
-        }
-      }
-    )
-  }
-查看接口是否可用
-</code></pre><p>3.图标字体 <a href="https://icomoon.io/" target="_blank" rel="noopener">https://icomoon.io/</a><br>    将svg Import Icons –&gt; Generate Font –&gt; Download<br>    将压缩后的 style.css 复制到 mysell/static<br>    fonts 复制到 src/assets 不行的话也复制到 static<br>    在用到图标的style 内导入@import ‘../../static/style.css’;<br>    安装cnpm install css-loader –save-dev</p>
-<p>4.页面实现<br>    src/app.vue实现大块 –&gt; components创建模板 –&gt; router/index.js 实现路由跳转<br>    安装cnpm install stylus –&gt; cnpm install stylus-loader<br>        cnpm install postcss-loader css模块化<br>        cnpm install css-loader 解析css文件<br>        cnpm install style-loader 将css文件放入style</p>
-<pre><code>将所需要的图片放入assets文件夹，还有常见的基础方法stylus文件夹
-将reset.css放入static将原生的一样样式替换掉，初始化的一个文件，有人在维护
---&gt; index.html 中link引入
-
-app.vue写样式 写之前 UI图的像素要减半
-&lt;style lang=&apos;stylus&apos; ref=&apos;stylesheet/stylus&apos;&gt;
-    @import &apos;assets/stylus/index.styl&apos;
-&lt;/style&gt;
-
-优惠信息图标：根据优惠信息打折、满减来匹配图标 
-    设置 ：class = classMap[seller.supports[0].type] 根据type值进行匹配
-    this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice_1&apos;, &apos;guarantee&apos;]
-    &amp;.decrease
-         bg-image(&apos;decrease_1&apos;)
-    &amp;.discount
-      bg-image(&apos;discount_1&apos;)
-    &amp;.special
-      bg-image(&apos;special_1&apos;)
-    &amp;.invoice
-      bg-image(&apos;invoice_1&apos;)
-    &amp;.guarantee
-      bg-image(&apos;guarantee_1&apos;)
-
-   滚动功能
-     样式
-     .menu-item
-    padding 0 12px
-    font-size 0
-    line-height 16px
-    &amp;.current
-      position relative
-      margin-top -1px
-      background-color #fff
-      &amp;:after
-        border-top 1px solid #fff
-      .text
-        font-size 12px
-        line-height 14px
-        font-weight 500
-    添加ref  通过ref 把menu-wrapper的信息注册到父组件的$refs对象上
-   &lt;div id=&quot;goods&quot;&gt;
-     &lt;div class=&quot;menu-wrapper&quot; ref=&quot;menuWrapper&quot;&gt;
-     &lt;div class=&quot;foods-wrapper&quot; ref=&quot;foodsWrapper&quot;&gt;
-
-      @click=&quot;selectIndex(index, $event)
-      // dom绑定一个scroll
-      // 计算一下foods高度
-      安装//better-scroll
-      cnpm install better-scroll --save
-
-购物功能
-
-报错：Unexpected side effect in &quot;showList&quot; computed property  
-src\components\shopcart.vue:92:9
-      this.fold = true
-       ^
-解决：
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjo4dr6ex0002h4ns4i0job6q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjo4dw81d0009x0ns073n3wej" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1222,7 +1108,121 @@ http://www.runoob.com/cssref/css3-browsersupport.html
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjo4dr6m20009h4nsk68bn9ua" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjo4dw7zf0001x0nsdk7j3ibl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/08/02/three/" class="article-date">
+  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>–&gt;进入开发<br>1.搭建项目框架<br>    npm install vue-cli -g<br>    vue init webpack mysell<br>    cd mysell<br>    cnpm install<br>    npm run dev</p>
+<p>2.模拟Mock数据 mockjs axios插件安装<br>    cnpm install mockjs –save-dev dev只在开发时候用的<br>    cnpm install axios –save</p>
+<pre><code>写好data.json，放在根目录
+根目录建mock文件夹，index.js文件
+index.js文件中导入mockjs(不是mock.js)和data.json
+然后Mock.mock()模拟接口
+
+main引入mock/index,不需要就关掉
+  created () {
+    axios.get(&apos;/good/seller&apos;).then(
+      res =&gt; {
+        console.log(res)
+        if (res.data.code === 0) {
+          console.log(res.data.data)
+        }
+      }
+    )
+  }
+查看接口是否可用
+</code></pre><p>3.图标字体 <a href="https://icomoon.io/" target="_blank" rel="noopener">https://icomoon.io/</a><br>    将svg Import Icons –&gt; Generate Font –&gt; Download<br>    将压缩后的 style.css 复制到 mysell/static<br>    fonts 复制到 src/assets 不行的话也复制到 static<br>    在用到图标的style 内导入@import ‘../../static/style.css’;<br>    安装cnpm install css-loader –save-dev</p>
+<p>4.页面实现<br>    src/app.vue实现大块 –&gt; components创建模板 –&gt; router/index.js 实现路由跳转<br>    安装cnpm install stylus –&gt; cnpm install stylus-loader<br>        cnpm install postcss-loader css模块化<br>        cnpm install css-loader 解析css文件<br>        cnpm install style-loader 将css文件放入style</p>
+<pre><code>将所需要的图片放入assets文件夹，还有常见的基础方法stylus文件夹
+将reset.css放入static将原生的一样样式替换掉，初始化的一个文件，有人在维护
+--&gt; index.html 中link引入
+
+app.vue写样式 写之前 UI图的像素要减半
+&lt;style lang=&apos;stylus&apos; ref=&apos;stylesheet/stylus&apos;&gt;
+    @import &apos;assets/stylus/index.styl&apos;
+&lt;/style&gt;
+
+优惠信息图标：根据优惠信息打折、满减来匹配图标 
+    设置 ：class = classMap[seller.supports[0].type] 根据type值进行匹配
+    this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice_1&apos;, &apos;guarantee&apos;]
+    &amp;.decrease
+         bg-image(&apos;decrease_1&apos;)
+    &amp;.discount
+      bg-image(&apos;discount_1&apos;)
+    &amp;.special
+      bg-image(&apos;special_1&apos;)
+    &amp;.invoice
+      bg-image(&apos;invoice_1&apos;)
+    &amp;.guarantee
+      bg-image(&apos;guarantee_1&apos;)
+
+   滚动功能
+     样式
+     .menu-item
+    padding 0 12px
+    font-size 0
+    line-height 16px
+    &amp;.current
+      position relative
+      margin-top -1px
+      background-color #fff
+      &amp;:after
+        border-top 1px solid #fff
+      .text
+        font-size 12px
+        line-height 14px
+        font-weight 500
+    添加ref  通过ref 把menu-wrapper的信息注册到父组件的$refs对象上
+   &lt;div id=&quot;goods&quot;&gt;
+     &lt;div class=&quot;menu-wrapper&quot; ref=&quot;menuWrapper&quot;&gt;
+     &lt;div class=&quot;foods-wrapper&quot; ref=&quot;foodsWrapper&quot;&gt;
+
+      @click=&quot;selectIndex(index, $event)
+      // dom绑定一个scroll
+      // 计算一下foods高度
+      安装//better-scroll
+      cnpm install better-scroll --save
+
+购物功能
+
+报错：Unexpected side effect in &quot;showList&quot; computed property  
+src\components\shopcart.vue:92:9
+      this.fold = true
+       ^
+解决：
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjo4dw8180008x0nsqalxxep7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1267,7 +1267,7 @@ http://www.runoob.com/cssref/css3-browsersupport.html
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjo4dr6ft0006h4ns706yh0xb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjo4dw8110007x0nsw6b65f49" class="article-share-link">Share</a>
       
       
     </footer>
