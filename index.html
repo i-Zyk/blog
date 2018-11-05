@@ -62,6 +62,439 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-h5-canvas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/05/h5-canvas/" class="article-date">
+  <time datetime="2018-11-05T09:04:57.000Z" itemprop="datePublished">2018-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/05/h5-canvas/">&#39;h5-canvas&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><h3 id="canvas的应用场景"><a href="#canvas的应用场景" class="headerlink" title="canvas的应用场景"></a>canvas的应用场景</h3><ol>
+<li>游戏</li>
+<li>图表</li>
+<li>动画</li>
+<li>codepen.io(HTML5 动效 网址)</li>
+</ol>
+<h2 id="Canvas发展史"><a href="#Canvas发展史" class="headerlink" title="Canvas发展史"></a>Canvas发展史</h2><ol>
+<li>最早在apple的safari 1.3中引入</li>
+<li>ie9之前的浏览器不支持canvas</li>
+<li><a href="http://caniuse.com/" target="_blank" rel="noopener">http://caniuse.com/</a> (查看兼容性)</li>
+</ol>
+<h2 id="如何使用canvas"><a href="#如何使用canvas" class="headerlink" title="如何使用canvas"></a>如何使用canvas</h2><ol>
+<li><p>添加canvas标签<br><code>&lt;canvas width=500 height=500&gt;&lt;/canvas&gt;</code></p>
+</li>
+<li><p>获得canvas元素<br><code>var canvas = document.getElementById(&#39;myCanvas&#39;)</code></p>
+</li>
+<li><p>获得canvas上下文对象<br><code>var ctx = canvas.getContext(&#39;2d&#39;);//为啥不是3d呢？WebGL绘图上下文时才是3d</code></p>
+</li>
+</ol>
+<h2 id="两个对象"><a href="#两个对象" class="headerlink" title="两个对象"></a>两个对象</h2><ol>
+<li><p>元素对象（canvas元素）和上下文对象（通过getContext(‘2d’)方法获取到的CanvasRenderingContext2D对象）</p>
+</li>
+<li><p>元素对象相当于我们的画布，上下文对象相当于画笔，我们接下来的所有操作是基于上下文对象的</p>
+</li>
+</ol>
+<h2 id="线段"><a href="#线段" class="headerlink" title="线段"></a>线段</h2><ol>
+<li>ctx.moveTo(x,y);移动到x，y坐标点</li>
+<li>ctx.lineTo(x,y);从当前点绘制直线到x，y点</li>
+<li>ctx.stroke();描边</li>
+<li>ctx.lineWidth = 20;设置线段宽度</li>
+<li>ctx.closePath();闭合当前路径和回到起始点的区别</li>
+<li>ctx.fill();填充</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo4dr6ek0001h4nscrx5krd2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RWD" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/03/RWD/" class="article-date">
+  <time datetime="2018-11-03T03:00:28.000Z" itemprop="datePublished">2018-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS3内容总结</p>
+<ol>
+<li><p>选择器</p>
+</li>
+<li><p>背景和边框</p>
+</li>
+<li><p>文字和颜色</p>
+</li>
+<li><p>盒模型、弹性盒子</p>
+</li>
+<li><p>动画</p>
+</li>
+<li><p>响应式布局</p>
+</li>
+</ol>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><p>为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD）</p>
+<p>响应式设计的三个条件：</p>
+<ol>
+<li><p>网站必须建立灵活的网格基础（设置的宽高不能够固定）</p>
+</li>
+<li><p>引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）</p>
+</li>
+<li><p>不同的显示风格，需要在MediaQuery上设置不同的样式（在不同终端上正常展示页面，让用户体验不变）</p>
+</li>
+</ol>
+<p>meta响应标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">&lt;!-- viewport 视口 content 视口的内容 width=device-width 视口宽度等于设备的宽度 initial-scale 缩放比例 --&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="响应式设计中的术语"><a href="#响应式设计中的术语" class="headerlink" title="响应式设计中的术语"></a>响应式设计中的术语</h2><ol>
+<li><p>流体网格：可伸缩的网格（大小宽高 都是可伸缩（可用flex））</p>
+</li>
+<li><p>弹性图片：图片自适应（可把图片放在背景图片的位置 让div自适应）</p>
+</li>
+<li><p>媒体查询：让网页在不同的终端上面展示效果相同（用户体验相同）</p>
+</li>
+<li><p>屏幕分辨率：</p>
+</li>
+<li><p>主要断点：设备宽度的临界点</p>
+</li>
+</ol>
+<h2 id="响应式布局的技巧"><a href="#响应式布局的技巧" class="headerlink" title="响应式布局的技巧"></a>响应式布局的技巧</h2><ol>
+<li><p>尽量少用无关紧要的div</p>
+</li>
+<li><p>不要使用内联元素</p>
+</li>
+<li><p>尽量少用JS或Flash</p>
+</li>
+<li><p>丢弃没用的绝对定位和浮动样式</p>
+</li>
+<li><p>摈弃任何冗余结构和不适用100%设置</p>
+</li>
+<li><p>使用H5 Doctype和相关指南</p>
+</li>
+<li><p>重置好样式</p>
+</li>
+<li><p>一个简单的有语义的核心布局</p>
+</li>
+<li><p>给重要的网页元素使用简单的技巧，比如导航菜单之类的元素</p>
+</li>
+</ol>
+<p>p.s 如何判断结构的好坏呢？很简单，把页面的样式全部注释掉，在浏览器里面打开，如果内部排列有序，方便阅读，那么这个结构就不会差</p>
+<h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p>模拟移动端的meta</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</code></p>
+<p>width: 可视区宽度</p>
+<p>device-width:设备宽度</p>
+<p>minimum-scale：最小缩放比</p>
+<p>maximum-scale：最大缩放比</p>
+<p>user-scalable：是否允许用户缩放</p>
+<p>单位值</p>
+<p>rem：rem是css3新增的一个相对单位（root em，根em）相对的只是HTML根元素（相对于根节点 2rem = 2 * 根节点）</p>
+<p>em：em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。（相对于父级的大小 2em = 2 * 父级）</p>
+<p>px：px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的</p>
+<p>媒体查询</p>
+<p>CSS2：media type</p>
+<p>media type（媒体类型）是css2中的一个非常有用的属性，通过media type我们可以对不同的设备指定特定的样式，从而实现更丰富的界面</p>
+<p>CSS3：media query</p>
+<p>media query 是CSS3对media type的增强，事实上我们可以将media query看成是media type + css  属性（媒体特性Media features）判断</p>
+<p>媒体类型（media type）</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td style="text-align:left">所有设备</td>
+</tr>
+<tr>
+<td>braille</td>
+<td style="text-align:left">盲文</td>
+</tr>
+<tr>
+<td>embossed</td>
+<td style="text-align:left">盲文打印</td>
+</tr>
+<tr>
+<td>handheld</td>
+<td style="text-align:left">手持设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td style="text-align:left">文档打印或打印预览模式</td>
+</tr>
+<tr>
+<td>projection</td>
+<td style="text-align:left">项目演示，比如幻灯</td>
+</tr>
+<tr>
+<td>screen</td>
+<td style="text-align:left">彩色电脑屏幕</td>
+</tr>
+<tr>
+<td>speech</td>
+<td style="text-align:left">演讲</td>
+</tr>
+<tr>
+<td>tty</td>
+<td style="text-align:left">固定字母间距的网格的媒体，比如电传打字机</td>
+</tr>
+<tr>
+<td>tv</td>
+<td style="text-align:left">电视</td>
+</tr>
+</tbody>
+</table>
+<p>如何使用媒体查询？</p>
+<p>媒体查询引用方法有很多种：</p>
+<p>link标签</p>
+<p>@import</p>
+<p>css3新增的@media</p>
+<p><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (max-width:800px)&quot; href=&quot;index.css&quot; /&gt;</code></p>
+<p><code>@import url(&#39;index.css&#39;) screen and (max-width:500px) ie6、7不兼容</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width:700px) &#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background: red</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 合并多个媒体属性 --&gt;</span><br><span class="line">@media screen and (max-width:700px) and (min-width:500px)&#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background:green</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>逻辑操作符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 合并多个媒体属性 --&gt;</span><br><span class="line">@media screen and (max-width:700px) and (min-width:500px)&#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background:green</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>指定否定条件</p>
+<p><code>@media not screen and (monochrome)</code></p>
+<p>要指定否定条件，可以在媒体声明中添加关键字not，不能再单个条件钱使用not。该关键字必须位于声明的开头，而且它会否定整个声明。所以，上面的示例会应用于除单色屏幕外的所有设备</p>
+<p>向早起浏览器隐藏媒体查询</p>
+<p><code>media = &quot;only screen and (min-width:401px) and (max-width:600px)&quot;</code></p>
+<p>媒体查询规范还提供了关键字only，它用于早起浏览器隐藏媒体查询。类似于not，该关键字必须位于声明的开头。</p>
+<p>早起浏览器应该将以下语句<code>media = &quot;only screen and (min-width:401px) and (max-width:600px)&quot;</code>解释为media=”screen”;换句话说，它应该将样式规则应用于所有屏幕设备，即使它不知道媒体查询的含义。</p>
+<p>无法识别媒体查询的浏览器要求获得逗号分割的媒体类型列表，规范要求，它们应该在第一个不是连字符的非数字字母字符之前截断每个值。所以，早起浏览器应该将上面的示例解释为：media=”only”</p>
+<p>因为没有only这样的媒体类型，所以样式表被忽略</p>
+<p>易混淆的宽度</p>
+<p><code>device-width/height width/height</code>来作为的判定值</p>
+<p>device-width/height 是设备的宽度（如电脑手机的宽度 不是浏览器的宽度）</p>
+<p>width/height 使用documentElement.clientWidth/Height即viewport的值。渲染宽度/高度</p>
+<h2 id="物理像素-和-设备独立像素"><a href="#物理像素-和-设备独立像素" class="headerlink" title="物理像素 和 设备独立像素"></a>物理像素 和 设备独立像素</h2><p>物理像素： 设备能控制显示的最小单位，我们常说的1920X1080像素分辨率就是用的设备像素单位，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。</p>
+<p>设备独立像素（也叫目睹无关像素）：可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素（css像素），然后由相关系统转换为物理像素</p>
+<p>标准情况下一个设备独立像素 = 一个物理像素</p>
+<p>设备像素比（device pixel ratio）： 简称dpr，定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式得到</p>
+<p>设备像素比 = 物理像素/设备独立像素 js中可以通过window.devicePixelRatio</p>
+<p>物理像素：最大分辨率 ——— 电脑生产厂商定义（1920*1080）每行1920个像素点，每列1080个像素点</p>
+<p>实际分辨率：实际自己设置的电脑分辨率 ——— 自定义的</p>
+<p>css像素：感官像素 – 浏览器定义的（css像素是一个变化值） –（参考像素：根据设备独立像素做了一层调节，css像素根据参考像素进行调节）</p>
+<p>像素：包括 每个像素点 + 颜色 + 其他属性</p>
+<p>设备独立像素： – 操作系统定义的</p>
+<p>设备像素比 = 实际分辨率/css像素 = 物理像素/设备独立像素</p>
+<p>一般默认：</p>
+<p>实际分辨率 ： 物理像素 = 1:1</p>
+<p>css像素 ： 设备独立像素 = 1：1</p>
+<p>以iPhone6为例</p>
+<ol>
+<li><p>设备宽高为375 * 667，可以理解为设备独立像素（或css像素）、</p>
+</li>
+<li><p>drp为2，根据上面的计算公式，器物理像素就应该 <em> 2,为750 </em> 1334</p>
+</li>
+</ol>
+<p>css像素在pc端显示器需要用（1 <em> 1）个栅格点表示 在iPhone6中则需要4（2 </em> 2）个</p>
+<p>也就是在不同的屏幕上（普通屏幕 vs retina屏幕），css像素所呈现的大小（物理尺寸）是一致的，不同的是一个css像素所对象的物理像素个数是不一致</p>
+<p>在普通的屏幕下，1个css像素对应的1个物理像素 为 1：1，在retina（视网膜屏幕）屏幕下，1个css像素对应4个物理像素1:4</p>
+<p>位图像素</p>
+<p>1个位图像素是栅格图像（如：png，jpg，gif等）最小的数据单元。每一个位图像素都包含这一些资深的现实信息（如：显示位置，颜色值，透明度等）</p>
+<p>在普通屏幕下是没问题的，但是在retina屏幕下就会出现位图像素点不够，从而导致图片模糊的情况</p>
+<h2 id="图片像素问题"><a href="#图片像素问题" class="headerlink" title="图片像素问题"></a><strong>图片像素问题</strong></h2><ol>
+<li>对于dpr = 2的，1个位图像素对应于4个物理像素，由于单个位图像素不以再进一步分割，所以只能就近取色，从而导致图片模糊</li>
+</ol>
+<p>解决办法使用分辨率大两倍的图片</p>
+<p>如200 <em> 300 img标签，就需要提供400 </em> 600的图片。由此一来位图像素点的个数是原来的4倍，在retina屏幕下，位图像素点个数就可以物理像素点个数形成1:1的比列，图片自然就清晰了 </p>
+<ol start="2">
+<li>这里就还有另一个问题，如果普通屏幕下，也用了两倍图片，会怎样呢？</li>
+</ol>
+<p>很明显，在普通屏幕下，200 <em> 300（css pixel）img标签，所对应的物理像素个数就是200 </em> 300个，而两倍图片的位置像素个数则是200 <em> 300 </em> 4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法（显示结果就是一张只有原图像素总数四份之一，我们称这个过程叫做 downsampling），肉眼看上去虽然图片不会模糊，但是会觉得图片缺少一些锐利度，或者是有点色差（但还可以接受）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjo4dr6f70003h4nsbcdosc1u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3-animation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/03/css3-animation/" class="article-date">
+  <time datetime="2018-11-03T02:17:13.000Z" itemprop="datePublished">2018-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/03/css3-animation/">&#39;css3-animation&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS3-animation-动画属性"><a href="#CSS3-animation-动画属性" class="headerlink" title="CSS3 animation 动画属性"></a>CSS3 animation 动画属性</h1><p>动画关键帧</p>
+<p>@keyframes</p>
+<p>animation 动画会按照keyframes 关键帧里面指定的帧状态而过渡执行</p>
+<p>0% - 100% 代表动画的时间过渡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes demoMove &#123;</span><br><span class="line">    0% &#123;background-color: red&#125;</span><br><span class="line">    10% &#123;background-color: green&#125;</span><br><span class="line">    20% &#123;background-color: white&#125;</span><br><span class="line">    50% &#123;width: 200px&#125;</span><br><span class="line">    100% &#123;height: 200px&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>帧频里面如果只有 0% 和 100% 两个关键帧，那么可以用from to 代替</p>
+<p>animation: demoMove 4s linear </p>
+<p>animation: name duration timing-function</p>
+<p>transition: left 1s linear 1s linear</p>
+<p>a:hover + .demo{}</p>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p>animation 属性为css3的复合属性，主要包括以下子属性</p>
+<p>animation-name：此属性为执行动画的keyframe名</p>
+<p>animation-duration：此属性为动画执行时间</p>
+<p>animation-timing-function：指定过渡函数速率</p>
+<p>animation-delay：执行延迟时间</p>
+<p>animation-direction：</p>
+<p>normal/reverse/alternate/alternate-reverse；</p>
+<p>animation-iteration-count：infinite/number；</p>
+<p>animation-fill-mode：forwards（动画结束位置是100%关键帧得位置）/backwards（动画开始位置即0%关键帧的位置立即执行 不会等待延迟）/both（动画开始0%关键帧立即执行，动画结束位置为100%关键帧得位置）/none</p>
+<p>animation-play-state: 属性主要用来控制元素动画的播放状态。</p>
+<p>running 播放 | paused 暂停</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjo4dr6d00000h4nstv4nmckj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3-transform" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/02/css3-transform/" class="article-date">
+  <time datetime="2018-11-02T13:46:54.000Z" itemprop="datePublished">2018-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/02/css3-transform/">&#39;css3-transform&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3-transform属性"><a href="#CSS3-transform属性" class="headerlink" title="CSS3 - transform属性"></a><strong>CSS3 - transform属性</strong></h2><p>##transform：变换属性</p>
+<p>transform 可以实现元素的形状、角度、位置等的变化值：</p>
+<p>rotate() 以x/y/z为轴进行旋转，默认为z轴</p>
+<p>rotatex(),rotatey(),rotatez(),rotate3d(x,y,z,angle) x,y,z</p>
+<p>scale() 以x/y为轴进行缩放</p>
+<p>scale(x,y) 接受两个值，如果第二参数未提供，则第二个参数使用第一个参数的值</p>
+<p>scalex(),scaley()值时数字表示倍数，不加任何单位</p>
+<p>scalez()</p>
+<p>scale3d() –&gt; scale3d(sx,sy,sz)</p>
+<p>skew() 对元素进行倾斜扭曲</p>
+<p>skew(x,y) 接受两个值，第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</p>
+<p>skewx(),skewy()</p>
+<p>translate() 可以移动距离，相对于自身位置</p>
+<p>translate(x,[ y ])</p>
+<p>tanslatex(),translatey(),translatez(),translate3d(x,y,z)</p>
+<p>rotateX() rotateY() rotateZ()</p>
+<p>rotate() translate()</p>
+<p>##transform-origin 变换原点</p>
+<p>任何一个元素都有一个中心点，默认情况下，其中心点是居于元素x轴和y轴的50%处，</p>
+<p>##transition 过渡动画</p>
+<p>transition 属性是css3的一个复合属性，主要包括以下几个子属性</p>
+<p>transition-property：指定过渡或动态模拟的css属性</p>
+<p>transition-duration：指定过渡所需要的时间</p>
+<p>transition-timing-function：指定过渡函数</p>
+<p>transition-delay: 指定开始出现的延迟时间</p>
+<h2 id="3D变换"><a href="#3D变换" class="headerlink" title="3D变换"></a>3D变换</h2><p>transform-style：flat | presserve-3d</p>
+<p>flat：默认，子元素将不保留其3D位置</p>
+<p>preserve-3d：子元素将保留其3D位置</p>
+<p>注意：transform-style<br>属性需要设置在父元素中，高于任何嵌套的变形元素</p>
+<p>设置了transform-style：preserve-3d的元素，就不能防止子元素溢出设置overflow：hideen；否则会导致preserve-3d失效</p>
+<h2 id="perspective-景深"><a href="#perspective-景深" class="headerlink" title="perspective 景深"></a>perspective 景深</h2><p>可以简单的把perspective理解成人距离显示器的距离</p>
+<p>perspective: 600px;默认值none</p>
+<p>物体距离人眼的距离是600px</p>
+<p>perspective-origin: 默认值是50% 50%</p>
+<p>perspective 与 translateZ()</p>
+<p>在元素运动过程中，能否展示元素的背面</p>
+<p>backface-visibility：visible | hidden</p>
+<h2 id="CSS3动画性能优化"><a href="#CSS3动画性能优化" class="headerlink" title="CSS3动画性能优化"></a>CSS3动画性能优化</h2><ol>
+<li>尽可能多的利用硬件能力，如使用3D变形来开启GPU加速</li>
+</ol>
+<p>注意：如动画过程有闪烁（通常发生在动画开始的时候），可以尝试Hack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-webkit-transform: translate3d(0, 0, 0)</span><br><span class="line">-moz-transform: translate3d(0, 0, 0)</span><br><span class="line">-ms-transform: translate3d(0, 0, 0)</span><br><span class="line">transform: translate3d(0, 0, 0)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>尽可能少的使用box-shadows与gradients，这两个都是页面性能杀手，能避免尽量避免</p>
+</li>
+<li><p>尽可能的让动画元素不在文档流中，以减少重排</p>
+</li>
+<li><p>优化 DOM reflow</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjo4dr6fd0004h4ns1xluuo26" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-css3-二" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/11/01/css3-二/" class="article-date">
@@ -90,11 +523,133 @@
 <p>column-width: 指每一列的宽度 根据容器宽度自适应（最小宽度）</p>
 <p>column-count：指规定的列数 唯一精准的是列数</p>
 <p>不要两一起使用 会乱</p>
+<p>column-gap: 设置列与列之间的宽度，直接用数值表示即可（eg：10px）</p>
+<p>column-gap主要用来设置列与列之间的间距 如果没有显示设置column-gap值时，其值大小会更具流浪器默认的<strong>font-size</strong>来定</p>
+<p><code>column-rule</code></p>
+<p>是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置。</p>
+<p>column-rule-width: 宽度 类似于border-width属性，主要用来定义列边框的宽度，其默认值为”medium“。</p>
+<p>column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin</p>
+<p>column-rule-style属性值与border-style属性值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset</p>
+<p>column-rule-color: 颜色</p>
+<p>类似于border-color属性</p>
+<p><code>column-span:1/all</code></p>
+<p>设置多列布局元素内的子元素，可以跨域，类似标题效果。即一个新闻标题要横跨所有内容列。注：此属性要在子元素上设置</p>
+<h2 id="HSL-颜色值"><a href="#HSL-颜色值" class="headerlink" title="HSL 颜色值"></a><strong>HSL</strong> 颜色值</h2><p>颜色值HSL</p>
+<p>HSL和RGB一样，同属于工业界的一种颜色标准，通过对色调H、饱和度(S)、亮度(L)三个颜色通道的变化以及他们互相之间的叠加得到各式各样的颜色的。</p>
+<p><em>语法</em></p>
+<p><code>Color: hsl(h,s,l);</code></p>
+<p>H: 色调。取整数值</p>
+<p>S: 饱和度，就是颜色的深浅和鲜艳程度，取百分值</p>
+<p>L: 亮度。取值和饱和度一样0% ~ 100%</p>
+<h2 id="CSS3盒模型"><a href="#CSS3盒模型" class="headerlink" title="CSS3盒模型"></a><strong>CSS3盒模型</strong></h2><p>在css中盒模型分为两种：</p>
+<p>1.w3c盒模型</p>
+<p>2.IE6混杂盒模型</p>
+<p>css3中有一个可以选择盒模型的属性</p>
+<p><code>box-sizing:border-box/content-box</code></p>
+<p>content-box为w3c标准盒子</p>
+<p>border-box为IE6混杂模式的盒子</p>
+<h2 id="css3内容溢出"><a href="#css3内容溢出" class="headerlink" title="css3内容溢出"></a><strong>css3内容溢出</strong></h2><p><code>overflow-x: visible | hidden | scroll | auto</code></p>
+<p><code>overflow-y: visible | hidden | scroll | auto</code></p>
+<p>visible: 默认值。表示不见且容器中的任何内容，不添加滚动条，元素将被剪切为包含对象的窗口大小，而且clip属性设置将失败</p>
+<p>auto：在需要时剪切内容并添加滚动条。也就是说当内容超过容器的宽度或者高度时，溢出的内容将会隐藏在容器中，并且会添加滚动条，用户可以拖动滚动条查看隐藏在容器中的内容。</p>
+<p>hidden：内容溢出容器时，所有内容都将隐藏，而且不显示滚动条。</p>
+<p>scroll：不管内容有没有溢出容器，overflow-x都会显示横向的滚动条，而overflow-y显示纵向滚动条</p>
+<h2 id="CSS3内容缩放属性-resize"><a href="#CSS3内容缩放属性-resize" class="headerlink" title="CSS3内容缩放属性 resize"></a>CSS3内容缩放属性 resize</h2><p>resize：主要是用来改变元素尺寸大小的，其主要目的是增强用户体验</p>
+<p><code>resize：none| both | horizontal | vertical | inherit</code></p>
+<p>none：用户不能拖拽元素修改大小</p>
+<p>both：用户可以拖动元素，同时修改元素的宽度和高度</p>
+<p>horizontal：用户可以拖动元素，仅可以修改元素的宽度，不能修改高度</p>
+<p>vertical：用户可以拖动元素，尽可改变元素的高度，但不能改变元素高度</p>
+<p>inherit：继承父元素的resize属性值</p>
+<p>IE不兼容，常用在textarea中</p>
+<p>##<strong>CSS3弹性盒模型flex</strong></p>
+<p>弹性盒子display：flex</p>
+<p>flex为复合属性，且必须配合父元素display：flex使用。</p>
+<p>以下6个属性设置在项目（子元素）上：</p>
+<ul>
+<li>flex-grow：放大比例</li>
+<li>flex-shrink：缩小比例</li>
+<li>flex-basis：伸缩基准值</li>
+<li>flex：是flex-grow，flex-shrink和flex-basis的简写</li>
+<li>order：排列顺序</li>
+<li>align-self：单个项目对齐方式</li>
+</ul>
+<p>###术语</p>
+<p>1.主轴和侧轴：</p>
+<p>主轴、主轴方向：伸缩容器的主轴，伸缩项目主要沿着这一条轴进行布局，取决于justify-content，默认是水平的 如果justify-content：column则为纵向的</p>
+<p>侧轴、侧轴方向：于主轴垂直的轴称为侧轴，取决于主轴</p>
+<p>2.伸缩容器和伸缩项目：</p>
+<p>伸缩容器：设置display：flex的元素</p>
+<p>伸缩项目：其下的子元素</p>
+<p>##flex-grow</p>
+<p>1.flex-grow</p>
+<p>根据所设置的比例分配盒子所剩余的空间</p>
+<p>拓展：左右两栏布局 默认值为0；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">    flex-grow:number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.flex-shrink</p>
+<p>置元素的收缩比例——多出盒子的部分，按照比例的大小砍掉相应的大小，即比例越大，被砍的越大，默认值1；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  flex-shrink:number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eg:盒子400px；三个子元素200px；多出200px；</p>
+<p>缩减的宽度=（flex-shrink1 <em> width1）/（flex-shrink1 </em> width1+flex-shrink2 <em> width2）</em> moreWidth</p>
+<p>3.flex-basis</p>
+<p>伸缩基准值，项目占据主轴的空间</p>
+<p>该属性设置元素的宽度或高度，当然width也可以用来设置元素宽度，如果元素上同时出现了width和flex-basis那么flex-basis会覆盖width的值</p>
+<p>子元素宽度尽可能按照basis来如果基准值相加大于容器宽度那么 下面由下面公式分配宽度给子元素</p>
+<p>（flex-basis/（flex-basis相加）） * 容器的宽度</p>
+<p>4.flex</p>
+<p>常用简化写法</p>
+<p>flex:1 –&gt; flex:1 1 0%;</p>
+<p>flex:3 –&gt; flex:3 1 0%;</p>
+<p>注意：flexbox布局和原来的布局是两个概念，部分css属性在flexbox盒子里面不起作用，</p>
+<p>eg：float，clear，column，vertical-align 等等</p>
+<p>真实情况：<br>  son1 = (flex-shrink) * flex-basis</p>
+<p>  son2 = (flex-shrink) * flex-basis…</p>
+<p>  sonN = (flex-shrink) * flex-basis</p>
+<p>  加权值 = son1 + son2 + … + sonN</p>
+<p>  压缩的宽度 w = (子元素flex-basis值 <em> (flex-shrink)/加权值) </em> 溢出值</p>
+<p>  缩减值1：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
+<p>  缩减值2：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
+<p>  缩减值3：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
+<p>  最后son1、son2、son3，的实际宽度为：</p>
+<p>  flex-basisn - 缩减值n = son n 真实宽度</p>
+<p>  5.order</p>
+<p>  number定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  order:number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  6.align-self</p>
+<p>  align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  align-self:auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  以下6个属性设置在容器上：</p>
+<ol>
+<li><p>flex-direction 决定主轴的方向</p>
+</li>
+<li><p>flex-wrap 是否换行</p>
+</li>
+<li><p>flex-flow flex-direction和flex-wrap的简写</p>
+</li>
+<li><p>justify-content 项目在主轴上的对齐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line"> justify-content:flex-start | flex-end | center | space-between (每两个项目之间空白相同)| space-around(每个项目的两边空白是相同的);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>align-items 在侧轴上如何对齐<br>.demo {<br>align-items:flex-start | flex-end | center | baseline | stretch;<br>}</p>
+</li>
+<li><p>align-content 多根轴线的对齐方式</p>
+<p>flex-flow:flex-direction | flex-wrap</p>
+<p>flex-direction:row | row-reverse | column | column-reverse</p>
+<p>flex-wrap:nowrap(默认) | wrap | wrap-reverse 溢出换行问题</p>
+<p>当设置flex-grow属性的时候wrap失效，flex-basis尽可能按basis值往大了去从而达到折行的目的，flex-shrink会失效（根据子元素实际的宽度判断是否折行）</p>
+<p>检索弹性盒子元素在主轴（横轴）方向上的对齐方式</p>
+<p>justify-content:center;作用多行元素单行都可以</p>
+<p>当伸缩容器的侧轴还有多余空间是，本属性可以用来调准[ 伸缩行 ]在伸缩容器里的对齐方式</p>
+<p>align-content：center；注此方法在盒子里只有一行元素时，不生效</p>
+<p>定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式</p>
+<p>align-items：center；在水平（垂直）的轴上居中</p>
+<p>左右垂直居中问题</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjnykxwhs0002w4nsj4b0tb1h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjo4dr6fj0005h4nsgw93zymk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -352,7 +907,121 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjnykxwi90004w4nsjceofdk9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjo4dr6lk0008h4nseyh7cpvp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/08/02/three/" class="article-date">
+  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>–&gt;进入开发<br>1.搭建项目框架<br>    npm install vue-cli -g<br>    vue init webpack mysell<br>    cd mysell<br>    cnpm install<br>    npm run dev</p>
+<p>2.模拟Mock数据 mockjs axios插件安装<br>    cnpm install mockjs –save-dev dev只在开发时候用的<br>    cnpm install axios –save</p>
+<pre><code>写好data.json，放在根目录
+根目录建mock文件夹，index.js文件
+index.js文件中导入mockjs(不是mock.js)和data.json
+然后Mock.mock()模拟接口
+
+main引入mock/index,不需要就关掉
+  created () {
+    axios.get(&apos;/good/seller&apos;).then(
+      res =&gt; {
+        console.log(res)
+        if (res.data.code === 0) {
+          console.log(res.data.data)
+        }
+      }
+    )
+  }
+查看接口是否可用
+</code></pre><p>3.图标字体 <a href="https://icomoon.io/" target="_blank" rel="noopener">https://icomoon.io/</a><br>    将svg Import Icons –&gt; Generate Font –&gt; Download<br>    将压缩后的 style.css 复制到 mysell/static<br>    fonts 复制到 src/assets 不行的话也复制到 static<br>    在用到图标的style 内导入@import ‘../../static/style.css’;<br>    安装cnpm install css-loader –save-dev</p>
+<p>4.页面实现<br>    src/app.vue实现大块 –&gt; components创建模板 –&gt; router/index.js 实现路由跳转<br>    安装cnpm install stylus –&gt; cnpm install stylus-loader<br>        cnpm install postcss-loader css模块化<br>        cnpm install css-loader 解析css文件<br>        cnpm install style-loader 将css文件放入style</p>
+<pre><code>将所需要的图片放入assets文件夹，还有常见的基础方法stylus文件夹
+将reset.css放入static将原生的一样样式替换掉，初始化的一个文件，有人在维护
+--&gt; index.html 中link引入
+
+app.vue写样式 写之前 UI图的像素要减半
+&lt;style lang=&apos;stylus&apos; ref=&apos;stylesheet/stylus&apos;&gt;
+    @import &apos;assets/stylus/index.styl&apos;
+&lt;/style&gt;
+
+优惠信息图标：根据优惠信息打折、满减来匹配图标 
+    设置 ：class = classMap[seller.supports[0].type] 根据type值进行匹配
+    this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice_1&apos;, &apos;guarantee&apos;]
+    &amp;.decrease
+         bg-image(&apos;decrease_1&apos;)
+    &amp;.discount
+      bg-image(&apos;discount_1&apos;)
+    &amp;.special
+      bg-image(&apos;special_1&apos;)
+    &amp;.invoice
+      bg-image(&apos;invoice_1&apos;)
+    &amp;.guarantee
+      bg-image(&apos;guarantee_1&apos;)
+
+   滚动功能
+     样式
+     .menu-item
+    padding 0 12px
+    font-size 0
+    line-height 16px
+    &amp;.current
+      position relative
+      margin-top -1px
+      background-color #fff
+      &amp;:after
+        border-top 1px solid #fff
+      .text
+        font-size 12px
+        line-height 14px
+        font-weight 500
+    添加ref  通过ref 把menu-wrapper的信息注册到父组件的$refs对象上
+   &lt;div id=&quot;goods&quot;&gt;
+     &lt;div class=&quot;menu-wrapper&quot; ref=&quot;menuWrapper&quot;&gt;
+     &lt;div class=&quot;foods-wrapper&quot; ref=&quot;foodsWrapper&quot;&gt;
+
+      @click=&quot;selectIndex(index, $event)
+      // dom绑定一个scroll
+      // 计算一下foods高度
+      安装//better-scroll
+      cnpm install better-scroll --save
+
+购物功能
+
+报错：Unexpected side effect in &quot;showList&quot; computed property  
+src\components\shopcart.vue:92:9
+      this.fold = true
+       ^
+解决：
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjo4dr6ex0002h4ns4i0job6q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -549,167 +1218,11 @@ http://www.runoob.com/cssref/css3-browsersupport.html
 11.background-size 背景图片尺寸
     background-size：auto|长度值|百分比|cover|contain
 12.background-position 背景图片位置
-</code></pre><h1 id="React-·"><a href="#React-·" class="headerlink" title="React ·     "></a><a href="https://reactjs.org/" target="_blank" rel="noopener">React</a> · <a href="https://github.com/facebook/react/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/890acbdcb87868b382af9a4b1fac507b9659d9bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667" alt=""></a> <a href="https://www.npmjs.com/package/react" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/ecb8a503e646dc22ccb59b73ba287c5229580f49/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f72656163742e7376673f7374796c653d666c6174" alt=""></a> <a href="https://coveralls.io/github/facebook/react?branch=master" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/d9584ef3cf0003d1d535e786627eb8113fd7a3a2/68747470733a2f2f696d672e736869656c64732e696f2f636f766572616c6c732f66616365626f6f6b2f72656163742f6d61737465722e7376673f7374796c653d666c6174" alt=""></a> <a href="https://circleci.com/gh/facebook/react" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/bfd84ed5d0e5c8d97aea6d7a83aed84ba1a0b191/68747470733a2f2f636972636c6563692e636f6d2f67682f66616365626f6f6b2f72656163742e7376673f7374796c653d736869656c6426636972636c652d746f6b656e3d3a636972636c652d746f6b656e" alt=""></a> <a href="https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/d4e0f63e9613ee474a7dfdc23c240b9795712c96/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5052732d77656c636f6d652d627269676874677265656e2e737667" alt=""></a></h1><p>React is a JavaScript library for building user interfaces.</p>
-<ul>
-<li><strong>Declarative:</strong> React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable, simpler to understand, and easier to debug.</li>
-</ul>
-<ul>
-<li><strong>Component-Based:</strong> Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.</li>
-</ul>
-<ul>
-<li><strong>Learn Once, Write Anywhere:</strong> We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using Node and power mobile apps using <a href="https://facebook.github.io/react-native/" target="_blank" rel="noopener">React Native</a>.</li>
-</ul>
-<p><a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener">Learn how to use React in your own project.</a></p>
-<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>React has been designed for gradual adoption from the start, and you can use as little or as much React as you need:</p>
-<ul>
-<li>Use <a href="https://reactjs.org/docs/getting-started.html#online-playgrounds" target="_blank" rel="noopener">Online Playgrounds</a> to get a taste of React.</li>
-</ul>
-<ul>
-<li><a href="https://reactjs.org/docs/add-react-to-a-website.html" target="_blank" rel="noopener">Add React to a Website</a> as a <code>&lt;script&gt;</code> tag in one minute.</li>
-</ul>
-<ul>
-<li><a href="https://reactjs.org/docs/create-a-new-react-app.html" target="_blank" rel="noopener">Create a New React App</a> if you’re looking for a powerful JavaScript toolchain.</li>
-</ul>
-<p>You can use React as a <code>&lt;script&gt;</code> tag from a <a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">CDN</a>, or as a react package on <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a></p>
-<h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h1><p>You can find the React documentation <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener">on the website</a>.</p>
-<p>Check out the <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener">Getting Started</a> page for a quick overview.</p>
-<p>The documentation is divided into several sections:</p>
-<ul>
-<li><a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">Tutorial</a></li>
-<li><a href="https://reactjs.org/docs/hello-world.html" target="_blank" rel="noopener">Main Concepts</a></li>
-<li><a href="https://reactjs.org/docs/jsx-in-depth.html" target="_blank" rel="noopener">Advanced Guides</a></li>
-<li><a href="https://reactjs.org/docs/react-api.html" target="_blank" rel="noopener">API Reference</a></li>
-<li><a href="https://reactjs.org/community/support.html" target="_blank" rel="noopener">Where to Get Support</a></li>
-<li><a href="https://reactjs.org/docs/how-to-contribute.html" target="_blank" rel="noopener">Contributing Guide</a></li>
-</ul>
-<p>You can improve it by sending pull requests to <a href="https://github.com/reactjs/reactjs.org" target="_blank" rel="noopener">this repository</a>.</p>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><p>We have several examples <a href="https://reactjs.org/" target="_blank" rel="noopener">on the website</a>. Here is the first one to get you started:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class HelloMessage extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;div&gt;Hello &#123;this.props.name&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage name=&quot;Taylor&quot; /&gt;,</span><br><span class="line">  document.getElementById(&apos;container&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>This example will render “Hello Taylor” into a container on the page.</p>
-<p>You’ll notice that we used an HTML-like syntax; <a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank" rel="noopener">we call it JSX</a>. JSX is not required to use React, but it makes code more readable, and writing it feels like writing HTML. If you’re using React as a <code>&lt;script&gt;</code> tag, read <a href="https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx" target="_blank" rel="noopener">this section</a> on integrating JSX; otherwise, the <a href="https://reactjs.org/docs/create-a-new-react-app.html" target="_blank" rel="noopener">recommended JavaScript toolchains</a> handle it automatically.</p>
-<h1 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h1><p>The main purpose of this repository is to continue to evolve React core, making it faster and easier to use. Development of React happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving React.</p>
-<h2 id="Code-of-Conduct"><a href="#Code-of-Conduct" class="headerlink" title="Code of Conduct"></a><a href="https://code.facebook.com/codeofconduct" target="_blank" rel="noopener">Code of Conduct</a></h2><p>Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read <a href="https://code.facebook.com/codeofconduct" target="_blank" rel="noopener">the full text</a> so that you can understand what actions will and will not be tolerated.</p>
-<h2 id="Contributing-Guide"><a href="#Contributing-Guide" class="headerlink" title="Contributing Guide"></a><a href="https://reactjs.org/contributing/how-to-contribute.html" target="_blank" rel="noopener">Contributing Guide</a></h2><p>Read our <a href="https://reactjs.org/contributing/how-to-contribute.html" target="_blank" rel="noopener">contributing guide</a> to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.</p>
-<h2 id="Good-First-Issues"><a href="#Good-First-Issues" class="headerlink" title="Good First Issues"></a>Good First Issues</h2><p>To help you get your feet wet and get you familiar with our contribution process, we have a list of <a href="https://github.com/facebook/react/labels/good%20first%20issue" target="_blank" rel="noopener">good first issues</a> that contain bugs which have a relatively limited scope. This is a great place to get started.</p>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>React is <a href="https://github.com/facebook/react/blob/master/LICENSE" target="_blank" rel="noopener">MIT licensed</a>.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjnykxwh80001w4nsdc22l96r" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/three/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>–&gt;进入开发<br>1.搭建项目框架<br>    npm install vue-cli -g<br>    vue init webpack mysell<br>    cd mysell<br>    cnpm install<br>    npm run dev</p>
-<p>2.模拟Mock数据 mockjs axios插件安装<br>    cnpm install mockjs –save-dev dev只在开发时候用的<br>    cnpm install axios –save</p>
-<pre><code>写好data.json，放在根目录
-根目录建mock文件夹，index.js文件
-index.js文件中导入mockjs(不是mock.js)和data.json
-然后Mock.mock()模拟接口
-
-main引入mock/index,不需要就关掉
-  created () {
-    axios.get(&apos;/good/seller&apos;).then(
-      res =&gt; {
-        console.log(res)
-        if (res.data.code === 0) {
-          console.log(res.data.data)
-        }
-      }
-    )
-  }
-查看接口是否可用
-</code></pre><p>3.图标字体 <a href="https://icomoon.io/" target="_blank" rel="noopener">https://icomoon.io/</a><br>    将svg Import Icons –&gt; Generate Font –&gt; Download<br>    将压缩后的 style.css 复制到 mysell/static<br>    fonts 复制到 src/assets 不行的话也复制到 static<br>    在用到图标的style 内导入@import ‘../../static/style.css’;<br>    安装cnpm install css-loader –save-dev</p>
-<p>4.页面实现<br>    src/app.vue实现大块 –&gt; components创建模板 –&gt; router/index.js 实现路由跳转<br>    安装cnpm install stylus –&gt; cnpm install stylus-loader<br>        cnpm install postcss-loader css模块化<br>        cnpm install css-loader 解析css文件<br>        cnpm install style-loader 将css文件放入style</p>
-<pre><code>将所需要的图片放入assets文件夹，还有常见的基础方法stylus文件夹
-将reset.css放入static将原生的一样样式替换掉，初始化的一个文件，有人在维护
---&gt; index.html 中link引入
-
-app.vue写样式 写之前 UI图的像素要减半
-&lt;style lang=&apos;stylus&apos; ref=&apos;stylesheet/stylus&apos;&gt;
-    @import &apos;assets/stylus/index.styl&apos;
-&lt;/style&gt;
-
-优惠信息图标：根据优惠信息打折、满减来匹配图标 
-    设置 ：class = classMap[seller.supports[0].type] 根据type值进行匹配
-    this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice_1&apos;, &apos;guarantee&apos;]
-    &amp;.decrease
-         bg-image(&apos;decrease_1&apos;)
-    &amp;.discount
-      bg-image(&apos;discount_1&apos;)
-    &amp;.special
-      bg-image(&apos;special_1&apos;)
-    &amp;.invoice
-      bg-image(&apos;invoice_1&apos;)
-    &amp;.guarantee
-      bg-image(&apos;guarantee_1&apos;)
-
-   滚动功能
-     样式
-     .menu-item
-    padding 0 12px
-    font-size 0
-    line-height 16px
-    &amp;.current
-      position relative
-      margin-top -1px
-      background-color #fff
-      &amp;:after
-        border-top 1px solid #fff
-      .text
-        font-size 12px
-        line-height 14px
-        font-weight 500
-    添加ref  通过ref 把menu-wrapper的信息注册到父组件的$refs对象上
-   &lt;div id=&quot;goods&quot;&gt;
-     &lt;div class=&quot;menu-wrapper&quot; ref=&quot;menuWrapper&quot;&gt;
-     &lt;div class=&quot;foods-wrapper&quot; ref=&quot;foodsWrapper&quot;&gt;
-
-      @click=&quot;selectIndex(index, $event)
-      // dom绑定一个scroll
-      // 计算一下foods高度
-      安装//better-scroll
-      cnpm install better-scroll --save
-
-购物功能
-
-报错：Unexpected side effect in &quot;showList&quot; computed property  
-src\components\shopcart.vue:92:9
-      this.fold = true
-       ^
-解决：
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjnykxwi30003w4nsp8kwxmr6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjo4dr6m20009h4nsk68bn9ua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -754,7 +1267,7 @@ src\components\shopcart.vue:92:9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjnykxwig0005w4nszek9145q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjo4dr6ft0006h4ns706yh0xb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -795,23 +1308,23 @@ src\components\shopcart.vue:92:9
       <ul>
         
           <li>
+            <a href="/blog/2018/11/05/h5-canvas/">&#39;h5-canvas&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/03/css3-animation/">&#39;css3-animation&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/02/css3-transform/">&#39;css3-transform&#39;</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/01/css3-二/">css3(二)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/09/two/">vue练习项目流程(一)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/CSS3/">CSS3</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/hello-world/">Hello World</a>
           </li>
         
       </ul>

@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Columns多列布局为了能在web页面中方便实现类似报纸、杂志那种多列排版的布局，w3c特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在web页面上实现这样的效果还是有相当大得难度，庆幸的是，CSS3的多列布局可以轻松实现。 语法： columns:[column-">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-01T12:31:27.026Z">
+<meta property="og:updated_time" content="2018-11-02T13:38:29.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3(二)">
 <meta name="twitter:description" content="Columns多列布局为了能在web页面中方便实现类似报纸、杂志那种多列排版的布局，w3c特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在web页面上实现这样的效果还是有相当大得难度，庆幸的是，CSS3的多列布局可以轻松实现。 语法： columns:[column-">
@@ -92,11 +92,133 @@
 <p>column-width: 指每一列的宽度 根据容器宽度自适应（最小宽度）</p>
 <p>column-count：指规定的列数 唯一精准的是列数</p>
 <p>不要两一起使用 会乱</p>
+<p>column-gap: 设置列与列之间的宽度，直接用数值表示即可（eg：10px）</p>
+<p>column-gap主要用来设置列与列之间的间距 如果没有显示设置column-gap值时，其值大小会更具流浪器默认的<strong>font-size</strong>来定</p>
+<p><code>column-rule</code></p>
+<p>是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置。</p>
+<p>column-rule-width: 宽度 类似于border-width属性，主要用来定义列边框的宽度，其默认值为”medium“。</p>
+<p>column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin</p>
+<p>column-rule-style属性值与border-style属性值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset</p>
+<p>column-rule-color: 颜色</p>
+<p>类似于border-color属性</p>
+<p><code>column-span:1/all</code></p>
+<p>设置多列布局元素内的子元素，可以跨域，类似标题效果。即一个新闻标题要横跨所有内容列。注：此属性要在子元素上设置</p>
+<h2 id="HSL-颜色值"><a href="#HSL-颜色值" class="headerlink" title="HSL 颜色值"></a><strong>HSL</strong> 颜色值</h2><p>颜色值HSL</p>
+<p>HSL和RGB一样，同属于工业界的一种颜色标准，通过对色调H、饱和度(S)、亮度(L)三个颜色通道的变化以及他们互相之间的叠加得到各式各样的颜色的。</p>
+<p><em>语法</em></p>
+<p><code>Color: hsl(h,s,l);</code></p>
+<p>H: 色调。取整数值</p>
+<p>S: 饱和度，就是颜色的深浅和鲜艳程度，取百分值</p>
+<p>L: 亮度。取值和饱和度一样0% ~ 100%</p>
+<h2 id="CSS3盒模型"><a href="#CSS3盒模型" class="headerlink" title="CSS3盒模型"></a><strong>CSS3盒模型</strong></h2><p>在css中盒模型分为两种：</p>
+<p>1.w3c盒模型</p>
+<p>2.IE6混杂盒模型</p>
+<p>css3中有一个可以选择盒模型的属性</p>
+<p><code>box-sizing:border-box/content-box</code></p>
+<p>content-box为w3c标准盒子</p>
+<p>border-box为IE6混杂模式的盒子</p>
+<h2 id="css3内容溢出"><a href="#css3内容溢出" class="headerlink" title="css3内容溢出"></a><strong>css3内容溢出</strong></h2><p><code>overflow-x: visible | hidden | scroll | auto</code></p>
+<p><code>overflow-y: visible | hidden | scroll | auto</code></p>
+<p>visible: 默认值。表示不见且容器中的任何内容，不添加滚动条，元素将被剪切为包含对象的窗口大小，而且clip属性设置将失败</p>
+<p>auto：在需要时剪切内容并添加滚动条。也就是说当内容超过容器的宽度或者高度时，溢出的内容将会隐藏在容器中，并且会添加滚动条，用户可以拖动滚动条查看隐藏在容器中的内容。</p>
+<p>hidden：内容溢出容器时，所有内容都将隐藏，而且不显示滚动条。</p>
+<p>scroll：不管内容有没有溢出容器，overflow-x都会显示横向的滚动条，而overflow-y显示纵向滚动条</p>
+<h2 id="CSS3内容缩放属性-resize"><a href="#CSS3内容缩放属性-resize" class="headerlink" title="CSS3内容缩放属性 resize"></a>CSS3内容缩放属性 resize</h2><p>resize：主要是用来改变元素尺寸大小的，其主要目的是增强用户体验</p>
+<p><code>resize：none| both | horizontal | vertical | inherit</code></p>
+<p>none：用户不能拖拽元素修改大小</p>
+<p>both：用户可以拖动元素，同时修改元素的宽度和高度</p>
+<p>horizontal：用户可以拖动元素，仅可以修改元素的宽度，不能修改高度</p>
+<p>vertical：用户可以拖动元素，尽可改变元素的高度，但不能改变元素高度</p>
+<p>inherit：继承父元素的resize属性值</p>
+<p>IE不兼容，常用在textarea中</p>
+<p>##<strong>CSS3弹性盒模型flex</strong></p>
+<p>弹性盒子display：flex</p>
+<p>flex为复合属性，且必须配合父元素display：flex使用。</p>
+<p>以下6个属性设置在项目（子元素）上：</p>
+<ul>
+<li>flex-grow：放大比例</li>
+<li>flex-shrink：缩小比例</li>
+<li>flex-basis：伸缩基准值</li>
+<li>flex：是flex-grow，flex-shrink和flex-basis的简写</li>
+<li>order：排列顺序</li>
+<li>align-self：单个项目对齐方式</li>
+</ul>
+<p>###术语</p>
+<p>1.主轴和侧轴：</p>
+<p>主轴、主轴方向：伸缩容器的主轴，伸缩项目主要沿着这一条轴进行布局，取决于justify-content，默认是水平的 如果justify-content：column则为纵向的</p>
+<p>侧轴、侧轴方向：于主轴垂直的轴称为侧轴，取决于主轴</p>
+<p>2.伸缩容器和伸缩项目：</p>
+<p>伸缩容器：设置display：flex的元素</p>
+<p>伸缩项目：其下的子元素</p>
+<p>##flex-grow</p>
+<p>1.flex-grow</p>
+<p>根据所设置的比例分配盒子所剩余的空间</p>
+<p>拓展：左右两栏布局 默认值为0；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">    flex-grow:number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.flex-shrink</p>
+<p>置元素的收缩比例——多出盒子的部分，按照比例的大小砍掉相应的大小，即比例越大，被砍的越大，默认值1；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  flex-shrink:number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eg:盒子400px；三个子元素200px；多出200px；</p>
+<p>缩减的宽度=（flex-shrink1 <em> width1）/（flex-shrink1 </em> width1+flex-shrink2 <em> width2）</em> moreWidth</p>
+<p>3.flex-basis</p>
+<p>伸缩基准值，项目占据主轴的空间</p>
+<p>该属性设置元素的宽度或高度，当然width也可以用来设置元素宽度，如果元素上同时出现了width和flex-basis那么flex-basis会覆盖width的值</p>
+<p>子元素宽度尽可能按照basis来如果基准值相加大于容器宽度那么 下面由下面公式分配宽度给子元素</p>
+<p>（flex-basis/（flex-basis相加）） * 容器的宽度</p>
+<p>4.flex</p>
+<p>常用简化写法</p>
+<p>flex:1 –&gt; flex:1 1 0%;</p>
+<p>flex:3 –&gt; flex:3 1 0%;</p>
+<p>注意：flexbox布局和原来的布局是两个概念，部分css属性在flexbox盒子里面不起作用，</p>
+<p>eg：float，clear，column，vertical-align 等等</p>
+<p>真实情况：<br>  son1 = (flex-shrink) * flex-basis</p>
+<p>  son2 = (flex-shrink) * flex-basis…</p>
+<p>  sonN = (flex-shrink) * flex-basis</p>
+<p>  加权值 = son1 + son2 + … + sonN</p>
+<p>  压缩的宽度 w = (子元素flex-basis值 <em> (flex-shrink)/加权值) </em> 溢出值</p>
+<p>  缩减值1：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
+<p>  缩减值2：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
+<p>  缩减值3：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
+<p>  最后son1、son2、son3，的实际宽度为：</p>
+<p>  flex-basisn - 缩减值n = son n 真实宽度</p>
+<p>  5.order</p>
+<p>  number定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  order:number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  6.align-self</p>
+<p>  align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  align-self:auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  以下6个属性设置在容器上：</p>
+<ol>
+<li><p>flex-direction 决定主轴的方向</p>
+</li>
+<li><p>flex-wrap 是否换行</p>
+</li>
+<li><p>flex-flow flex-direction和flex-wrap的简写</p>
+</li>
+<li><p>justify-content 项目在主轴上的对齐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line"> justify-content:flex-start | flex-end | center | space-between (每两个项目之间空白相同)| space-around(每个项目的两边空白是相同的);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>align-items 在侧轴上如何对齐<br>.demo {<br>align-items:flex-start | flex-end | center | baseline | stretch;<br>}</p>
+</li>
+<li><p>align-content 多根轴线的对齐方式</p>
+<p>flex-flow:flex-direction | flex-wrap</p>
+<p>flex-direction:row | row-reverse | column | column-reverse</p>
+<p>flex-wrap:nowrap(默认) | wrap | wrap-reverse 溢出换行问题</p>
+<p>当设置flex-grow属性的时候wrap失效，flex-basis尽可能按basis值往大了去从而达到折行的目的，flex-shrink会失效（根据子元素实际的宽度判断是否折行）</p>
+<p>检索弹性盒子元素在主轴（横轴）方向上的对齐方式</p>
+<p>justify-content:center;作用多行元素单行都可以</p>
+<p>当伸缩容器的侧轴还有多余空间是，本属性可以用来调准[ 伸缩行 ]在伸缩容器里的对齐方式</p>
+<p>align-content：center；注此方法在盒子里只有一行元素时，不生效</p>
+<p>定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式</p>
+<p>align-items：center；在水平（垂直）的轴上居中</p>
+<p>左右垂直居中问题</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjnykxwhs0002w4nsj4b0tb1h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjo4dr6fj0005h4nsgw93zymk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,6 +226,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/blog/2018/11/02/css3-transform/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &#39;css3-transform&#39;
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2018/08/09/two/" id="article-nav-older" class="article-nav-link-wrap">
@@ -145,23 +276,23 @@
       <ul>
         
           <li>
+            <a href="/blog/2018/11/05/h5-canvas/">&#39;h5-canvas&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/03/css3-animation/">&#39;css3-animation&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/02/css3-transform/">&#39;css3-transform&#39;</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/01/css3-二/">css3(二)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/09/two/">vue练习项目流程(一)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/CSS3/">CSS3</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/three/">vue练习项目流程(二)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/08/02/hello-world/">Hello World</a>
           </li>
         
       </ul>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>&#39;RWD&#39; | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;RWD&#39;">
+<meta property="og:url" content="http://yoursite.com/2018/11/03/RWD/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-03T06:51:30.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;RWD&#39;">
+<meta name="twitter:description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RWD" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/03/RWD/" class="article-date">
+  <time datetime="2018-11-03T03:00:28.000Z" itemprop="datePublished">2018-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      &#39;RWD&#39;
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS3内容总结</p>
+<ol>
+<li><p>选择器</p>
+</li>
+<li><p>背景和边框</p>
+</li>
+<li><p>文字和颜色</p>
+</li>
+<li><p>盒模型、弹性盒子</p>
+</li>
+<li><p>动画</p>
+</li>
+<li><p>响应式布局</p>
+</li>
+</ol>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><p>为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD）</p>
+<p>响应式设计的三个条件：</p>
+<ol>
+<li><p>网站必须建立灵活的网格基础（设置的宽高不能够固定）</p>
+</li>
+<li><p>引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）</p>
+</li>
+<li><p>不同的显示风格，需要在MediaQuery上设置不同的样式（在不同终端上正常展示页面，让用户体验不变）</p>
+</li>
+</ol>
+<p>meta响应标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">&lt;!-- viewport 视口 content 视口的内容 width=device-width 视口宽度等于设备的宽度 initial-scale 缩放比例 --&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="响应式设计中的术语"><a href="#响应式设计中的术语" class="headerlink" title="响应式设计中的术语"></a>响应式设计中的术语</h2><ol>
+<li><p>流体网格：可伸缩的网格（大小宽高 都是可伸缩（可用flex））</p>
+</li>
+<li><p>弹性图片：图片自适应（可把图片放在背景图片的位置 让div自适应）</p>
+</li>
+<li><p>媒体查询：让网页在不同的终端上面展示效果相同（用户体验相同）</p>
+</li>
+<li><p>屏幕分辨率：</p>
+</li>
+<li><p>主要断点：设备宽度的临界点</p>
+</li>
+</ol>
+<h2 id="响应式布局的技巧"><a href="#响应式布局的技巧" class="headerlink" title="响应式布局的技巧"></a>响应式布局的技巧</h2><ol>
+<li><p>尽量少用无关紧要的div</p>
+</li>
+<li><p>不要使用内联元素</p>
+</li>
+<li><p>尽量少用JS或Flash</p>
+</li>
+<li><p>丢弃没用的绝对定位和浮动样式</p>
+</li>
+<li><p>摈弃任何冗余结构和不适用100%设置</p>
+</li>
+<li><p>使用H5 Doctype和相关指南</p>
+</li>
+<li><p>重置好样式</p>
+</li>
+<li><p>一个简单的有语义的核心布局</p>
+</li>
+<li><p>给重要的网页元素使用简单的技巧，比如导航菜单之类的元素</p>
+</li>
+</ol>
+<p>p.s 如何判断结构的好坏呢？很简单，把页面的样式全部注释掉，在浏览器里面打开，如果内部排列有序，方便阅读，那么这个结构就不会差</p>
+<h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p>模拟移动端的meta</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</code></p>
+<p>width: 可视区宽度</p>
+<p>device-width:设备宽度</p>
+<p>minimum-scale：最小缩放比</p>
+<p>maximum-scale：最大缩放比</p>
+<p>user-scalable：是否允许用户缩放</p>
+<p>单位值</p>
+<p>rem：rem是css3新增的一个相对单位（root em，根em）相对的只是HTML根元素（相对于根节点 2rem = 2 * 根节点）</p>
+<p>em：em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。（相对于父级的大小 2em = 2 * 父级）</p>
+<p>px：px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的</p>
+<p>媒体查询</p>
+<p>CSS2：media type</p>
+<p>media type（媒体类型）是css2中的一个非常有用的属性，通过media type我们可以对不同的设备指定特定的样式，从而实现更丰富的界面</p>
+<p>CSS3：media query</p>
+<p>media query 是CSS3对media type的增强，事实上我们可以将media query看成是media type + css  属性（媒体特性Media features）判断</p>
+<p>媒体类型（media type）</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td style="text-align:left">所有设备</td>
+</tr>
+<tr>
+<td>braille</td>
+<td style="text-align:left">盲文</td>
+</tr>
+<tr>
+<td>embossed</td>
+<td style="text-align:left">盲文打印</td>
+</tr>
+<tr>
+<td>handheld</td>
+<td style="text-align:left">手持设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td style="text-align:left">文档打印或打印预览模式</td>
+</tr>
+<tr>
+<td>projection</td>
+<td style="text-align:left">项目演示，比如幻灯</td>
+</tr>
+<tr>
+<td>screen</td>
+<td style="text-align:left">彩色电脑屏幕</td>
+</tr>
+<tr>
+<td>speech</td>
+<td style="text-align:left">演讲</td>
+</tr>
+<tr>
+<td>tty</td>
+<td style="text-align:left">固定字母间距的网格的媒体，比如电传打字机</td>
+</tr>
+<tr>
+<td>tv</td>
+<td style="text-align:left">电视</td>
+</tr>
+</tbody>
+</table>
+<p>如何使用媒体查询？</p>
+<p>媒体查询引用方法有很多种：</p>
+<p>link标签</p>
+<p>@import</p>
+<p>css3新增的@media</p>
+<p><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (max-width:800px)&quot; href=&quot;index.css&quot; /&gt;</code></p>
+<p><code>@import url(&#39;index.css&#39;) screen and (max-width:500px) ie6、7不兼容</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width:700px) &#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background: red</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 合并多个媒体属性 --&gt;</span><br><span class="line">@media screen and (max-width:700px) and (min-width:500px)&#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background:green</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>逻辑操作符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 合并多个媒体属性 --&gt;</span><br><span class="line">@media screen and (max-width:700px) and (min-width:500px)&#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background:green</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>指定否定条件</p>
+<p><code>@media not screen and (monochrome)</code></p>
+<p>要指定否定条件，可以在媒体声明中添加关键字not，不能再单个条件钱使用not。该关键字必须位于声明的开头，而且它会否定整个声明。所以，上面的示例会应用于除单色屏幕外的所有设备</p>
+<p>向早起浏览器隐藏媒体查询</p>
+<p><code>media = &quot;only screen and (min-width:401px) and (max-width:600px)&quot;</code></p>
+<p>媒体查询规范还提供了关键字only，它用于早起浏览器隐藏媒体查询。类似于not，该关键字必须位于声明的开头。</p>
+<p>早起浏览器应该将以下语句<code>media = &quot;only screen and (min-width:401px) and (max-width:600px)&quot;</code>解释为media=”screen”;换句话说，它应该将样式规则应用于所有屏幕设备，即使它不知道媒体查询的含义。</p>
+<p>无法识别媒体查询的浏览器要求获得逗号分割的媒体类型列表，规范要求，它们应该在第一个不是连字符的非数字字母字符之前截断每个值。所以，早起浏览器应该将上面的示例解释为：media=”only”</p>
+<p>因为没有only这样的媒体类型，所以样式表被忽略</p>
+<p>易混淆的宽度</p>
+<p><code>device-width/height width/height</code>来作为的判定值</p>
+<p>device-width/height 是设备的宽度（如电脑手机的宽度 不是浏览器的宽度）</p>
+<p>width/height 使用documentElement.clientWidth/Height即viewport的值。渲染宽度/高度</p>
+<h2 id="物理像素-和-设备独立像素"><a href="#物理像素-和-设备独立像素" class="headerlink" title="物理像素 和 设备独立像素"></a>物理像素 和 设备独立像素</h2><p>物理像素： 设备能控制显示的最小单位，我们常说的1920X1080像素分辨率就是用的设备像素单位，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。</p>
+<p>设备独立像素（也叫目睹无关像素）：可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素（css像素），然后由相关系统转换为物理像素</p>
+<p>标准情况下一个设备独立像素 = 一个物理像素</p>
+<p>设备像素比（device pixel ratio）： 简称dpr，定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式得到</p>
+<p>设备像素比 = 物理像素/设备独立像素 js中可以通过window.devicePixelRatio</p>
+<p>物理像素：最大分辨率 ——— 电脑生产厂商定义（1920*1080）每行1920个像素点，每列1080个像素点</p>
+<p>实际分辨率：实际自己设置的电脑分辨率 ——— 自定义的</p>
+<p>css像素：感官像素 – 浏览器定义的（css像素是一个变化值） –（参考像素：根据设备独立像素做了一层调节，css像素根据参考像素进行调节）</p>
+<p>像素：包括 每个像素点 + 颜色 + 其他属性</p>
+<p>设备独立像素： – 操作系统定义的</p>
+<p>设备像素比 = 实际分辨率/css像素 = 物理像素/设备独立像素</p>
+<p>一般默认：</p>
+<p>实际分辨率 ： 物理像素 = 1:1</p>
+<p>css像素 ： 设备独立像素 = 1：1</p>
+<p>以iPhone6为例</p>
+<ol>
+<li><p>设备宽高为375 * 667，可以理解为设备独立像素（或css像素）、</p>
+</li>
+<li><p>drp为2，根据上面的计算公式，器物理像素就应该 <em> 2,为750 </em> 1334</p>
+</li>
+</ol>
+<p>css像素在pc端显示器需要用（1 <em> 1）个栅格点表示 在iPhone6中则需要4（2 </em> 2）个</p>
+<p>也就是在不同的屏幕上（普通屏幕 vs retina屏幕），css像素所呈现的大小（物理尺寸）是一致的，不同的是一个css像素所对象的物理像素个数是不一致</p>
+<p>在普通的屏幕下，1个css像素对应的1个物理像素 为 1：1，在retina（视网膜屏幕）屏幕下，1个css像素对应4个物理像素1:4</p>
+<p>位图像素</p>
+<p>1个位图像素是栅格图像（如：png，jpg，gif等）最小的数据单元。每一个位图像素都包含这一些资深的现实信息（如：显示位置，颜色值，透明度等）</p>
+<p>在普通屏幕下是没问题的，但是在retina屏幕下就会出现位图像素点不够，从而导致图片模糊的情况</p>
+<h2 id="图片像素问题"><a href="#图片像素问题" class="headerlink" title="图片像素问题"></a><strong>图片像素问题</strong></h2><ol>
+<li>对于dpr = 2的，1个位图像素对应于4个物理像素，由于单个位图像素不以再进一步分割，所以只能就近取色，从而导致图片模糊</li>
+</ol>
+<p>解决办法使用分辨率大两倍的图片</p>
+<p>如200 <em> 300 img标签，就需要提供400 </em> 600的图片。由此一来位图像素点的个数是原来的4倍，在retina屏幕下，位图像素点个数就可以物理像素点个数形成1:1的比列，图片自然就清晰了 </p>
+<ol start="2">
+<li>这里就还有另一个问题，如果普通屏幕下，也用了两倍图片，会怎样呢？</li>
+</ol>
+<p>很明显，在普通屏幕下，200 <em> 300（css pixel）img标签，所对应的物理像素个数就是200 </em> 300个，而两倍图片的位置像素个数则是200 <em> 300 </em> 4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法（显示结果就是一张只有原图像素总数四份之一，我们称这个过程叫做 downsampling），肉眼看上去虽然图片不会模糊，但是会觉得图片缺少一些锐利度，或者是有点色差（但还可以接受）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjo4dr6f70003h4nsbcdosc1u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/11/05/h5-canvas/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &#39;h5-canvas&#39;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/11/03/css3-animation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">&#39;css3-animation&#39;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/11/05/h5-canvas/">&#39;h5-canvas&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/03/css3-animation/">&#39;css3-animation&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/02/css3-transform/">&#39;css3-transform&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/01/css3-二/">css3(二)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
