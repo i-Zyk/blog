@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-05T14:07:21.218Z">
+<meta property="og:updated_time" content="2018-11-05T14:56:06.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;h5-canvas&#39;">
 <meta name="twitter:description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
@@ -119,11 +119,34 @@
 <li>ctx.closePath();闭合当前路径和回到起始点的区别</li>
 <li>ctx.fill();填充</li>
 </ol>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ol>
+<li><p>fill和stroke方法都是作用在当前的所有子路径</p>
+</li>
+<li><p>完成一条路径后要重新开始另一条路径时必须使用beginPath()方法，betinPath开始子路径的一个新的集合</p>
+</li>
+</ol>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><ol>
+<li>ctx.rect(x,y,dx,dy);</li>
+<li>ctx.fillRect(x,y,dx,dy);</li>
+<li>ctx.strokeRect(x,y,w,h);</li>
+</ol>
+<h2 id="擦除当前区域"><a href="#擦除当前区域" class="headerlink" title="擦除当前区域"></a>擦除当前区域</h2><ol>
+<li>ctx.clearRect(x,y,dx,dy)</li>
+<li>实现矩形落地动画</li>
+</ol>
+<h2 id="弧形"><a href="#弧形" class="headerlink" title="弧形"></a>弧形</h2><ol>
+<li>arc(x,y,r,起始弧度，结束弧度，弧形的方向)</li>
+<li>角 以弧度计，0顺时针 1逆时针</li>
+</ol>
+<h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><ol>
+<li>ctx arcTo(x1,y1,x2,y2,r)</li>
+<li>绘制的弧线与当前点和x1,y1连线，x1,y1和x2，y2连线都相切</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo4dw80u0006x0nsun9w4ht7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo5fb5ro0001oons1yhshj2f" class="article-share-link">Share</a>
       
       
     </footer>

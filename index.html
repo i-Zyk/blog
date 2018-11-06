@@ -117,11 +117,34 @@
 <li>ctx.closePath();闭合当前路径和回到起始点的区别</li>
 <li>ctx.fill();填充</li>
 </ol>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ol>
+<li><p>fill和stroke方法都是作用在当前的所有子路径</p>
+</li>
+<li><p>完成一条路径后要重新开始另一条路径时必须使用beginPath()方法，betinPath开始子路径的一个新的集合</p>
+</li>
+</ol>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><ol>
+<li>ctx.rect(x,y,dx,dy);</li>
+<li>ctx.fillRect(x,y,dx,dy);</li>
+<li>ctx.strokeRect(x,y,w,h);</li>
+</ol>
+<h2 id="擦除当前区域"><a href="#擦除当前区域" class="headerlink" title="擦除当前区域"></a>擦除当前区域</h2><ol>
+<li>ctx.clearRect(x,y,dx,dy)</li>
+<li>实现矩形落地动画</li>
+</ol>
+<h2 id="弧形"><a href="#弧形" class="headerlink" title="弧形"></a>弧形</h2><ol>
+<li>arc(x,y,r,起始弧度，结束弧度，弧形的方向)</li>
+<li>角 以弧度计，0顺时针 1逆时针</li>
+</ol>
+<h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><ol>
+<li>ctx arcTo(x1,y1,x2,y2,r)</li>
+<li>绘制的弧线与当前点和x1,y1连线，x1,y1和x2，y2连线都相切</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo4dw80u0006x0nsun9w4ht7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo5fb5ro0001oons1yhshj2f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -342,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjo4dw7zw0002x0ns31pkm48y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjo5fb5tt0009oonsl16yxipy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -399,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjo4dw8080003x0ns5kpz5ixh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjo5fb5t60005oonsepvtjydi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjo4dw80g0004x0nsa6am42o7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjo5fb5sz0004oonss96wczs6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -649,7 +672,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjo4dw80o0005x0nsza4xqbg8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjo5fb5td0006oonsgpr6ln7a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -907,7 +930,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjo4dw81d0009x0ns073n3wej" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjo5fb5to0008oonsi1yhiugq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1108,7 +1131,7 @@ http://www.runoob.com/cssref/css3-browsersupport.html
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjo4dw7zf0001x0nsdk7j3ibl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjo5fb5sr0003oonsg7dvc84g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1222,7 +1245,7 @@ src\components\shopcart.vue:92:9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjo4dw8180008x0nsqalxxep7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjo5fb5tj0007oons0yrqonet" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1267,7 +1290,7 @@ src\components\shopcart.vue:92:9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjo4dw8110007x0nsw6b65f49" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjo5fb5sg0002oonsrlw5bzgi" class="article-share-link">Share</a>
       
       
     </footer>
