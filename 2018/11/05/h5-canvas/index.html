@@ -14,10 +14,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-05T14:56:06.781Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/h5-canvas/image/line.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/h5-canvas/image/h5.png">
+<meta property="og:updated_time" content="2018-11-07T09:07:31.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;h5-canvas&#39;">
 <meta name="twitter:description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/05/h5-canvas/image/line.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -144,11 +147,109 @@
 <li>ctx arcTo(x1,y1,x2,y2,r)</li>
 <li>绘制的弧线与当前点和x1,y1连线，x1,y1和x2，y2连线都相切</li>
 </ol>
+<h2 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h2><ol>
+<li>quadraticCurveTo(x1,y1,ex,ey)二次贝塞尔曲线</li>
+<li>bezierCurveTo(x1,y1,x2,y2,ex,ey)三次贝塞尔曲线</li>
+</ol>
+<p>x1，y1， x2，y2 控制点</p>
+<p>ex，ey 结束点</p>
+<h2 id="坐标轴转换"><a href="#坐标轴转换" class="headerlink" title="坐标轴转换"></a>坐标轴转换</h2><ol>
+<li>translate(dx, dy) 重新映射画布上的（0,0）位置</li>
+<li>scale(sx, sy) 缩放当前绘图</li>
+<li>rotate(Math.PI) 旋转当前的绘图</li>
+<li><p>save() restore()</p>
+<p> 保存当前图像状态的一份拷贝</p>
+<p> 从栈中弹出存储的图形状态并恢复</p>
+</li>
+<li><p>setTransform(a,b,c,d,e,f) 先重置再变换</p>
+<p> 参数：水平缩放、水平倾斜、垂直倾斜、垂直缩放、水平移动、垂直移动</p>
+</li>
+<li>transform(a,b,c,d,e,f) 在之前的基础上变换</li>
+</ol>
+<h2 id="填充图案"><a href="#填充图案" class="headerlink" title="填充图案"></a>填充图案</h2><ol>
+<li>createPattern(image,”repeat|repeat-x|repeat-y|no-repeat”)</li>
+<li>img元素（Image对象），canvas元素，video元素（有图形的）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var img = document.getElementById(&apos;img&apos;);</span><br><span class="line">img.onload = function () &#123;</span><br><span class="line">    ctx.fillStyle = ctx.createPattern(img, &apos;repeat&apos;);</span><br><span class="line">    ctx.fillRect(0, 0, w, h);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ol>
+<li>createLinearGradient(x1,y1,x2,y2); 线性渐变 必须在填充渐变的区域里定义渐变，否则没有效果</li>
+<li>createRadialGradient(x1,y1,r1,x2,y2,r2);径向渐变</li>
+<li>bg.addColorStop(p,color);</li>
+</ol>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ol>
+<li>ctx.shadowColor</li>
+<li>ctx.shadowOffsetX</li>
+<li>ctx.shadowOffsetY</li>
+<li>ctx.shadowBlur</li>
+</ol>
+<p>注：这里的阴影偏移量不受坐标系变换的影响</p>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><ol>
+<li>fillText()</li>
+<li>strokeText()</li>
+<li>measureText(‘hello world’) 了解<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.fillStyle = &apos;green&apos;;</span><br><span class="line">ctx.font = &apos;50px sans-serif&apos;</span><br><span class="line">ctx.fillText(&apos;hello world&apos;, 100, 100);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="线段样式"><a href="#线段样式" class="headerlink" title="线段样式"></a>线段样式</h2><ol>
+<li>lineCap</li>
+<li>lineJoin</li>
+</ol>
+<p><img src="image/line.png" alt="lineCap属性和lineJoin属性"></p>
+<p>ctx.miterLimit</p>
+<p>当lineJoin是miter时，用于控制斜接部分的长度如果斜接长度超过miterLimit的值，变成bevel</p>
+<p>注：实际运算是大于limit*lineWidth/2的值，了解就好</p>
+<h2 id="裁剪"><a href="#裁剪" class="headerlink" title="裁剪"></a>裁剪</h2><p>ctx.clip(); 当前路径外的区域不再绘制</p>
+<p>注：可在clip()前用save()方法保存，后续通过restore()方法恢复</p>
+<h2 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h2><ol>
+<li><p>ctx.globalCompositeOperation = ‘source-over’; 新像素和原像素的合并方式</p>
+</li>
+<li><p>11种值 默认source-over w3c标准</p>
+</li>
+<li><p>常用source-over，destination-over，copy</p>
+</li>
+</ol>
+<p><img src="image/h5.png" alt="新旧像素合并方式"></p>
+<h2 id="全局透明度"><a href="#全局透明度" class="headerlink" title="全局透明度"></a>全局透明度</h2><p>ctx.globalAlpha = ‘0.5’;</p>
+<h2 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h2><ol>
+<li><p>ctx.drawImage(); 第一个参数是img(Image,canvas,video) 注：onload</p>
+</li>
+<li><p>3个参数 (x,y) 起始点坐标</p>
+</li>
+<li><p>5个参数 (x,y,dx,dy) 起始点坐标及图片所存区域的宽高</p>
+</li>
+<li><p>9个参数 (x1,y1,dx1,dy1,x2,y2,w2,h2) 前四个为所绘制目标元素的起始点和宽高；后四个为canvas绘制的起始点和大小 </p>
+</li>
+</ol>
+<h2 id="将canvas内容导出"><a href="#将canvas内容导出" class="headerlink" title="将canvas内容导出"></a>将canvas内容导出</h2><ol>
+<li><p>canvas.toDataURL(); 是canvas自身的方法不是上下文对象</p>
+</li>
+<li><p>将canvas的内容抽取成一张图片，base64编码格式 注：同源策略的限制</p>
+</li>
+<li><p>将canvas的内容放入img元素里</p>
+</li>
+</ol>
+<h2 id="获取canvas像素信息"><a href="#获取canvas像素信息" class="headerlink" title="获取canvas像素信息"></a>获取canvas像素信息</h2><ol>
+<li><p>ctx.getImageData(x,y,dx,dy) 同源策略</p>
+</li>
+<li><p>ctx.createImageData(w,h) 创建新的空白ImageData对象</p>
+</li>
+<li><p>ctx.putImageData(imgData,x,y) 将图像数据放回画布上</p>
+</li>
+</ol>
+<h2 id="命中检测"><a href="#命中检测" class="headerlink" title="命中检测"></a>命中检测</h2><ol>
+<li><p>ctx.isPointInPath(x,y); 检测是否在区域内，Chrome 与 safari的区别</p>
+</li>
+<li><p>ctx.isPointInStroke(x,y); 检测是否在线上</p>
+</li>
+<li><p>还可以通过检测当前点的像素值，如果为透明，则该点不再路径上</p>
+</li>
+</ol>
+<h2 id="非零绕数准则"><a href="#非零绕数准则" class="headerlink" title="非零绕数准则"></a>非零绕数准则</h2><p>判断点p是否在多边形内，从点p向外做一条射线（可以任意方向），多边形的边从左到右经过射线时环绕数减1，多变形的边从右往左经过射线时环绕数加1，最后环数不为0，即表示在多边形内部。</p>
+<h2 id="如何解决canvas高分屏模糊问题"><a href="#如何解决canvas高分屏模糊问题" class="headerlink" title="如何解决canvas高分屏模糊问题"></a>如何解决canvas高分屏模糊问题</h2><p>在分辨率比较高的屏幕，例如ip6/6S/mac等机器上，因为canvas绘制的是位图，所以会导致模糊，解决方法是根据屏幕分辨率修改canvas样式代码中的宽和高与canvas的width和height属性的比例</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo5lpc0k000794ns532trby2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjo9smnjf0007r8nsaqwuag33" class="article-share-link">Share</a>
       
       
     </footer>
@@ -156,6 +257,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/blog/2018/11/07/html5-SVG/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &#39;html5-SVG&#39;
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2018/11/03/RWD/" id="article-nav-older" class="article-nav-link-wrap">
@@ -197,6 +307,14 @@
       <ul>
         
           <li>
+            <a href="/blog/2018/11/07/html5/">html5</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/07/html5-SVG/">&#39;html5-SVG&#39;</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/05/h5-canvas/">&#39;h5-canvas&#39;</a>
           </li>
         
@@ -206,14 +324,6 @@
         
           <li>
             <a href="/blog/2018/11/03/css3-animation/">&#39;css3-animation&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/02/css3-transform/">&#39;css3-transform&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/01/css3-二/">css3(二)</a>
           </li>
         
       </ul>
