@@ -5,22 +5,30 @@
   
 
   
-  <title>&#39;h5-canvas&#39; | Hexo</title>
+  <title>h5-canvas | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;h5-canvas&#39;">
+<meta property="og:title" content="h5-canvas">
 <meta property="og:url" content="http://yoursite.com/2018/11/05/h5-canvas/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-rect.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-arc2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-arc3.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-arc.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-arcTo.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-arcTo2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-gra.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/image/line.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5.png">
-<meta property="og:updated_time" content="2018-11-09T14:56:07.235Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/image/h5-gs.png">
+<meta property="og:updated_time" content="2018-11-10T13:26:09.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;h5-canvas&#39;">
+<meta name="twitter:title" content="h5-canvas">
 <meta name="twitter:description" content="Canvascanvas的应用场景 游戏 图表 动画 codepen.io(HTML5 动效 网址)  Canvas发展史 最早在apple的safari 1.3中引入 ie9之前的浏览器不支持canvas http://caniuse.com/ (查看兼容性)  如何使用canvas 添加canvas标签&amp;lt;canvas width=500 height=500&amp;gt;&amp;lt;/canvas">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/05/image/line.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/05/image/h5-rect.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -83,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      &#39;h5-canvas&#39;
+      h5-canvas
     </h1>
   
 
@@ -137,15 +145,15 @@
 </ol>
 <h2 id="擦除当前区域"><a href="#擦除当前区域" class="headerlink" title="擦除当前区域"></a>擦除当前区域</h2><ol>
 <li>ctx.clearRect(x,y,dx,dy)</li>
-<li>实现矩形落地动画</li>
+<li>实现矩形落地动画<br><img src="../image/h5-rect.png" alt="矩形落地动画"></li>
 </ol>
 <h2 id="弧形"><a href="#弧形" class="headerlink" title="弧形"></a>弧形</h2><ol>
-<li>arc(x,y,r,起始弧度，结束弧度，弧形的方向)</li>
-<li>角 以弧度计，0顺时针 1逆时针</li>
+<li>arc(x,y,r,起始弧度，结束弧度，弧形的方向)<br><img src="../image/h5-arc2.png" alt="弧形2"><br><img src="../image/h5-arc3.png" alt="扇形"></li>
+<li>角 以弧度计，0顺时针 1逆时针<br><img src="../image/h5-arc.png" alt="弧形"></li>
 </ol>
 <h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><ol>
 <li>ctx arcTo(x1,y1,x2,y2,r)</li>
-<li>绘制的弧线与当前点和x1,y1连线，x1,y1和x2，y2连线都相切</li>
+<li>绘制的弧线与当前点和x1,y1连线，x1,y1和x2，y2连线都相切<br><img src="../image/h5-arcTo.png" alt="圆角"><br><img src="../image/h5-arcTo2.png" alt="圆角矩形"></li>
 </ol>
 <h2 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h2><ol>
 <li>quadraticCurveTo(x1,y1,ex,ey)二次贝塞尔曲线</li>
@@ -166,7 +174,7 @@
 </li>
 <li>transform(a,b,c,d,e,f) 在之前的基础上变换</li>
 </ol>
-<h2 id="填充图案"><a href="#填充图案" class="headerlink" title="填充图案"></a>填充图案</h2><ol>
+<h2 id="填充图案-fillStyle"><a href="#填充图案-fillStyle" class="headerlink" title="填充图案 fillStyle"></a>填充图案 fillStyle</h2><ol>
 <li>createPattern(image,”repeat|repeat-x|repeat-y|no-repeat”)</li>
 <li>img元素（Image对象），canvas元素，video元素（有图形的）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var img = document.getElementById(&apos;img&apos;);</span><br><span class="line">img.onload = function () &#123;</span><br><span class="line">    ctx.fillStyle = ctx.createPattern(img, &apos;repeat&apos;);</span><br><span class="line">    ctx.fillRect(0, 0, w, h);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -174,7 +182,7 @@
 <h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ol>
 <li>createLinearGradient(x1,y1,x2,y2); 线性渐变 必须在填充渐变的区域里定义渐变，否则没有效果</li>
 <li>createRadialGradient(x1,y1,r1,x2,y2,r2);径向渐变</li>
-<li>bg.addColorStop(p,color);</li>
+<li>bg.addColorStop(p,color);<br><img src="../image/h5-gra.png" alt="渐变圆"></li>
 </ol>
 <h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ol>
 <li>ctx.shadowColor</li>
@@ -235,6 +243,14 @@
 <li><p>ctx.putImageData(imgData,x,y) 将图像数据放回画布上</p>
 </li>
 </ol>
+<h2 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h2><ol>
+<li>把图片放到canvas中 drawImage</li>
+<li>getImageData</li>
+<li>gs</li>
+<li>putImageData</li>
+<li>toDataURL</li>
+<li>img.src<br><img src="../image/h5-gs.png" alt="高斯模糊"></li>
+</ol>
 <h2 id="命中检测"><a href="#命中检测" class="headerlink" title="命中检测"></a>命中检测</h2><ol>
 <li><p>ctx.isPointInPath(x,y); 检测是否在区域内，Chrome 与 safari的区别</p>
 </li>
@@ -245,11 +261,11 @@
 </ol>
 <h2 id="非零绕数准则"><a href="#非零绕数准则" class="headerlink" title="非零绕数准则"></a>非零绕数准则</h2><p>判断点p是否在多边形内，从点p向外做一条射线（可以任意方向），多边形的边从左到右经过射线时环绕数减1，多变形的边从右往左经过射线时环绕数加1，最后环数不为0，即表示在多边形内部。</p>
 <h2 id="如何解决canvas高分屏模糊问题"><a href="#如何解决canvas高分屏模糊问题" class="headerlink" title="如何解决canvas高分屏模糊问题"></a>如何解决canvas高分屏模糊问题</h2><p>在分辨率比较高的屏幕，例如ip6/6S/mac等机器上，因为canvas绘制的是位图，所以会导致模糊，解决方法是根据屏幕分辨率修改canvas样式代码中的宽和高与canvas的width和height属性的比例</p>
-
+<h2 id="刮刮乐"><a href="#刮刮乐" class="headerlink" title="刮刮乐"></a>刮刮乐</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">var canvas1 = document.getElementById(&apos;canvas1&apos;);</span><br><span class="line">var ctx = canvas1.getContext(&apos;2d&apos;);</span><br><span class="line">var w = canvas1.width;</span><br><span class="line">var h = canvas1.height;</span><br><span class="line">var lastPonitX, lastPointY;</span><br><span class="line">var nowPointX, nowPointY;</span><br><span class="line"></span><br><span class="line">function init() &#123;</span><br><span class="line">    //蒙层</span><br><span class="line">    ctx.fillStyle = &apos;ccc&apos;;</span><br><span class="line">    ctx.fillRect(0, 0, w, h);</span><br><span class="line"></span><br><span class="line">    //一般后台返回图片</span><br><span class="line">    var r = Math.random();</span><br><span class="line"></span><br><span class="line">    if (r &gt; 0.5) &#123;</span><br><span class="line">        canvas1.style.backgroundImage = &apos;url(./baozou1.png)&apos;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        canvas1.style.backgroundImage = &apos;url(./baozou1.jpg)&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ctx.globalCompositeOperation = &apos;destination-out&apos;;</span><br><span class="line"></span><br><span class="line">    canvas1.addEventListener(&apos;mousedown&apos;, downFun, false);</span><br><span class="line">&#125;</span><br><span class="line">init();</span><br><span class="line">function downFun(e) &#123;</span><br><span class="line">    lastPointX = e.clientX - canvas1.offsetLeft;</span><br><span class="line">    lastPointY = e.clientY - canvas1.offsetTop;</span><br><span class="line"></span><br><span class="line">    canvas1.addEventListener(&apos;mousemove&apos;, moveFun, false);</span><br><span class="line">    document.addEventListener(&apos;mouseup&apos;, upFun, false);    </span><br><span class="line">&#125;</span><br><span class="line">function moveFun(e) &#123;</span><br><span class="line">    nowPointX = e.clientX - canvas1.offsetLeft;</span><br><span class="line">    nowPointY = e.clientY - canvas1.offsetTop;</span><br><span class="line"></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx,lineWidth = 40;</span><br><span class="line">    ctx.linCap = &apos;round&apos;;</span><br><span class="line">    ctx.moveTo(lastPointX, lastPointY);</span><br><span class="line">    ctx.lineTo(nowPointX, nowPointY);</span><br><span class="line">    ctx.stroke();</span><br><span class="line"></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.arc(nowPonitX, nowPointY, 20, 0, Math.PI * 2);</span><br><span class="line">    ctx.closePath();</span><br><span class="line">    ctx.fill();</span><br><span class="line"></span><br><span class="line">    lastPointX = nowPonitX;</span><br><span class="line">    lastPointY = nowPonitY;</span><br><span class="line">&#125;</span><br><span class="line">function upFun() &#123;</span><br><span class="line">    canvas1.removeEventListener(&apos;mousemove&apos;, moveFun, false);</span><br><span class="line">    document.removeEventListener(&apos;mouseup&apos;, upFun, false); </span><br><span class="line">    clearAll();   </span><br><span class="line">&#125;</span><br><span class="line">function clearAll() &#123;</span><br><span class="line">    var d = ctx.getImageDat(0, 0, w, h);</span><br><span class="line">    var len = d.data.length,</span><br><span class="line">        c = 0;</span><br><span class="line">    for(var i = 0; i &lt; len; i += 4) &#123;</span><br><span class="line">        if(d.data[i] === 0) &#123;</span><br><span class="line">            c++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(c &gt; w * h * 0.7) &#123;</span><br><span class="line">        ctx.clearRect(0, 0, w, h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjoat5vbq00080gnsf5fgz7m8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjobhhmml0007k4nsmypq1j24" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +331,7 @@
           </li>
         
           <li>
-            <a href="/blog/2018/11/05/h5-canvas/">&#39;h5-canvas&#39;</a>
+            <a href="/blog/2018/11/05/h5-canvas/">h5-canvas</a>
           </li>
         
           <li>
