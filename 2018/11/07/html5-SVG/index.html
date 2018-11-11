@@ -14,10 +14,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="SVG (Scalable Vector Graphics) 可缩放矢量图形应用场景 图表  图标 icon  动效  矢量图   SVG元素开始 &amp;lt;svg width=&amp;quot;500px&amp;quot; height=&amp;quot;500px&amp;quot;&amp;gt;&amp;lt;/svg&amp;gt;  直线  &amp;lt;line x1=&amp;quot;100&amp;quot; y1=&amp;quot;100&amp;quot; x">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-07T11:57:33.329Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/svg-cf.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/svg-dlam.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/svg-y.png">
+<meta property="og:updated_time" content="2018-11-11T03:17:21.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;html5-SVG&#39;">
 <meta name="twitter:description" content="SVG (Scalable Vector Graphics) 可缩放矢量图形应用场景 图表  图标 icon  动效  矢量图   SVG元素开始 &amp;lt;svg width=&amp;quot;500px&amp;quot; height=&amp;quot;500px&amp;quot;&amp;gt;&amp;lt;/svg&amp;gt;  直线  &amp;lt;line x1=&amp;quot;100&amp;quot; y1=&amp;quot;100&amp;quot; x">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/07/image/svg-cf.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -206,20 +210,20 @@
 <li><p>getTotalLength</p>
 </li>
 </ol>
-<p>获取路径总长度</p>
+<p><img src="../image/svg-cf.png" alt="抽风路劲"><br>获取路径总长度</p>
 <ol start="2">
 <li>getPointAtLength(x)</li>
 </ol>
 <p>获取路径上距离起始点距离x长度的点的坐标</p>
 <p>注：严格来说上面两方法只适用于path元素，但各个浏览器实现起来都会有一个谷歌浏览器也能获取到line元素的路径长度</p>
 <h2 id="ViewBox"><a href="#ViewBox" class="headerlink" title="ViewBox"></a>ViewBox</h2><ol>
-<li><svg width="400" height="300" viewbox="0,0,40,30"/>
+<li><p><code>&lt;svg width=&quot;400&quot; height=&quot;300&quot; viewBox=&quot;0,0,40,30&quot;&gt;&lt;/svg&gt;</code></p>
 </li>
 <li><p>preserveAspectRatio</p>
 </li>
 </ol>
 <p>xMin xMid xMax –&gt; x轴 左中右对齐</p>
-<p>YMin YMid YMax –&gt; y轴 左中右对齐</p>
+<p>YMin YMid YMax –&gt; y轴 上中下对齐</p>
 <p>meet slice none –&gt; 设置填充方式</p>
 <p>eg：svg.setAttribute(“preserveAspectRatio”,”xMinYMin meet”);</p>
 <h2 id="js-生成-SVG-元素"><a href="#js-生成-SVG-元素" class="headerlink" title="js 生成 SVG 元素"></a>js 生成 SVG 元素</h2><ol>
@@ -228,11 +232,12 @@
 <li><p>SVG元素对象一般通过调用setAttribute()方法来设定属性值</p>
 </li>
 </ol>
+<h2 id="哆啦A梦"><a href="#哆啦A梦" class="headerlink" title="哆啦A梦"></a>哆啦A梦</h2><p><img src="../image/svg-dlam.png" alt="哆啦A梦"><br><img src="../image/svg-y.png" alt="旋转圆"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjobhmsej000ab8nsdwwv7pog" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjocc0ife000ajwnsqovyxekw" class="article-share-link">Share</a>
       
       
     </footer>
