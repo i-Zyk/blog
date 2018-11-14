@@ -7,20 +7,30 @@
   
   <title>html5 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="优化动画、存储、历史记录、worker异步 requestAnimationFrame  1) 页面刷新前执行一次  2) 1000ms 60fps –&amp;gt; 16ms  3) cancelAnimationFrame  4) 用法和setTimeout类似  5) 兼容性  requestAnimationFrame(f)  cancelAnimationFrame(id)  客户端存储  1">
+  <meta name="description" content="优化动画、存储、历史记录、worker异步计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿 requestAnimationFrame 可以弥补计时器缺">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html5">
 <meta property="og:url" content="http://yoursite.com/2018/11/07/html5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="优化动画、存储、历史记录、worker异步 requestAnimationFrame  1) 页面刷新前执行一次  2) 1000ms 60fps –&amp;gt; 16ms  3) cancelAnimationFrame  4) 用法和setTimeout类似  5) 兼容性  requestAnimationFrame(f)  cancelAnimationFrame(id)  客户端存储  1">
+<meta property="og:description" content="优化动画、存储、历史记录、worker异步计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿 requestAnimationFrame 可以弥补计时器缺">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/h5-raf.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/h5-raf2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/h5-spa.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/h5-gpos.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/yaoyiyao.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/h5-xyz.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/07/image/error.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/07/image/drag.png">
-<meta property="og:updated_time" content="2018-11-10T02:44:47.060Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/h5-drop.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/webscoket.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/ws.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/07/image/socket1.png">
+<meta property="og:updated_time" content="2018-11-14T07:45:08.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html5">
-<meta name="twitter:description" content="优化动画、存储、历史记录、worker异步 requestAnimationFrame  1) 页面刷新前执行一次  2) 1000ms 60fps –&amp;gt; 16ms  3) cancelAnimationFrame  4) 用法和setTimeout类似  5) 兼容性  requestAnimationFrame(f)  cancelAnimationFrame(id)  客户端存储  1">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/07/image/error.png">
+<meta name="twitter:description" content="优化动画、存储、历史记录、worker异步计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿 requestAnimationFrame 可以弥补计时器缺">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/07/image/h5-raf.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -91,15 +101,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="优化动画、存储、历史记录、worker异步"><a href="#优化动画、存储、历史记录、worker异步" class="headerlink" title="优化动画、存储、历史记录、worker异步"></a>优化动画、存储、历史记录、worker异步</h2><ol>
-<li><p>requestAnimationFrame</p>
+        <h2 id="优化动画、存储、历史记录、worker异步"><a href="#优化动画、存储、历史记录、worker异步" class="headerlink" title="优化动画、存储、历史记录、worker异步"></a>优化动画、存储、历史记录、worker异步</h2><h3 id="计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅-一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿"><a href="#计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅-一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿" class="headerlink" title="计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿"></a>计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿</h3><ol>
+<li><p>requestAnimationFrame 可以弥补计时器缺点；浏览器一刷新就执行</p>
 <p> 1) 页面刷新前执行一次</p>
 <p> 2) 1000ms 60fps –&gt; 16ms</p>
 <p> 3) cancelAnimationFrame</p>
 <p> 4) 用法和setTimeout类似</p>
-<p> 5) 兼容性</p>
+<p> 5) 兼容性 IE10以上;向前兼容用计时器</p>
 <p> requestAnimationFrame(f)</p>
 <p> cancelAnimationFrame(id)</p>
+<p> <img src="../image/h5-raf.png" alt="兼容性写法"><br>  <img src="../image/h5-raf2.png" alt="兼容性写法"></p>
 </li>
 <li><p>客户端存储</p>
 <p> 1) storage</p>
@@ -196,6 +207,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <p>history api的作用？</p>
 <p>SPA</p>
 <p>通过修改hash和hashchange事件来实现历史记录管理</p>
+<p>点击导航的时候有链接跳转，就不是单页面应用了；点击导航的时候页面不跳转，只是内容更换</p>
 <ol>
 <li>pushState</li>
 </ol>
@@ -218,6 +230,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <li>hashchange 事件</li>
 </ol>
 <p>当页面的hash值改变的时候触发，常用于构建单页面应用</p>
+<p><img src="../image/h5-spa.png" alt=""></p>
 <h2 id="Worker"><a href="#Worker" class="headerlink" title="Worker"></a>Worker</h2><p>var worker = new Worker(‘worker.js’);</p>
 <p>worker文件必须和主文件满足同源策略</p>
 <h2 id="worker和主线程之间的通信"><a href="#worker和主线程之间的通信" class="headerlink" title="worker和主线程之间的通信"></a>worker和主线程之间的通信</h2><ol>
@@ -261,6 +274,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <li>options  参数</li>
 <li>需要翻墙</li>
 </ul>
+<h2 id="Geoposition"><a href="#Geoposition" class="headerlink" title="Geoposition"></a>Geoposition</h2><p><img src="../image/h5-gpos.png" alt=""></p>
 <h2 id="PositionError对象"><a href="#PositionError对象" class="headerlink" title="PositionError对象"></a>PositionError对象</h2><ul>
 <li>用户拒绝 code = 1</li>
 <li>获取不到 code = 2</li>
@@ -280,16 +294,22 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <li>accelerationIncludingGravity (包括重心引力，z轴方向加了9.8，在x，y方向上的值两者相同) 重力加速度</li>
 <li>acceleration 重力加速度</li>
 <li>rotationRate(alpha,beta,gamma)旋转速率</li>
-<li>interval 获取的时间间隔</li>
+<li>interval 获取的时间间隔<br><img src="../image/yaoyiyao.png" alt=""><br>均为只读属性</li>
 </ol>
-<p>均为只读属性</p>
+<h2 id="deviceorientation-监听设备在方向上的变化"><a href="#deviceorientation-监听设备在方向上的变化" class="headerlink" title="deviceorientation 监听设备在方向上的变化"></a>deviceorientation 监听设备在方向上的变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;deviceorientation&apos;,function()&#123;</span><br><span class="line">    console.log(event);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <ol>
 <li>alhpa 表示设备上沿z轴上的旋转角度，范围为0~360</li>
 <li>beta 表示设备上在x轴上的旋转角度，范围为-180~180 它描述设备由前向后旋转的情况</li>
 <li>gamma 表示设备在y轴上的旋转角度，范围为-90~90 它描述是设备由左向右旋转的情况</li>
-<li>webkitCompassHeading 与正北方向的角度差值。正北为0度，正东为90度，正南为180度，正西为270度。因为0度是正北，所以叫指北针</li>
+<li>webkitCompassHeading 与正北方向的角度差值。正北为0度，正东为90度，正南为180度，正西为270度。因为0度是正北，所以叫指北针(ios)</li>
+</ol>
+<ul>
+<li>css3画表盘，先将刻度线居中，在rotate旋转，字歪了在沿着z轴转回来，js中操作</li>
+</ul>
+<ol start="5">
 <li>webkitCompassAccuracy 指北针的精确度，表示偏差为正负多少度。一般是10</li>
 </ol>
+<p><img src="../image/h5-xyz.png" alt=""></p>
 <h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2><ul>
 <li>audio 音频</li>
 <li>video 视频</li>
@@ -299,7 +319,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <li>属性</li>
 <li>事件</li>
 </ul>
-<h2 id="audio元素和video元素"><a href="#audio元素和video元素" class="headerlink" title="audio元素和video元素"></a>audio元素和video元素</h2><p><code>&lt;audio id=&quot;audio&quot; src=&quot;./成都.mp3&quot;&gt;&lt;/audio&gt;</code><br><code>&lt;audio id=&quot;video&quot; src=&quot;./成都.mp4&quot;&gt;&lt;/audio&gt;</code></p>
+<h2 id="audio元素和video元素"><a href="#audio元素和video元素" class="headerlink" title="audio元素和video元素"></a>audio元素和video元素</h2><p><code>&lt;audio id=&quot;audio&quot; src=&quot;./成都.mp3&quot;&gt;&lt;/audio&gt;</code><br><code>&lt;video id=&quot;video&quot; src=&quot;./成都.mp4&quot;&gt;&lt;/video&gt;</code></p>
 <h2 id="一些属性"><a href="#一些属性" class="headerlink" title="一些属性"></a>一些属性</h2><ol>
 <li>autoplay 自动播放<br><code>&lt;audio src=&quot;成都.mp3&quot; autoplay&gt;&lt;/audio&gt;</code></li>
 <li>controls 设置控件<br><code>&lt;audio src=&quot;成都.mp3&quot; autoplay controls&gt;&lt;/audio&gt;</code></li>
@@ -320,6 +340,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <li>var audio = new Audio(‘./laojie.mp3’)</li>
 <li>var audio = document.createElement(‘video’)</li>
 </ul>
+<p>只能new Audio(),不能video，因为没有video这个函数</p>
 <h2 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h2><p>controls/loop/preload/autoplay属性</p>
 <ul>
 <li>audio.controls = true;</li>
@@ -371,15 +392,58 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 </ul>
 <h2 id="error-事件在音频-视频-audio-video-加载发生错误时触发"><a href="#error-事件在音频-视频-audio-video-加载发生错误时触发" class="headerlink" title="error 事件在音频/视频(audio/video)加载发生错误时触发"></a>error 事件在音频/视频(audio/video)加载发生错误时触发</h2><p><img src="../image/error.png" alt="error"></p>
 <h2 id="drag-amp-drop-FileReader-Web-Socket"><a href="#drag-amp-drop-FileReader-Web-Socket" class="headerlink" title="drag &amp; drop  FileReader  Web Socket"></a>drag &amp; drop  FileReader  Web Socket</h2><h2 id="drag-amp-drop"><a href="#drag-amp-drop" class="headerlink" title="drag &amp; drop"></a>drag &amp; drop</h2><ul>
-<li>常用于各种拖动操作中</li>
+<li>常用于各种拖动操作中 (像电脑桌面拖拽的文件类似)</li>
 <li>创建可拖动元素<br><code>&lt;div id=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;</code></li>
 </ul>
 <h2 id="拖拽相关的事件"><a href="#拖拽相关的事件" class="headerlink" title="拖拽相关的事件"></a>拖拽相关的事件</h2><p><img src="../image/drag.png" alt="drag"></p>
+<h2 id="DragEvent-事件对象"><a href="#DragEvent-事件对象" class="headerlink" title="DragEvent 事件对象"></a>DragEvent 事件对象</h2><ul>
+<li>传值</li>
+</ul>
+<p><code>e.dataTransfer.setData(&quot;data&quot;,e.target.id)</code></p>
+<ul>
+<li>取值</li>
+</ul>
+<p><code>e.dataTransfer.getData(&quot;data&quot;)</code></p>
+<p><img src="../image/h5-drop.png" alt="列表换位"></p>
+<h2 id="使用拖拽上传文件"><a href="#使用拖拽上传文件" class="headerlink" title="使用拖拽上传文件"></a>使用拖拽上传文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ele.addEventListener(&apos;dragover&apos;, function(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;,false);</span><br><span class="line">ele.addEventListener(&apos;drop&apos;,function(e)&#123;</span><br><span class="line">    //调用preventDefault() 来避免浏览器对数据的默认处理（drop事件的默认行为是以链接形式打开）</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    console.log(e);</span><br><span class="line">    var dt = e.dataTransfer;</span><br><span class="line">    var files = dt.files;</span><br><span class="line">    console.log(files);</span><br><span class="line">&#125;,false)</span><br></pre></td></tr></table></figure>
+<h2 id="FileReader-用于读取文件"><a href="#FileReader-用于读取文件" class="headerlink" title="FileReader 用于读取文件"></a>FileReader 用于读取文件</h2><h3 id="FileReader-方法"><a href="#FileReader-方法" class="headerlink" title="FileReader() 方法"></a>FileReader() 方法</h3><p>abort() 终止读取</p>
+<p>readAsBinaryString(file) 将文件读取为二进制编码</p>
+<p>readAsDataURL(file) 将文件读取为DataURL编码</p>
+<p>readAsText(file,[encoding]) 将文件读取为文本</p>
+<p>readAsArrayBuffer(file) 将文件读取为arraybuffer</p>
+<p>通过不同的方式读取文件</p>
+<h3 id="FileReader-事件"><a href="#FileReader-事件" class="headerlink" title="FileReader 事件"></a>FileReader 事件</h3><p>onloadstart 读取开始是触发</p>
+<p>onprogress 读取中</p>
+<p>onloadend 读取完成触发，无论成功或失败</p>
+<p>onload 文件读取成功完成时触发</p>
+<p>onabort 中断时触发</p>
+<p>onerror 出错时触发</p>
+<h2 id="Web-Socket"><a href="#Web-Socket" class="headerlink" title="Web Socket"></a>Web Socket</h2><p>WebSocket 对象提供了一组 API，用于创建和管理WebSocket 连接，以及通过连接发送和接收数据</p>
+<p>WebSocket 其实是一个新协议，跟HTTP协议基本没有关系，只是为了兼容现有浏览器的握手规范而已。借用了HTTP的协议来完成握手</p>
+<p><img src="../image/webscoket.png" alt="webscoket"></p>
+<p><img src="../image/ws.png" alt="webscoket"></p>
+<h2 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h2><ul>
+<li>在HTTP/1.0中，默认非长链接大多实现为每个请求/响应交换使用新的连接</li>
+<li>在HTTP/1.0中，默认长连接一个连接可用于一次或多次请求/响应交换</li>
+<li>在HTTP/1.0中，服务端不能主动联系客户端，只能有客户端发起。</li>
+<li>webSoket服务器和客户端均可主动发送数据</li>
+</ul>
+<h2 id="创建webSocket"><a href="#创建webSocket" class="headerlink" title="创建webSocket"></a>创建webSocket</h2><p>var Socket = new WebSocket(url);</p>
+<p>‘ws://echo.websocket.org’(测试地址)</p>
+<h2 id="Web-Socket-事件"><a href="#Web-Socket-事件" class="headerlink" title="Web Socket 事件"></a>Web Socket 事件</h2><p><img src="../image/socket1.png" alt="webscoket"></p>
+<h2 id="Web-Socket-方法"><a href="#Web-Socket-方法" class="headerlink" title="Web Socket 方法"></a>Web Socket 方法</h2><ol>
+<li>Socket.send()<br>send(data) 方法使用连接传输数据</li>
+<li>Socket.close()<br>close() 方法用于终止任何现有连接</li>
+</ol>
+<h2 id="WebSocket-的优点"><a href="#WebSocket-的优点" class="headerlink" title="WebSocket 的优点"></a>WebSocket 的优点</h2><ul>
+<li>客户端与服务端都可以主动传送数据给对方；</li>
+<li>不用频率创建TCP请求及销毁请求，减少网络宽带资源的占用，同时也节省服务器资源</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjocc0ifl000bjwns0r6ei3wn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjocc32lr000es0ns6ik7dty1" class="article-share-link">Share</a>
       
       
     </footer>
