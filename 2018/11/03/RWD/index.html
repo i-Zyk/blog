@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-03T06:51:30.517Z">
+<meta property="og:updated_time" content="2018-11-17T01:15:02.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;RWD&#39;">
 <meta name="twitter:description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
@@ -273,11 +273,16 @@
 <li>这里就还有另一个问题，如果普通屏幕下，也用了两倍图片，会怎样呢？</li>
 </ol>
 <p>很明显，在普通屏幕下，200 <em> 300（css pixel）img标签，所对应的物理像素个数就是200 </em> 300个，而两倍图片的位置像素个数则是200 <em> 300 </em> 4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法（显示结果就是一张只有原图像素总数四份之一，我们称这个过程叫做 downsampling），肉眼看上去虽然图片不会模糊，但是会觉得图片缺少一些锐利度，或者是有点色差（但还可以接受）</p>
+<h2 id="媒体查询常用尺寸"><a href="#媒体查询常用尺寸" class="headerlink" title="媒体查询常用尺寸"></a>媒体查询常用尺寸</h2><p>@media screen and (min-width:1200px)</p>
+<p>@media screen and (min-width:992px)</p>
+<p>@media screen and (min-width:768px)</p>
+<p>@media screen and (min-width:480px)</p>
+<p>在设置时，需要注意先后顺序，不然后面的会覆盖前面的样式。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjojvrg1c0002j8ns4sa1gn3c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjokvjzn00002s0ns17zlzvlj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -335,6 +340,14 @@
       <ul>
         
           <li>
+            <a href="/blog/2018/11/17/Less/">&#39;Less&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/16/webpack/">webpack</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/15/module/">module</a>
           </li>
         
@@ -344,14 +357,6 @@
         
           <li>
             <a href="/blog/2018/11/07/html5-SVG/">&#39;html5-SVG&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/05/h5-canvas/">h5-canvas</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
           </li>
         
       </ul>

@@ -64,6 +64,142 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Less" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/17/Less/" class="article-date">
+  <time datetime="2018-11-17T01:00:11.000Z" itemprop="datePublished">2018-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/17/Less/">&#39;Less&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS预处理器-–-Less"><a href="#CSS预处理器-–-Less" class="headerlink" title="CSS预处理器 – Less"></a>CSS预处理器 – Less</h1><p>Less是什么？</p>
+<p>Less（Leaner Style Sheets 的缩写）是一门向后兼容的 CSS 扩展语言。是一种动态样式语言，属于css预处理语言的一种。</p>
+<h1 id="Less的使用"><a href="#Less的使用" class="headerlink" title="Less的使用"></a>Less的使用</h1><ul>
+<li>浏览器测试环境中使用</li>
+</ul>
+<p><code>&lt;link rel=&quot;stylesheet/less type=&quot;&quot;text/css&quot; href=&quot;demo.less&quot;&gt;</code><br><code>&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.js&quot;&gt;&lt;script&gt;</code>  解析less的js代码</p>
+<p><a href="http://cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.js" target="_blank" rel="noopener">http://cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.js</a></p>
+<ul>
+<li>Node环境中使用（webpack中使用方法）<br><code>npm install less less-loader -D</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test:/\.less$/,</span><br><span class="line">    use:[&apos;style-loader&apos;,&apos;css-loader&apos;,&apos;less-loader&apos;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>//嵌套 less结构与html结构吻合<br>//注释 不会编译<br>/<em> 包裹注释 会被编译到css文件夹中 </em>/</p>
+<p>变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@width:500px;</span><br><span class="line">@color:red;</span><br><span class="line">@height:@width + 100px;</span><br></pre></td></tr></table></figure></p>
+<p>变量块级作用域  变量延迟加载<br>@var：10px</p>
+<p>&amp;代表与当前同级，写在里面</p>
+<p>less的混合 相同样式的抽出来<br>//混合：混合就是将一系列属性从一个规则引入到另一个规则集的方式<br>.border{<br>    1px solid #333;<br>}<br>{<br>    .border<br>}</p>
+<p>带默认参数的混合<br>.border(@w, @color){<br>    border:@w solid @color<br>}<br>.border(@w：1px, @color:#333){<br>    border:@w solid @color<br>}<br>{<br>    .border(2px, red)<br>}</p>
+<p>运算<br>.box{<br>    width(100 + 100px)<br>}</p>
+<p>arguments<br>.border(@1,@2,@3){<br>    border:@arguments;<br>}<br>.box{<br>    .border(1px,solid,red)<br>}</p>
+<p>函数</p>
+<p>导入<br>@import ‘./reset’;</p>
+<p>了解下<br>sass<br>scss</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/17/Less/" data-id="cjokvjzm70000s0ns0zi4sxit" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/16/webpack/" class="article-date">
+  <time datetime="2018-11-16T10:30:34.000Z" itemprop="datePublished">2018-11-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/16/webpack/">webpack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><ol>
+<li>前端工程化</li>
+<li>自动化构建工具</li>
+<li>webpack</li>
+</ol>
+<h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><p>前端工程化是根据业务特点，将前端开发流程规范化，标准化，它包括了开发流程，技术选型，代码规范，构建发布等，用于提升前端工程的开发效率和代码质量。<br><img src="../image/webpack.png" alt="前端工程化"></p>
+<h2 id="自动化构建工具"><a href="#自动化构建工具" class="headerlink" title="自动化构建工具"></a>自动化构建工具</h2><ol>
+<li>Grunt</li>
+<li>Gulp</li>
+<li>Fis3（百度的）</li>
+<li>Webpack</li>
+</ol>
+<h2 id="深入浅出webpack"><a href="#深入浅出webpack" class="headerlink" title="深入浅出webpack"></a>深入浅出webpack</h2><p><img src="../image/web2.png" alt="webpack官网图"></p>
+<p>使用</p>
+<ol>
+<li>全局安装webpack  npm包管理工 具  node</li>
+<li>初始化当前项目 npm init</li>
+<li>局部安装wepack（开始新项目前，最好在局部安装webpack防止冲突）</li>
+<li>执行webpack !报错 –&gt; 新建默认的入口文件 ./src/index.js</li>
+<li>规定webpack处理打包方式 –&gt; shell语句(在窗口上输的命令行语句)和配置文件（webpack.config.js 可以是其他名字,可配置两个文件，根据webpack –config=文件名选择）</li>
+<li>webpack –watch 开启监听 –&gt; 自动打包</li>
+<li>webpack-sev-server 自动监听打包，自动刷新需改成绝对路径</li>
+<li>loader</li>
+<li>plugin</li>
+<li>webpack 简单工作流程<br><img src="../image/web3.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">WARNING in configuration</span><br><span class="line">The &apos;mode&apos; option has not been set, webpack will fallback to &apos;production&apos; for this value. Set &apos;mode&apos; option to &apos;development&apos; or &apos;production&apos; to enable defaults for each environment.</span><br><span class="line">You can also set it to &apos;none&apos; to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/</span><br><span class="line">警告</span><br><span class="line">设置当前环境变量去掉</span><br><span class="line">webpack --mode=development</span><br><span class="line">因为把环境设置为了开发环境</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>webpack4以前需要配置文件，webpack4后不配置的话，默认入口文件为src/index.js，出口文件为dist/main.js</p>
+<p><code>npm install webpack webpack-cli -g</code></p>
+<p>webpack-cli webpack接口工具</p>
+<p>安装cnpm</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<p>发送项目的时候可以把node——modules 删掉，package.json 不能删 npm install的时候就可以根据package.json 下载相关工具和插件</p>
+<h2 id="webpack安装与使用"><a href="#webpack安装与使用" class="headerlink" title="webpack安装与使用"></a>webpack安装与使用</h2><ul>
+<li>入口（entry）</li>
+<li>输出（output）</li>
+<li>解析器（loader）解析不认识的文件</li>
+<li>插件（plugins）</li>
+</ul>
+<p>webpack </p>
+<p>webpack –watch 监听文件变化</p>
+<p>webpack-dev-server 开启服务器 可自动刷新（先下载，因为有时候不在本地预览了 npm install webpack-dev-server -D ）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/16/webpack/" data-id="cjokvjzpj000cs0nsal634qtj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-module" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/11/15/module/" class="article-date">
@@ -157,7 +293,7 @@ browserify main.js -o bundle.js
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/15/module/" data-id="cjojvrg290008j8nsdvuh8lwo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/15/module/" data-id="cjokvjzq4000fs0nsi9rqwxmo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -531,7 +667,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjojvrg2t000bj8nsl4pfow4z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjokvjzoq0009s0nssm6dx695" class="article-share-link">Share</a>
       
       
     </footer>
@@ -708,7 +844,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjojvrg2n000aj8nstcnul0sc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjokvjzp3000as0nsupipf6g6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -907,7 +1043,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjojvrg1s0005j8nse89v18pd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjokvjzo10006s0ns8rbqagwe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1124,11 +1260,16 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <li>这里就还有另一个问题，如果普通屏幕下，也用了两倍图片，会怎样呢？</li>
 </ol>
 <p>很明显，在普通屏幕下，200 <em> 300（css pixel）img标签，所对应的物理像素个数就是200 </em> 300个，而两倍图片的位置像素个数则是200 <em> 300 </em> 4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法（显示结果就是一张只有原图像素总数四份之一，我们称这个过程叫做 downsampling），肉眼看上去虽然图片不会模糊，但是会觉得图片缺少一些锐利度，或者是有点色差（但还可以接受）</p>
+<h2 id="媒体查询常用尺寸"><a href="#媒体查询常用尺寸" class="headerlink" title="媒体查询常用尺寸"></a>媒体查询常用尺寸</h2><p>@media screen and (min-width:1200px)</p>
+<p>@media screen and (min-width:992px)</p>
+<p>@media screen and (min-width:768px)</p>
+<p>@media screen and (min-width:480px)</p>
+<p>在设置时，需要注意先后顺序，不然后面的会覆盖前面的样式。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjojvrg1c0002j8ns4sa1gn3c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjokvjzn00002s0ns17zlzvlj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1185,7 +1326,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjojvrg160001j8nsogakxevq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjokvjznv0005s0nsplnbjdu1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1271,7 +1412,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjojvrg1m0004j8ns4yfcbrre" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjokvjzoi0008s0nsvhkxjo4s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1435,364 +1576,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjojvrg1x0006j8nsl6mtoheb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-two" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/09/two/" class="article-date">
-  <time datetime="2018-08-09T01:49:53.000Z" itemprop="datePublished">2018-08-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/09/two/">vue练习项目流程(一)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue-cli<br>axios<br>webpack 构建工具<br>mockis 模拟数据<br>es6 eslint代码风格检查工具<br>移动端 flex弹性布局</p>
-<p>开发项目17个步骤：<br>产品产出需求文档，产品原型<br>–&gt; 阅读文档，梳理需求<br>–&gt; 评审需求<br>–&gt; 拿到UI图和交互设计稿<br>–&gt; (最重要)开始做详细设计（拆分需求模块，技术选型，调研技术方案的不确定）<br>–&gt; 详细设计评审<br>–&gt; 出项目排期<br>–&gt; 进入开发<br>–&gt; 搭建项目框架 建立vue-cli等<br>–&gt; 模拟Mock数据<br>–&gt; 实现页面<br>–&gt; 自测<br>–&gt; 联调<br>–&gt; 过冒烟case （要过测试写的测试）<br>–&gt; 提交测试代码，部署测试环境，测试人员介入测试<br>–&gt; 改bug<br>–&gt; 部署上线<br>–&gt; 验证</p>
-<p>搭建项目框架<br>    vue-cli脚手架<br>    帮你减少 为减少重复性工作而做的重复性工作的工具<br>    项目0 npm build gulp脚本的时候，是为了减少重复性工作<br>    项目1 项目2 项目3<br>    写gulp脚本也成为重复性工作</p>
-<pre><code>npm install vue-cli -g
-vue init webpack mysell
-cd mysell
-cnpm install
-npm run dev
-</code></pre><p> config/index<br>  dev:<br>    // Paths<br>    assetsSubDirectory: ‘static’,  //静态资源<br>    assetsPublicPath: ‘/‘, //发布路径<br>    proxyTable: {}, //配置代理api</p>
-<pre><code>port:8080, //端口号
-autoOpenBrowser: false //是否自动打开浏览器
-errorOverlay: true, //查询错误
-notifyOnErrors: true, //通知错误
-poll: false, //事件轮询
-
-useEslint: true, //是否使用Eslint
-showEslintErrorsInOverlay: false, //是否使用Eslint错误信息
-
-devtool: &apos;cheap-module-eval-source-map&apos;, //webpack提供用来方便提示的配置
-cacheBusting: true, //配合devtool使用的
-cssSourceMap: true    //配合devtool使用的
-</code></pre><p>   build: //部署到线上的文件<br>    index: path.resolve(__dirname, ‘../dist/index.html’),  //编译后的index.html文件路径</p>
-<pre><code>// Paths
-assetsRoot: path.resolve(__dirname, &apos;../dist&apos;), 
-    //npm run build 后生成dist文件。，最终部署上线的文件
-assetsSubDirectory: &apos;static&apos;,
-assetsPublicPath: &apos;/&apos;,
-
-productionSourceMap: true, //是否开启
-
-productionGzip: false, //是否开启压缩
-productionGzipExtensions: [&apos;js&apos;, &apos;css&apos;], //Gzip模式下要压缩的文件扩展名
-</code></pre><p>  bulid/webpack.base.conf.js<br>      //加载的一些模块<br>      const path = require(‘path’)<br>    const utils = require(‘./utils’)<br>    const config = require(‘../config’)<br>    const vueLoaderConfig = require(‘./vue-loader.conf’)</p>
-<pre><code>//返回根路径下的文件或文件夹
-function resolve (dir) {
-  return path.join(__dirname, &apos;..&apos;, dir) 
-} 
-
-//创建EsLint规则
-const createLintingRule = () =&gt; ({
-  test: /\.(js|vue)$/,
-  loader: &apos;eslint-loader&apos;,
-  enforce: &apos;pre&apos;,
-  include: [resolve(&apos;src&apos;), resolve(&apos;test&apos;)],
-  options: {
-    formatter: require(&apos;eslint-friendly-formatter&apos;),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
-})
-
-module.exports = {
-  context: path.resolve(__dirname, &apos;../&apos;), //返回根路径
-  entry: {
-    app: &apos;./src/main.js&apos; //设置入口文件
-  },
-  output: { //出口文件
-    path: config.build.assetsRoot, //config.build.assetsRoot找到dist
-    filename: &apos;[name].js&apos;, //文件名字
-    publicPath: process.env.NODE_ENV === &apos;production&apos; //公共路径
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
-  },
-  resolve: {
-      //自动解析扩展名 index.js --&gt;index
-    extensions: [&apos;.js&apos;, &apos;.vue&apos;, &apos;.json&apos;],
-    alias: {
-      &apos;vue$&apos;: &apos;vue/dist/vue.esm.js&apos;, //用vue$替代vue/dist/vue.esm.js
-      &apos;@&apos;: resolve(&apos;src&apos;), //@替代scr， import xx from &quot;@/xx&quot;
-    }
-  },
-  module: { //打包
-    rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
-      {
-        test: /\.vue$/,
-        loader: &apos;vue-loader&apos;,
-        options: vueLoaderConfig
-      },
-      {
-        test: /\.js$/,
-        loader: &apos;babel-loader&apos;,
-        include: [resolve(&apos;src&apos;), resolve(&apos;test&apos;), resolve(&apos;node_modules/webpack-dev-server/client&apos;)]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: &apos;url-loader&apos;,
-        options: {
-          limit: 10000, //图片小于10000字节转成base64字符，直接转成js文件了，这样就会减少http请求
-          name: utils.assetsPath(&apos;img/[name].[hash:7].[ext]&apos;)
-        }
-      },
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: &apos;url-loader&apos;,
-        options: {
-          limit: 10000,
-          name: utils.assetsPath(&apos;media/[name].[hash:7].[ext]&apos;)
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/, //图标字体
-        loader: &apos;url-loader&apos;,
-        options: {
-          limit: 10000, 
-          name: utils.assetsPath(&apos;fonts/[name].[hash:7].[ext]&apos;)
-        }
-      }
-    ]
-  },
-</code></pre><p>  bulid/webpack.dev.conf.js<br>      const utils = require(‘./utils’)<br>    const webpack = require(‘webpack’)<br>    const config = require(‘../config’)<br>    const merge = require(‘webpack-merge’) //webpack合并文件的插件<br>    const path = require(‘path’)<br>    const baseWebpackConfig = require(‘./webpack.base.conf’)<br>    const CopyWebpackPlugin = require(‘copy-webpack-plugin’) //资源拷贝插件<br>    const HtmlWebpackPlugin = require(‘html-webpack-plugin’) //生成html模板的插件<br>    const FriendlyErrorsPlugin = require(‘friendly-errors-webpack-plugin’)<br>    //更友好展示错误日志的插件<br>    const portfinder = require(‘portfinder’) //自动打开可用端口的包</p>
-<pre><code>const HOST = process.env.HOST //当前环境的host
-const PORT = process.env.PORT &amp;&amp; Number(process.env.PORT) //当前环境的端口
-
-const devWebpackConfig = merge(baseWebpackConfig, {
-    //开发环境的配置
-  module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
-  },
-  // cheap-module-eval-source-map is faster for development
-  devtool: config.dev.devtool,
-
-  // these devServer options should be customized in /config/index.js
-  devServer: { //2.6之前版本单独拿出去的
-    clientLogLevel: &apos;warning&apos;, //重新加载server控制台的一些错误以警告方式显示
-    historyApiFallback: { //回退的设置
-      rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, &apos;index.html&apos;) },
-      ],
-    },
-    hot: true, //模块热替换特性，不需要重启服务就可以把模块替换掉了
-    contentBase: false, // since we use CopyWebpackPlugin.
-    compress: true, //是否压缩
-    host: HOST || config.dev.host,
-    port: PORT || config.dev.port,
-    open: config.dev.autoOpenBrowser, //是否自动打开浏览器
-    overlay: config.dev.errorOverlay
-      ? { warnings: false, errors: true }
-      : false,
-    publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
-    quiet: true, // necessary for FriendlyErrorsPlugin
-    watchOptions: {
-      poll: config.dev.poll,
-    }
-  },
-
-  plugins: [
-    new webpack.DefinePlugin({
-      &apos;process.env&apos;: require(&apos;../config/dev.env&apos;)
-    }),
-    new webpack.HotModuleReplacementPlugin(), //模块热替换插件
-    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: &apos;index.html&apos;,
-      template: &apos;index.html&apos;,
-      //将js文件放到body最下面
-      inject: true
-    }),
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, &apos;../static&apos;),
-        to: config.dev.assetsSubDirectory,
-        ignore: [&apos;.*&apos;]
-      }
-    ])
-  ]
-})
-</code></pre><p>  bulid/webpack.prod.conf.js<br>      //生成环境下<br>      const path = require(‘path’)<br>    const utils = require(‘./utils’)<br>    const webpack = require(‘webpack’)<br>    const config = require(‘../config’)<br>    const merge = require(‘webpack-merge’)<br>    const baseWebpackConfig = require(‘./webpack.base.conf’)<br>    const CopyWebpackPlugin = require(‘copy-webpack-plugin’)<br>    const HtmlWebpackPlugin = require(‘html-webpack-plugin’)<br>    const ExtractTextPlugin = require(‘extract-text-webpack-plugin’)<br>    const OptimizeCSSPlugin = require(‘optimize-css-assets-webpack-plugin’)<br>     //压缩css代码插件<br>    const UglifyJsPlugin = require(‘uglifyjs-webpack-plugin’)<br>     //压缩js代码插件<br>    const env = require(‘../config/prod.env’)</p>
-<pre><code>const webpackConfig = merge(baseWebpackConfig, {
-  module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true,
-      usePostCSS: true
-    })
-  },
-  devtool: config.build.productionSourceMap ? config.build.devtool : false,
-  output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath(&apos;js/[name].[chunkhash].js&apos;),
-     //生成dist文件下js文件app.后面的hash值
-    chunkFilename: utils.assetsPath(&apos;js/[id].[chunkhash].js&apos;)
-  },
-
-    new HtmlWebpackPlugin({ //dist下生成html文件，
-      filename: config.build.index,
-      template: &apos;index.html&apos;,
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: &apos;dependency&apos;
-    }),
-
-
-    new webpack.optimize.CommonsChunkPlugin({
-        //主逻辑文件
-      name: &apos;app&apos;,
-      async: &apos;vendor-async&apos;,
-      children: true,
-      minChunks: 3
-    }),
-
-    // copy custom static assets
-    new CopyWebpackPlugin([
-        //拷贝资源
-      {
-        from: path.resolve(__dirname, &apos;../static&apos;),
-        to: config.build.assetsSubDirectory,
-        ignore: [&apos;.*&apos;]
-      }
-    ])
-  ]
-})
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjojvrg34000dj8nsitvqaukh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-one" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/one/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/one/">HTML学习笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>HTML 全称Hyper Text Markup Language;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-    charset字符集编码，gb2312国家标准2312条 和gbk国家标准扩展简单，utf-8是unicod（万国码）的升级版；
-&lt;html lang=&quot;en&quot;&gt;
-    en：English的简写，zh：中文简写
-    告诉搜索引擎和爬虫，我们的网站是关于什么内容的；
-&lt;!DOCTYPE html&gt;
-    标准盒模型；
-    去掉或者写残的话就会变成怪异盒模型；    
-&lt;meta content=&apos;衣服&apos; name=&quot;keyword&quot;&gt;
-&lt;meta content=&apos;这是一件漂亮的衣服&apos; name=&quot;description&quot;&gt;
-    添加keyword和description便于搜索引擎搜索
-有序列表
-    &lt;ol type=&apos;1/a/A/i/I&apos; start=&apos;2&apos; reversed=&apos;reversed&apos;&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-    type是排序5种方法，start=&apos;2&apos;从第二个开始排列，reversed倒序排列；
-无序列表
-    &lt;ul type=&apos;disc/square/circle&apos;&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    type=&apos;实心圆/方块/空心圆&apos;
-img标签
-    &lt;img alt=&apos;this is fang&apos; title=&apos;my name is kk&apos;&gt;
-    alt图片占位符，title图片提示符
-a标签
-    a --&gt; anchor 锚
-    href --&gt; HyperText reference
-    1.超链接
-        &lt;a href=&apos;www.baidu.com&apos;&gt;baidu&lt;/a&gt;
-        &lt;a href=&apos;www.baidu.com&apos; target=&apos;_blank&apos;&gt;baidu&lt;/a&gt;在新标签中打开
-    2.锚点
-        &lt;a href=&quot;#demo&quot;&gt;find demo&lt;/a&gt;
-    3.打电话、发邮件
-        &lt;a href=&apos;tel:1389231&apos;&gt;&lt;/a&gt;
-        &lt;a href=&apos;mailto:12345@qq.com&apos;&gt;&lt;/a&gt;
-    4.协议限定符
-        &lt;a href=&apos;javascript:void(0)&apos;&gt;&lt;/a&gt;    
-form表单
-    &lt;form method=&apos;get/post&apos; action=&apos;http://213.com&apos;&gt;
-        &lt;p&gt;
-            username:&lt;input type=&apos;text&apos; name=&apos;usename&apos;&gt;
-        &lt;/p&gt;
-        &lt;p&gt;
-            password:&lt;input type=&apos;password&apos; name=&apos;password&apos;&gt;
-        &lt;/p&gt;
-        &lt;input type=&apos;submit&apos;&gt;
-    &lt;form&gt;
-input标签
-    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;1&apos;&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;star&apos; value=&apos;2&apos;&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;male&apos; checked&gt;
-    &lt;input type=&apos;radio&apos; name=&apos;sex&apos; value=&apos;female&apos;&gt;
-select标签
-    &lt;select name=&apos;province&apos;&gt;
-        &lt;option value=&apos;beijin&apos;&gt;beijing&lt;/option&gt;
-        &lt;option value=&apos;tianjin&apos;&gt;tianjian&lt;/option&gt;
-        &lt;option value=&apos;shanghai&apos;&gt;shanghai&lt;/option&gt;
-    &lt;/select&gt;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjojvrg2f0009j8ns8g5nk5q8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjokvjzoa0007s0ns0qfc0mpo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1838,6 +1622,14 @@ select标签
       <ul>
         
           <li>
+            <a href="/blog/2018/11/17/Less/">&#39;Less&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/16/webpack/">webpack</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/15/module/">module</a>
           </li>
         
@@ -1847,14 +1639,6 @@ select标签
         
           <li>
             <a href="/blog/2018/11/07/html5-SVG/">&#39;html5-SVG&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/05/h5-canvas/">h5-canvas</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
           </li>
         
       </ul>
