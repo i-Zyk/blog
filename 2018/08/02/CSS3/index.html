@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是css3？ css3是css2的升级版  css3的属性是向后兼容的，为了向前兼容css3做了前缀处理 -webkit chrome/safair -moz firefox -ms IE -o opera  css3兼容性查询网址 canluse http://www.runoob.com/cssref/css3-browsersupport.html 一、css3选择器     1、属性选">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-01T12:55:20.957Z">
+<meta property="og:updated_time" content="2018-11-21T13:36:10.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3">
 <meta name="twitter:description" content="什么是css3？ css3是css2的升级版  css3的属性是向后兼容的，为了向前兼容css3做了前缀处理 -webkit chrome/safair -moz firefox -ms IE -o opera  css3兼容性查询网址 canluse http://www.runoob.com/cssref/css3-browsersupport.html 一、css3选择器     1、属性选">
@@ -252,12 +252,37 @@ http://www.runoob.com/cssref/css3-browsersupport.html
     -webkit-background-clip:text;
 11.background-size 背景图片尺寸
     background-size：auto|长度值|百分比|cover|contain
+    cover：等比放大（或缩小）到把整个元素包裹住
+    contain: 等比放大（或缩小）到被整个元素包裹住
+
+    object-fit:cover|contain
+    ![11](../image/img1.png);
+    ![11](../image/img2.png);
+
 12.background-position 背景图片位置
+
+13. background-attachment:定义背景图片随滚动轴的移动方式
+
+local：
+scroll: 随着页面的滚动轴背景图片将移动
+fixed: 随着页面的滚动轴背景图片不会移动
+inherit: 继承初始值: scroll
+
+position:absolute;
+position:relative;
+position:fixed; 相对于浏览器窗口定位，脱离常规流
+position:sticky; 
+粘连定位，
+有时是static：元素四个边都在视口以为
+有时是fixed：元素有任意一边即将离开视口 
+同时它自身的布局box不能离开其包含块
+应用：通讯录标题切换效果()，导航悬浮效果（position:sticky; top：0；)
+position:static; 静态定位，不定位，position默认值
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjokvjznm0004s0nsirhfmg50" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjou1hrph0002swns94ns8n01" class="article-share-link">Share</a>
       
       
     </footer>
@@ -266,19 +291,19 @@ http://www.runoob.com/cssref/css3-browsersupport.html
     
 <nav id="article-nav">
   
-    <a href="/blog/2018/08/09/two/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2018/08/02/three/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          vue练习项目流程(一)
+          vue练习项目流程(二)
         
       </div>
     </a>
   
   
-    <a href="/blog/2018/08/02/three/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2018/08/02/book1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">vue练习项目流程(二)</div>
+      <div class="article-nav-title">读《javascript高性能》</div>
     </a>
   
 </nav>
@@ -315,6 +340,10 @@ http://www.runoob.com/cssref/css3-browsersupport.html
       <ul>
         
           <li>
+            <a href="/blog/2018/11/22/ES6/">ES6</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/17/Less/">&#39;Less&#39;</a>
           </li>
         
@@ -328,10 +357,6 @@ http://www.runoob.com/cssref/css3-browsersupport.html
         
           <li>
             <a href="/blog/2018/11/07/html5/">html5</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/07/html5-SVG/">&#39;html5-SVG&#39;</a>
           </li>
         
       </ul>

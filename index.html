@@ -64,6 +64,129 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/22/ES6/" class="article-date">
+  <time datetime="2018-11-22T12:50:11.000Z" itemprop="datePublished">2018-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/22/ES6/">ES6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><p>1995 Javascript 表单验证 LiveScript =&gt; JavaScript</p>
+<p>1996 Javascript 1.0 1.1</p>
+<p>1997 </p>
+<ul>
+<li><p>网景 Javascript</p>
+</li>
+<li><p>微软 JScript IE3</p>
+</li>
+<li><p>Nombas ScriptEase</p>
+</li>
+<li><p>ECMA 以javascript1.1 为蓝本 =&gt; ECMAScript1.0</p>
+</li>
+</ul>
+<p>1999 HTML4.0 ActiveX XMLHttpRequest web2.0</p>
+<p>2008 Chrome V8</p>
+<p>ES3.1 =&gt; 09 ES5</p>
+<p>=&gt; 15 ES6 ES2015</p>
+<p>ECMAScript</p>
+<p>ES3 ES5 ES6(let const)</p>
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>全局作用域 window</p>
+<p>函数作用域：由于函数执行产生的作用域被称为函数作用域</p>
+<p>块级作用域： {} 大括号内的都是块级作用域</p>
+<p>形式：{ }</p>
+<p>特点：在块级作用域当中定义的变量，他的作用域只会在当前的作用域下有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    var msg = &apos;hello world&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="let-amp-amp-const-可以识别块级作用域-var-不行"><a href="#let-amp-amp-const-可以识别块级作用域-var-不行" class="headerlink" title="let &amp;&amp; const 可以识别块级作用域 var 不行"></a>let &amp;&amp; const 可以识别块级作用域 var 不行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    let a = 10</span><br><span class="line">    var b = 10</span><br><span class="line">    &#123;</span><br><span class="line">        let c = 10</span><br><span class="line">        console.log(a)//10</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(c)//报错未定义</span><br><span class="line">&#125;</span><br><span class="line">console.log(a);//报错未定义</span><br><span class="line">console.log(b);//10</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let p = &apos;dxb&apos;</span><br><span class="line">let p = &apos;dxb&apos; //重复声明报错</span><br><span class="line"></span><br><span class="line">console.log(name) //报错，name is not defined。没有变量提升</span><br><span class="line">let name = 10 </span><br><span class="line"></span><br><span class="line">typeof name  //报错，暂时性死区（TDZ temporal dead zone）</span><br><span class="line">let name= 10</span><br></pre></td></tr></table></figure>
+<p>暂时性死区：javascript 引擎在扫描代码的时候</p>
+<ul>
+<li><p>var 声明  变量声明整体提升</p>
+</li>
+<li><p>let a = 1 把a放到TDZ当中</p>
+</li>
+<li><p>如果使用的变量在 TDZ 当中就会报错</p>
+</li>
+<li><p>let a = 1 在遇到声明变量的那段代码的时候 把 a 从TDZ中拿出</p>
+</li>
+</ul>
+<ol>
+<li>TDZ = [ name ]</li>
+<li>//typeof name x<br>let name<br>TDZ = []<br>name = 11<br>必须先定义在执行</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let x = x //报错</span><br><span class="line">因为先用右边的X 在声明左边X</span><br><span class="line"></span><br><span class="line">let x = 10</span><br><span class="line">&#123;   </span><br><span class="line">    TDZ = [x]</span><br><span class="line">    let x = x //报错</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let i = &apos;a&apos;</span><br><span class="line">for (let i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    let i</span><br><span class="line">    console.log(&apos;scope2&apos;)</span><br><span class="line">&#125;</span><br><span class="line">console.log(i) // a</span><br><span class="line">这三个let不在同一个作用域内</span><br><span class="line"></span><br><span class="line">let i = &apos;window&apos; //window</span><br><span class="line">&#123;</span><br><span class="line">    let i = 0</span><br><span class="line">    while(i++ &lt; 10&gt;)</span><br><span class="line">    &#123;</span><br><span class="line">        let i</span><br><span class="line">        console.log(&apos;scope2&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(i)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var 的话有闭包问题</span><br><span class="line"></span><br><span class="line">for(let i = 0; i&lt;10;i++)&#123;</span><br><span class="line">    arr[i] = function () &#123;</span><br><span class="line">        console.log(i) //6</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">arr[6]()</span><br></pre></td></tr></table></figure>
+<h2 id="const-常量"><a href="#const-常量" class="headerlink" title="const 常量"></a>const 常量</h2><p>和 let唯一不同就是变量地址不能变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const PI = 3.14</span><br><span class="line">PI = 3 //报错 Assignment to constant variable</span><br><span class="line"></span><br><span class="line">const OBJ = &#123;&#125;</span><br><span class="line">OBJ.a = 123 //正常运行</span><br></pre></td></tr></table></figure></p>
+<h1 id="ES6-函数"><a href="#ES6-函数" class="headerlink" title="ES6 函数"></a>ES6 函数</h1><p>var person = function () {}<br>//函数（方法），构造函数，call，apply</p>
+<p>//bind 返回有明确this指向的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function show() &#123;</span><br><span class="line">    console.log(&apos;window&apos;)</span><br><span class="line">&#125;</span><br><span class="line">show()</span><br><span class="line"></span><br><span class="line">function Person(name) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;</span><br><span class="line">var p1 = new Person(&apos;wxb&apos;)</span><br><span class="line">Person.call(window,&apos;window&apos;)</span><br></pre></td></tr></table></figure>
+<p>// 闭包<br>// 返回长度为n的随机数字符串的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Random(n) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">let random8 = Random(8)</span><br><span class="line"></span><br><span class="line">random8()</span><br></pre></td></tr></table></figure></p>
+<h2 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h2><ol>
+<li><p>函数的默认值</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">    this.name = name === undefined ? &apos;none&apos; : name</span><br><span class="line">&#125;</span><br><span class="line">let p = new Person(&apos;wxb&apos;)</span><br><span class="line">let P1 = new Person()</span><br><span class="line">let p2 = new Person(null)</span><br><span class="line">let p3 = new Person(undefined)</span><br><span class="line">let p4 = new Person(0)</span><br><span class="line">let p5 = new Person(&apos;&apos;)</span><br><span class="line">let p6 = new Person(false)</span><br><span class="line"></span><br><span class="line">ES6函数的默认值 写法</span><br><span class="line">function Person(name = &apos;none&apos;) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;</span><br><span class="line">let p = new Person(&apos;wxb&apos;)</span><br><span class="line">let P1 = new Person()</span><br><span class="line">let p2 = new Person(null)</span><br><span class="line">let p3 = new Person(undefined)</span><br><span class="line">let p4 = new Person(0)</span><br><span class="line">let p5 = new Person(&apos;&apos;)</span><br><span class="line">let p6 = new Person(false)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// argunemts 对默认函数的影响</span><br><span class="line">function max(num1, num2) &#123;</span><br><span class="line">    //&quot;use strict&quot; arguments不兼容</span><br><span class="line">    console.log(num1, arguments[0])</span><br><span class="line">    console.log(num2, arguments[1])</span><br><span class="line">    num1 = 4</span><br><span class="line">    console.log(num1, arguments[0])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用默认值和严格模式一样</span><br><span class="line"> function max(num1 = 0, num2) &#123;</span><br><span class="line">    //&quot;use strict&quot; arguments不兼容</span><br><span class="line">    console.log(num1, arguments[0])</span><br><span class="line">    console.log(num2, arguments[1])</span><br><span class="line">    num1 = 4</span><br><span class="line">    console.log(num1, arguments[0])</span><br></pre></td></tr></table></figure>
+<h3 id="惰性求值"><a href="#惰性求值" class="headerlink" title="惰性求值"></a>惰性求值</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getValue() &#123;</span><br><span class="line">    console.log(&apos;hello&apos;)</span><br><span class="line">    return 6</span><br><span class="line">&#125;</span><br><span class="line">function count(n, m = getValue()) &#123;</span><br><span class="line">    console.log(n + m)</span><br><span class="line">&#125;</span><br><span class="line">conut(1,1) //2</span><br><span class="line">conut(1) //hello  7</span><br></pre></td></tr></table></figure>
+<h3 id="TDZ"><a href="#TDZ" class="headerlink" title="TDZ"></a>TDZ</h3><h3 id="无命名参数和扩展运算符"><a href="#无命名参数和扩展运算符" class="headerlink" title="无命名参数和扩展运算符"></a>无命名参数和扩展运算符</h3><ol>
+<li>默认值的问题</li>
+<li>参数不定的时候，通过argeuments去访问，通过下标访问，不直接，不方便</li>
+<li><p>箭头函数不支持arguments</p>
+<p>// 把若干数字 +1，添加到指定数组当中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function count(arr, ...arg) &#123; </span><br><span class="line">    console.log(arg)</span><br><span class="line">    console.log(arguments)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// 每个不定函数当中最多有且只能有一个不定参数</p>
+<p>// 在每个函数中，最多有且只能有一个不定参数，不可以有默认值，必须是最后一个参数</p>
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p>… 扒掉括号([], {})<br>…[1,2,4,[5]] = 1,2,4,[5]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [1,3,4,4,5] </span><br><span class="line">var arr2 = [4,4,5,6,7] </span><br><span class="line">var arr3 = [...arr1, ...arr2]</span><br></pre></td></tr></table></figure>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2></li>
+</ol>
+<ul>
+<li><p>基本结构 () =&gt; {} </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let getName = name =&gt; name</span><br><span class="line">// 对于小括号（）函数的参数有且只有一个，才可以不写（）</span><br><span class="line">// 对于 &#123;&#125; 函数体仅仅只有一条语句的时候 不写</span><br><span class="line">let getName1 = function (name) &#123;</span><br><span class="line">    return name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let show = (name, age) =&gt; console.log(name, age)</span><br><span class="line"></span><br><span class="line">// 在箭头函数中，返回对象</span><br><span class="line">let returnObj  = (name) =&gt; (&#123;name: name&#125;)</span><br><span class="line"></span><br><span class="line">// 立即执行箭头函数</span><br><span class="line">let fn = ((name) =&gt; console.log(name))(&apos;wxb&apos;)</span><br><span class="line"></span><br><span class="line">let fn = (name =&gt; name)(&apos;wxb&apos;)</span><br><span class="line">let name = function (name) &#123;return name&#125;(&apos;wxb&apos;)</span><br></pre></td></tr></table></figure>
+<p>// 箭头函数中没有this 没有arguments， super（class），prototype</p>
+<p>// 不能被new操作符执行<br>// let fn = () =&gt; {}<br>// new fn()</p>
+<p>// 箭头函数不能被作为构造函数，更多功能用于计算，数据流向，方便javascript引擎优化代码</p>
+<p>// 箭头函数具有绑定 this 的能力</p>
+<p>// this绑定分为四种</p>
+</li>
+</ul>
+<ol>
+<li>默认绑定（空执行函数，函数单纯执行，this指向window）</li>
+<li>隐式绑定（谁调用this指向谁）</li>
+<li>显式绑定（apply call bind）</li>
+<li><p>new绑定</p>
+<p>// 箭头函数中没有this， 箭头函数具有绑定this的能力，箭头函数中绑定的this 是<br>// 绑定离自己最近的非箭头函数 作用域中的this<br>// 箭头函数的非箭头函数产生的父级作用域， this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj3 = &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/22/ES6/" data-id="cjou1hrns0000swnsynxtyijj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Less" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/11/17/Less/" class="article-date">
@@ -112,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/17/Less/" data-id="cjokvjzm70000s0ns0zi4sxit" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/17/Less/" data-id="cjou1hrpt0004swns68uypjis" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,11 +309,12 @@
 <p>webpack </p>
 <p>webpack –watch 监听文件变化</p>
 <p>webpack-dev-server 开启服务器 可自动刷新（先下载，因为有时候不在本地预览了 npm install webpack-dev-server -D ）</p>
+<p> <img src="../image/webp.jpg" alt="webpack的看法"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/16/webpack/" data-id="cjokvjzpj000cs0nsal634qtj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/16/webpack/" data-id="cjou1hrse000gswnsjw43sa7m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -293,7 +417,7 @@ browserify main.js -o bundle.js
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/15/module/" data-id="cjokvjzq4000fs0nsi9rqwxmo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/15/module/" data-id="cjou1hrs1000eswnsj417ciu3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -667,7 +791,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjokvjzoq0009s0nssm6dx695" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjou1hrrb000aswnskyyxq4gc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -844,7 +968,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjokvjzp3000as0nsupipf6g6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjou1hrqp0009swns2plfc1wp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1043,7 +1167,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjokvjzo10006s0ns8rbqagwe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjou1hrqj0008swnslwb9vvij" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1269,7 +1393,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjokvjzn00002s0ns17zlzvlj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjou1hrq50006swnsspzyxz3k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1326,7 +1450,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjokvjznv0005s0nsplnbjdu1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjou1hrpz0005swns386zy0di" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1377,12 +1501,14 @@ document.cookie = &quot;name=scott;expires=...&quot;;
 <p>rotate() translate()</p>
 <p>##transform-origin 变换原点</p>
 <p>任何一个元素都有一个中心点，默认情况下，其中心点是居于元素x轴和y轴的50%处，</p>
-<p>##transition 过渡动画</p>
-<p>transition 属性是css3的一个复合属性，主要包括以下几个子属性</p>
+<h2 id="transition-过渡动画"><a href="#transition-过渡动画" class="headerlink" title="transition 过渡动画"></a>transition 过渡动画</h2><p>transition 属性是css3的一个复合属性，主要包括以下几个子属性</p>
+<p>transition: transition-property, transition-duration, transition-timing-function, transition-delay</p>
 <p>transition-property：指定过渡或动态模拟的css属性</p>
 <p>transition-duration：指定过渡所需要的时间</p>
 <p>transition-timing-function：指定过渡函数</p>
 <p>transition-delay: 指定开始出现的延迟时间</p>
+<p>transition: left, 1s, linear, 2s;</p>
+<h2 id="steps功能符"><a href="#steps功能符" class="headerlink" title="steps功能符"></a>steps功能符</h2><p>(张旭鑫博客)[<a href="https://www.zhangxinxu.com/wordpress/2018/06/css3-animation-steps-step-start-end/]" target="_blank" rel="noopener">https://www.zhangxinxu.com/wordpress/2018/06/css3-animation-steps-step-start-end/]</a></p>
 <h2 id="3D变换"><a href="#3D变换" class="headerlink" title="3D变换"></a>3D变换</h2><p>transform-style：flat | presserve-3d</p>
 <p>flat：默认，子元素将不保留其3D位置</p>
 <p>preserve-3d：子元素将保留其3D位置</p>
@@ -1412,171 +1538,7 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjokvjzoi0008s0nsvhkxjo4s" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-css3-二" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/11/01/css3-二/" class="article-date">
-  <time datetime="2018-11-01T12:15:17.000Z" itemprop="datePublished">2018-11-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/11/01/css3-二/">css3(二)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Columns多列布局"><a href="#Columns多列布局" class="headerlink" title="Columns多列布局"></a><strong>Columns</strong>多列布局</h2><p>为了能在web页面中方便实现类似报纸、杂志那种多列排版的布局，w3c特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在web页面上实现这样的效果还是有相当大得难度，庆幸的是，CSS3的多列布局可以轻松实现。</p>
-<p><em>语法：</em></p>
-<p><code>columns:[column-width][column-count];</code></p>
-<p>column-width: 指每一列的宽度 根据容器宽度自适应（最小宽度）</p>
-<p>column-count：指规定的列数 唯一精准的是列数</p>
-<p>不要两一起使用 会乱</p>
-<p>column-gap: 设置列与列之间的宽度，直接用数值表示即可（eg：10px）</p>
-<p>column-gap主要用来设置列与列之间的间距 如果没有显示设置column-gap值时，其值大小会更具流浪器默认的<strong>font-size</strong>来定</p>
-<p><code>column-rule</code></p>
-<p>是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置。</p>
-<p>column-rule-width: 宽度 类似于border-width属性，主要用来定义列边框的宽度，其默认值为”medium“。</p>
-<p>column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin</p>
-<p>column-rule-style属性值与border-style属性值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset</p>
-<p>column-rule-color: 颜色</p>
-<p>类似于border-color属性</p>
-<p><code>column-span:1/all</code></p>
-<p>设置多列布局元素内的子元素，可以跨域，类似标题效果。即一个新闻标题要横跨所有内容列。注：此属性要在子元素上设置</p>
-<h2 id="HSL-颜色值"><a href="#HSL-颜色值" class="headerlink" title="HSL 颜色值"></a><strong>HSL</strong> 颜色值</h2><p>颜色值HSL</p>
-<p>HSL和RGB一样，同属于工业界的一种颜色标准，通过对色调H、饱和度(S)、亮度(L)三个颜色通道的变化以及他们互相之间的叠加得到各式各样的颜色的。</p>
-<p><em>语法</em></p>
-<p><code>Color: hsl(h,s,l);</code></p>
-<p>H: 色调。取整数值</p>
-<p>S: 饱和度，就是颜色的深浅和鲜艳程度，取百分值</p>
-<p>L: 亮度。取值和饱和度一样0% ~ 100%</p>
-<h2 id="CSS3盒模型"><a href="#CSS3盒模型" class="headerlink" title="CSS3盒模型"></a><strong>CSS3盒模型</strong></h2><p>在css中盒模型分为两种：</p>
-<p>1.w3c盒模型</p>
-<p>2.IE6混杂盒模型</p>
-<p>css3中有一个可以选择盒模型的属性</p>
-<p><code>box-sizing:border-box/content-box</code></p>
-<p>content-box为w3c标准盒子</p>
-<p>border-box为IE6混杂模式的盒子</p>
-<h2 id="css3内容溢出"><a href="#css3内容溢出" class="headerlink" title="css3内容溢出"></a><strong>css3内容溢出</strong></h2><p><code>overflow-x: visible | hidden | scroll | auto</code></p>
-<p><code>overflow-y: visible | hidden | scroll | auto</code></p>
-<p>visible: 默认值。表示不见且容器中的任何内容，不添加滚动条，元素将被剪切为包含对象的窗口大小，而且clip属性设置将失败</p>
-<p>auto：在需要时剪切内容并添加滚动条。也就是说当内容超过容器的宽度或者高度时，溢出的内容将会隐藏在容器中，并且会添加滚动条，用户可以拖动滚动条查看隐藏在容器中的内容。</p>
-<p>hidden：内容溢出容器时，所有内容都将隐藏，而且不显示滚动条。</p>
-<p>scroll：不管内容有没有溢出容器，overflow-x都会显示横向的滚动条，而overflow-y显示纵向滚动条</p>
-<h2 id="CSS3内容缩放属性-resize"><a href="#CSS3内容缩放属性-resize" class="headerlink" title="CSS3内容缩放属性 resize"></a>CSS3内容缩放属性 resize</h2><p>resize：主要是用来改变元素尺寸大小的，其主要目的是增强用户体验</p>
-<p><code>resize：none| both | horizontal | vertical | inherit</code></p>
-<p>none：用户不能拖拽元素修改大小</p>
-<p>both：用户可以拖动元素，同时修改元素的宽度和高度</p>
-<p>horizontal：用户可以拖动元素，仅可以修改元素的宽度，不能修改高度</p>
-<p>vertical：用户可以拖动元素，尽可改变元素的高度，但不能改变元素高度</p>
-<p>inherit：继承父元素的resize属性值</p>
-<p>IE不兼容，常用在textarea中</p>
-<p>##<strong>CSS3弹性盒模型flex</strong></p>
-<p>弹性盒子display：flex</p>
-<p>flex为复合属性，且必须配合父元素display：flex使用。</p>
-<p>以下6个属性设置在项目（子元素）上：</p>
-<ul>
-<li>flex-grow：放大比例</li>
-<li>flex-shrink：缩小比例</li>
-<li>flex-basis：伸缩基准值</li>
-<li>flex：是flex-grow，flex-shrink和flex-basis的简写</li>
-<li>order：排列顺序</li>
-<li>align-self：单个项目对齐方式</li>
-</ul>
-<p>###术语</p>
-<p>1.主轴和侧轴：</p>
-<p>主轴、主轴方向：伸缩容器的主轴，伸缩项目主要沿着这一条轴进行布局，取决于justify-content，默认是水平的 如果justify-content：column则为纵向的</p>
-<p>侧轴、侧轴方向：于主轴垂直的轴称为侧轴，取决于主轴</p>
-<p>2.伸缩容器和伸缩项目：</p>
-<p>伸缩容器：设置display：flex的元素</p>
-<p>伸缩项目：其下的子元素</p>
-<p>##flex-grow</p>
-<p>1.flex-grow</p>
-<p>根据所设置的比例分配盒子所剩余的空间</p>
-<p>拓展：左右两栏布局 默认值为0；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">    flex-grow:number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.flex-shrink</p>
-<p>置元素的收缩比例——多出盒子的部分，按照比例的大小砍掉相应的大小，即比例越大，被砍的越大，默认值1；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  flex-shrink:number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>eg:盒子400px；三个子元素200px；多出200px；</p>
-<p>缩减的宽度=（flex-shrink1 <em> width1）/（flex-shrink1 </em> width1+flex-shrink2 <em> width2）</em> moreWidth</p>
-<p>3.flex-basis</p>
-<p>伸缩基准值，项目占据主轴的空间</p>
-<p>该属性设置元素的宽度或高度，当然width也可以用来设置元素宽度，如果元素上同时出现了width和flex-basis那么flex-basis会覆盖width的值</p>
-<p>子元素宽度尽可能按照basis来如果基准值相加大于容器宽度那么 下面由下面公式分配宽度给子元素</p>
-<p>（flex-basis/（flex-basis相加）） * 容器的宽度</p>
-<p>4.flex</p>
-<p>常用简化写法</p>
-<p>flex:1 –&gt; flex:1 1 0%;</p>
-<p>flex:3 –&gt; flex:3 1 0%;</p>
-<p>注意：flexbox布局和原来的布局是两个概念，部分css属性在flexbox盒子里面不起作用，</p>
-<p>eg：float，clear，column，vertical-align 等等</p>
-<p>真实情况：<br>  son1 = (flex-shrink) * flex-basis</p>
-<p>  son2 = (flex-shrink) * flex-basis…</p>
-<p>  sonN = (flex-shrink) * flex-basis</p>
-<p>  加权值 = son1 + son2 + … + sonN</p>
-<p>  压缩的宽度 w = (子元素flex-basis值 <em> (flex-shrink)/加权值) </em> 溢出值</p>
-<p>  缩减值1：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
-<p>  缩减值2：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
-<p>  缩减值3：(flex-basis1 <em> 1/加权值) </em> 溢出值</p>
-<p>  最后son1、son2、son3，的实际宽度为：</p>
-<p>  flex-basisn - 缩减值n = son n 真实宽度</p>
-<p>  5.order</p>
-<p>  number定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  order:number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  6.align-self</p>
-<p>  align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  align-self:auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  以下6个属性设置在容器上：</p>
-<ol>
-<li><p>flex-direction 决定主轴的方向</p>
-</li>
-<li><p>flex-wrap 是否换行</p>
-</li>
-<li><p>flex-flow flex-direction和flex-wrap的简写</p>
-</li>
-<li><p>justify-content 项目在主轴上的对齐方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line"> justify-content:flex-start | flex-end | center | space-between (每两个项目之间空白相同)| space-around(每个项目的两边空白是相同的);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>align-items 在侧轴上如何对齐<br>.demo {<br>align-items:flex-start | flex-end | center | baseline | stretch;<br>}</p>
-</li>
-<li><p>align-content 多根轴线的对齐方式</p>
-<p>flex-flow:flex-direction | flex-wrap</p>
-<p>flex-direction:row | row-reverse | column | column-reverse</p>
-<p>flex-wrap:nowrap(默认) | wrap | wrap-reverse 溢出换行问题</p>
-<p>当设置flex-grow属性的时候wrap失效，flex-basis尽可能按basis值往大了去从而达到折行的目的，flex-shrink会失效（根据子元素实际的宽度判断是否折行）</p>
-<p>检索弹性盒子元素在主轴（横轴）方向上的对齐方式</p>
-<p>justify-content:center;作用多行元素单行都可以</p>
-<p>当伸缩容器的侧轴还有多余空间是，本属性可以用来调准[ 伸缩行 ]在伸缩容器里的对齐方式</p>
-<p>align-content：center；注此方法在盒子里只有一行元素时，不生效</p>
-<p>定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式</p>
-<p>align-items：center；在水平（垂直）的轴上居中</p>
-<p>左右垂直居中问题</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjokvjzoa0007s0ns0qfc0mpo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjou1hrsq000iswnsg25cktwr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1622,6 +1584,10 @@ document.cookie = &quot;name=scott;expires=...&quot;;
       <ul>
         
           <li>
+            <a href="/blog/2018/11/22/ES6/">ES6</a>
+          </li>
+        
+          <li>
             <a href="/blog/2018/11/17/Less/">&#39;Less&#39;</a>
           </li>
         
@@ -1635,10 +1601,6 @@ document.cookie = &quot;name=scott;expires=...&quot;;
         
           <li>
             <a href="/blog/2018/11/07/html5/">html5</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/07/html5-SVG/">&#39;html5-SVG&#39;</a>
           </li>
         
       </ul>
