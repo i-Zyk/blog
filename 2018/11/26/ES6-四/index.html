@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ES6(四) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ES6 String and Array ES5 String   字符串方法  charAt() charCodeAt()  slice(start=0, end=this.length) [start, end) indexOf(str, start=0) 成功：起始索引 失败：-1 split(‘,’)  互逆：join() toUpperCase()  toLowerCase()   ES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6(四)">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/ES6-四/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ES6 String and Array ES5 String   字符串方法  charAt() charCodeAt()  slice(start=0, end=this.length) [start, end) indexOf(str, start=0) 成功：起始索引 失败：-1 split(‘,’)  互逆：join() toUpperCase()  toLowerCase()   ES">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-26T11:15:29.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6(四)">
+<meta name="twitter:description" content="ES6 String and Array ES5 String   字符串方法  charAt() charCodeAt()  slice(start=0, end=this.length) [start, end) indexOf(str, start=0) 成功：起始索引 失败：-1 split(‘,’)  互逆：join() toUpperCase()  toLowerCase()   ES">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6-四" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/26/ES6-四/" class="article-date">
+  <time datetime="2018-11-26T06:10:01.000Z" itemprop="datePublished">2018-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6(四)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ES6-String-and-Array"><a href="#ES6-String-and-Array" class="headerlink" title="ES6 String and Array"></a>ES6 String and Array</h2><ul>
+<li>ES5 String</li>
+</ul>
+<ol>
+<li>字符串方法  charAt() charCodeAt() </li>
+<li>slice(start=0, end=this.length) [start, end)</li>
+<li>indexOf(str, start=0) 成功：起始索引 失败：-1</li>
+<li>split(‘,’)  互逆：join()</li>
+<li>toUpperCase()  toLowerCase()</li>
+</ol>
+<ul>
+<li>ES6 String</li>
+</ul>
+<ol>
+<li>字符串的识别  indexOf()</li>
+<li>includes(str, start)  是否包含给字符串<br><code>let str = &#39;hello wrold&#39; str.includes(&#39;hell&#39;)</code></li>
+<li>startsWith  endsWith<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let str = &apos;you hello wrold heart&apos;</span><br><span class="line">console.log(str.startsWith(&apos;you&apos;), str.endsWith(&apos;heart&apos;)) // true true</span><br><span class="line">console.log(str.startsWith(&apos;u&apos;,2), str.endsWith(&apos;u&apos;,3)) // true true</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>前后缀比较<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let stuffList = [</span><br><span class="line">    &apos;Google-Page&apos;,</span><br><span class="line">    &apos;Alibaba-my&apos;,</span><br><span class="line">    &apos;Tencent-mht&apos;,</span><br><span class="line">    &apos;FaceBook-Zuckerberg&apos;,</span><br><span class="line">    &apos;Duyi-ding&apos;,</span><br><span class="line">    &apos;Duyi-song&apos;,</span><br><span class="line">    &apos;Duyi-cheng&apos;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">let DuyiStuffs = stuffLists.filter(stuff =&gt; stuff.startsWith(&apos;Duyi-&apos;))</span><br><span class="line"></span><br><span class="line">// .com  .gov .net .cn .edu .... 域名分类</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
+<li>repeat</li>
+</ol>
+<ul>
+<li>产生由 10 个 * 组成的字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let str = &apos;*&apos;.repeat(10) // 比循环简单</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="5">
+<li>模板字符串   模板  </li>
+</ol>
+<ul>
+<li>取代了字符串拼接</li>
+</ul>
+<p>‘[]’ love ‘[]’   ‘’ “” <code></code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let name1 = &apos;I&apos;</span><br><span class="line">let name2 = &apos;you&apos;</span><br><span class="line">let str = `$&#123;name1&#125; love $&#123;name2&#125;` </span><br><span class="line">name1 = &apos;she&apos;</span><br><span class="line">let str2 = name1 + &apos; love &apos; + name2</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>字符串的回车换行问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let str = `&lt;div&gt;</span><br><span class="line">            &lt;span&gt;&lt;/span&gt;</span><br><span class="line">           &lt;/div&gt;`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>${}  原始值  引用值  表达式  函数 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125; =&gt; [object Object] [1,2,3] =&gt; 1,2,3  // 会调用 toString 方法</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板字符串的优点</p>
+<ol>
+<li>更标准的字符串，更好的处理了字符串拼接问题</li>
+<li>语义化更好</li>
+<li>防止注入  XSS</li>
+</ol>
+</li>
+<li><p>标签模板  标签 =&gt; 函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">parseInt`12$&#123;3&#125;`</span><br><span class="line">parseInt(12,3)</span><br><span class="line">parseInt([&apos;12&apos;, &apos;&apos;],3)</span><br><span class="line"></span><br><span class="line">function print(arg1, arg2) &#123;</span><br><span class="line">    conlose.log(arguments)</span><br><span class="line">    conlose.log(arg1, arg2)</span><br><span class="line">&#125;</span><br><span class="line">// [12,4,&apos;&apos;],3,5</span><br><span class="line">print`12$&#123;3&#125;4$&#123;5&#125;`</span><br><span class="line"></span><br><span class="line">// [12,4,&apos;6&apos;],3,5</span><br><span class="line">print`12$&#123;3&#125;4$&#123;5&#125;6`</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>按照模板分开，[‘12’,’4’,’6’]</li>
+<li>有几个模板，就把这几个模板中的值做成参数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注入</span><br><span class="line">let name = &apos;&lt;script&gt;console.log(&apos;中招了&apos;)&lt;\/script&gt;&apos;</span><br><span class="line">document.write(`&lt;p&gt;你好，$&#123;name&#125;&lt;/p&gt;`)</span><br><span class="line"></span><br><span class="line"> let name = &apos;&lt;script&gt;console.log(&apos;中招了&apos;)&lt;\/script&gt;&apos;</span><br><span class="line"></span><br><span class="line"> function safeHTML(arr, name) &#123;</span><br><span class="line">     return `$&#123;arr[0]&#125;$&#123;name.replace(/&amp;/g,&apos;&amp;amp;&apos;).replace(/&lt;/g,&apos;&amp;lt;&apos;&gt;).replace(/&gt;/g, &apos;&amp;gt;&apos;)&#125;$&#123;arr[1]&#125;`</span><br><span class="line"> &#125;</span><br><span class="line">document.write(safeHTML`&lt;p&gt;你好，$&#123;name&#125;&lt;/p&gt;`)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="ES6-数组"><a href="#ES6-数组" class="headerlink" title="ES6 数组"></a>ES6 数组</h2><ul>
+<li><p>ES5 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array(9)  // 数字有且只有一个参数的时候，创建一个长度为n的数组</span><br><span class="line">var arr1 = new Array(&apos;7&apos;) // 非数字m 创建一个数组[m]</span><br><span class="line">var arr2 = new Array(&apos;1&apos;,2,3) // 多个参数，返回由多个参数构成的数组</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Array.of  加强的Array构造函数  统一返回由参数构成的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr3 = Array.of(9) // [9]</span><br><span class="line">var arr4 = Array.of(&apos;5&apos;) // [&apos;5&apos;]</span><br><span class="line">var arr5 = Array.of(&apos;1&apos;,2,3) // [&apos;1&apos;,2,3]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Array.from 将类数组转化成数组  arguments NodeList</p>
+<ol>
+<li>为什么要把类数组转化成数组？  通过操作数组的方法操作类数组</li>
+<li>怎么转换<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var realArr = Array.from(likeArr) </span><br><span class="line">// let arr = [...likeArr]</span><br><span class="line">// Array.prototype.filter.call(likeArr)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ES5 indexOf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,5,NaN]</span><br><span class="line">console.log(arr.indexOf(5))  // 4 对应的下标</span><br><span class="line">console.log(arr.indexOf(NaN))  // 失败返回-1 有限制</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6 find(fn)模糊查找  findIndex(fn)精确查找 </p>
+</li>
+</ul>
+<ol>
+<li>find(fn) 模糊查找 </li>
+<li><p>findIndex(fn) 精确查找 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,5,NaN]</span><br><span class="line">console.log(arr.find(x =&gt; Object.is(x, NaN)))</span><br><span class="line">console.log(arr.findIndex(x =&gt; x &gt; 2)) // 2 大于2的在第二个位置上（索引）  找到后立即停止</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fill(valu, start=0, end=lenght) 初始化填充操作</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/26/ES6-四/" data-id="cjozvsxfc000704nssddwuws7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/11/26/ES6-五/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES6(五)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/11/24/ES6-三/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6(三)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-Promise/">ES6-Promise</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-class/">ES6-class</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/26/ES6-四/">ES6(四)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/24/ES6-三/">ES6(三)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

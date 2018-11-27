@@ -64,6 +64,1127 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-html5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/07/html5/" class="article-date">
+  <time datetime="2018-11-07T11:51:22.000Z" itemprop="datePublished">2018-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/07/html5/">html5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="优化动画、存储、历史记录、worker异步"><a href="#优化动画、存储、历史记录、worker异步" class="headerlink" title="优化动画、存储、历史记录、worker异步"></a>优化动画、存储、历史记录、worker异步</h2><h3 id="计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅-一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿"><a href="#计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅-一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿" class="headerlink" title="计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿"></a>计时器做动画有缺陷，因为js是单线成的，在动画运行前插入一个任务，会完成这个任务后在执行动画，如果执行任务花费的时间长的话就会影响动画效果，所以计时器做动画不是最优的选择，还有计时器需要设置时间，设置的时间也不那么准确的确定动画运行流畅;一般浏览器15-16ms会刷新，设置小了会掉帧；打了有卡顿</h3><ol>
+<li><p>requestAnimationFrame 可以弥补计时器缺点；浏览器一刷新就执行</p>
+<p> 1) 页面刷新前执行一次</p>
+<p> 2) 1000ms 60fps –&gt; 16ms</p>
+<p> 3) cancelAnimationFrame</p>
+<p> 4) 用法和setTimeout类似</p>
+<p> 5) 兼容性 IE10以上;向前兼容用计时器</p>
+<p> requestAnimationFrame(f)</p>
+<p> cancelAnimationFrame(id)</p>
+<p> <img src="../image/h5-raf.png" alt="兼容性写法"><br>  <img src="../image/h5-raf2.png" alt="兼容性写法"></p>
+</li>
+<li><p>客户端存储</p>
+<p> 1) storage</p>
+<ul>
+<li><p>localstorage</p>
+<p>存</p>
+<p><code>loaclStorage.name = &#39;aimee&#39;</code></p>
+<p><code>loaclStorage.info = JSON.stringify({name:&#39;aimee&#39;,company:&#39;dy&#39;})</code></p>
+<p>取出数据</p>
+<p><code>localStroage.name</code></p>
+<p><code>JSON.parse(localStorage.info)</code></p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2></li>
+</ul>
+<ol>
+<li>setItem(name,val) 设置属性值</li>
+<li>getItem(name) 获得属性值</li>
+<li>removeItem(name) 移除属性</li>
+<li>clear() 清除属性</li>
+</ol>
+</li>
+</ol>
+<pre><code>存储的有效期
+
+localStorage --&gt; 永久的，除非手动删除
+
+sessionStorage --&gt; 临时，窗口关闭就没有了
+
+cookie --&gt; 设置有效期，在有效期内存在
+
+作用域
+
+localStorage --&gt; 文档源限制
+
+sessionStorage --&gt; 文档源限制 + 窗口
+
+cookie --&gt;    
+
++ seesionstorage 
+
+2) cookie
+
+存储信息到用户的设备上，数据量较小
+
+navigator.cookieEnabled
+
+检测是否启用了cookie
+
++ 设置cookie值：
+
+document.cookie = &quot;name=aimee&quot;
+
+(每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性)
+
++ 获得cookie值：
+
+document.cookie
+
+不建议出现分号，逗号，空格的奇怪的符号
+
+encodeURIComponent()
+
+decodeURIComponent()
+
+设置cookie存储期限
+
+1. document.cookie = &quot;name=scott;max-age=1000&quot;
+2. expires 当前时间加上保存时间
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime() + 10000;</span><br><span class="line">var expires = new Date(timestamp).toGMTString();</span><br><span class="line">document.cookie = &quot;name=scott;expires=&quot;+expires;</span><br></pre></td></tr></table></figure>
+
+3. domain
+4. path
+
+删除cookie max-age = 0
+
+需要带上键值对
+
+document.cookie = &quot;name=scott;max-age=0&quot;
+
+expires 设置为之前的时间
+
+document.cookie = &quot;name=scott;expires=...&quot;;
+</code></pre><ol start="3">
+<li><p>历史记录</p>
+</li>
+<li><p>worker</p>
+</li>
+</ol>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><ol>
+<li>history.back()</li>
+<li>history.forward()</li>
+<li>history.go(n)</li>
+</ol>
+<p>为什么要管理历史记录？</p>
+<p>history api的作用？</p>
+<p>SPA</p>
+<p>通过修改hash和hashchange事件来实现历史记录管理</p>
+<p>点击导航的时候有链接跳转，就不是单页面应用了；点击导航的时候页面不跳转，只是内容更换</p>
+<ol>
+<li>pushState</li>
+</ol>
+<p>history.pushState(state,title,url); 添加一条历史记录</p>
+<ol start="2">
+<li>replaceState</li>
+</ol>
+<p>history.replaceState(state,title,url); 替换当前的历史记录</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>state： 一个与指定网址相关的状态对象，popstate事件触发时，该对象会传入回调函数中。如果不需要这个对象，此处可以填null</li>
+<li>title： 新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null</li>
+<li>url： 新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址</li>
+</ul>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><ol>
+<li>popstate 事件</li>
+</ol>
+<p>历史记录发生改变时触发</p>
+<p>调用history.pushState()或者history.replaceState()不会触发popstate事件</p>
+<ol start="2">
+<li>hashchange 事件</li>
+</ol>
+<p>当页面的hash值改变的时候触发，常用于构建单页面应用</p>
+<p><img src="../image/h5-spa.png" alt=""></p>
+<h2 id="Worker"><a href="#Worker" class="headerlink" title="Worker"></a>Worker</h2><p>var worker = new Worker(‘worker.js’);</p>
+<p>worker文件必须和主文件满足同源策略</p>
+<h2 id="worker和主线程之间的通信"><a href="#worker和主线程之间的通信" class="headerlink" title="worker和主线程之间的通信"></a>worker和主线程之间的通信</h2><ol>
+<li>postMessage(n) 方法</li>
+<li>message 事件</li>
+</ol>
+<p>结束一个worker</p>
+<ul>
+<li>close() 在worker作用域中调用（worker.js）</li>
+<li>terminate() 在worker对象上调用（主进程的worker对象上worker.terminate）</li>
+</ul>
+<h2 id="worker-其他特性"><a href="#worker-其他特性" class="headerlink" title="worker 其他特性"></a>worker 其他特性</h2><ol>
+<li>importScripts(‘./math1.js’,’./math2.js’)</li>
+</ol>
+<p>worker只是window的子集，只能实现部分功能，不能获取到window，document，所以这里不要引jquery和zepto。可以引入一些计算类的库</p>
+<ol start="2">
+<li>作用域globalWorkerScope</li>
+</ol>
+<ul>
+<li>可以继续生成worker对象（chrome暂时还不支持，浏览器支持情况不好）</li>
+<li>navigator</li>
+<li>XMLHttpRequest</li>
+<li>setTimeout/serInterval</li>
+</ul>
+<h2 id="h5地理位置信息、重力感应"><a href="#h5地理位置信息、重力感应" class="headerlink" title="h5地理位置信息、重力感应"></a>h5地理位置信息、重力感应</h2><h2 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h2><ul>
+<li>window.navigator.geolocation</li>
+</ul>
+<ol>
+<li><p>getCurrentPosition() // 获取当前的位置信息</p>
+</li>
+<li><p>watchPosition() // 监视位置变化，和1参数一样</p>
+</li>
+<li><p>clearWatch() //清楚位置监视</p>
+</li>
+<li><p>getCurrentPosition(s,e,p)</p>
+</li>
+</ol>
+<ul>
+<li>success  回调（必须）</li>
+<li>error  回调</li>
+<li>options  参数</li>
+<li>需要翻墙</li>
+</ul>
+<h2 id="Geoposition"><a href="#Geoposition" class="headerlink" title="Geoposition"></a>Geoposition</h2><p><img src="../image/h5-gpos.png" alt=""></p>
+<h2 id="PositionError对象"><a href="#PositionError对象" class="headerlink" title="PositionError对象"></a>PositionError对象</h2><ul>
+<li>用户拒绝 code = 1</li>
+<li>获取不到 code = 2</li>
+<li>链接超时 code = 3</li>
+</ul>
+<h2 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h2><ul>
+<li>enableHighAccuracy 是否需要高精度位置默认false</li>
+<li>timeout 单位ms 请求超时时间 默认infinity</li>
+<li>maximumAge 单位ms，watchPosition方法则不停地取用户的地理位置信息，不停地更新用户的位置信息。位置信息过期时间 设置为0就无条件获取新的地理位置信息 默认0</li>
+</ul>
+<h2 id="watchPosition"><a href="#watchPosition" class="headerlink" title="watchPosition"></a>watchPosition</h2><ul>
+<li>var id = geolocation.watchPosition(fu)用于注册监听器，在设备的地理位置发生改变的时候自动被调用</li>
+<li>clearWatch(id) 使用clearWatch 清楚监听</li>
+</ul>
+<h2 id="devicemotion-监听加速度变化"><a href="#devicemotion-监听加速度变化" class="headerlink" title="devicemotion 监听加速度变化"></a>devicemotion 监听加速度变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;devicemotion&apos;,function()&#123;</span><br><span class="line">    console.log(event);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="devicemotion-事件所包含的属性"><a href="#devicemotion-事件所包含的属性" class="headerlink" title="devicemotion 事件所包含的属性"></a>devicemotion 事件所包含的属性</h2><ol>
+<li>accelerationIncludingGravity (包括重心引力，z轴方向加了9.8，在x，y方向上的值两者相同) 重力加速度</li>
+<li>acceleration 重力加速度</li>
+<li>rotationRate(alpha,beta,gamma)旋转速率</li>
+<li>interval 获取的时间间隔<br><img src="../image/yaoyiyao.png" alt=""><br>均为只读属性</li>
+</ol>
+<h2 id="deviceorientation-监听设备在方向上的变化"><a href="#deviceorientation-监听设备在方向上的变化" class="headerlink" title="deviceorientation 监听设备在方向上的变化"></a>deviceorientation 监听设备在方向上的变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;deviceorientation&apos;,function()&#123;</span><br><span class="line">    console.log(event);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>alhpa 表示设备上沿z轴上的旋转角度，范围为0~360</li>
+<li>beta 表示设备上在x轴上的旋转角度，范围为-180~180 它描述设备由前向后旋转的情况</li>
+<li>gamma 表示设备在y轴上的旋转角度，范围为-90~90 它描述是设备由左向右旋转的情况</li>
+<li>webkitCompassHeading 与正北方向的角度差值。正北为0度，正东为90度，正南为180度，正西为270度。因为0度是正北，所以叫指北针(ios)</li>
+</ol>
+<ul>
+<li>css3画表盘，先将刻度线居中，在rotate旋转，字歪了在沿着z轴转回来，js中操作</li>
+</ul>
+<ol start="5">
+<li>webkitCompassAccuracy 指北针的精确度，表示偏差为正负多少度。一般是10</li>
+</ol>
+<p><img src="../image/h5-xyz.png" alt=""></p>
+<h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2><ul>
+<li>audio 音频</li>
+<li>video 视频</li>
+</ul>
+<h2 id="音频-视频"><a href="#音频-视频" class="headerlink" title="音频/视频"></a>音频/视频</h2><ul>
+<li>基础用法</li>
+<li>属性</li>
+<li>事件</li>
+</ul>
+<h2 id="audio元素和video元素"><a href="#audio元素和video元素" class="headerlink" title="audio元素和video元素"></a>audio元素和video元素</h2><p><code>&lt;audio id=&quot;audio&quot; src=&quot;./成都.mp3&quot;&gt;&lt;/audio&gt;</code><br><code>&lt;video id=&quot;video&quot; src=&quot;./成都.mp4&quot;&gt;&lt;/video&gt;</code></p>
+<h2 id="一些属性"><a href="#一些属性" class="headerlink" title="一些属性"></a>一些属性</h2><ol>
+<li>autoplay 自动播放<br><code>&lt;audio src=&quot;成都.mp3&quot; autoplay&gt;&lt;/audio&gt;</code></li>
+<li>controls 设置控件<br><code>&lt;audio src=&quot;成都.mp3&quot; autoplay controls&gt;&lt;/audio&gt;</code></li>
+<li>preload(none/metadata/auto) 预加载，规定是否在页面加载后载入视频</li>
+</ol>
+<ul>
+<li>node 不需要加载数据</li>
+<li>metadata 元数据 诸如时长、比特率、帧大小这样的原数据而不是媒体内容需要加载的</li>
+<li>auto 浏览器应当加载它认为适量的媒体内容<br><code>&lt;audio src=&quot;成都.mp3&quot; autoplay controls preload=&quot;auto&quot;&gt;&lt;/audio&gt;</code></li>
+</ul>
+<ol start="4">
+<li>loop 是否循环播放音/视频<br><code>&lt;audio src=&quot;成都.mp3&quot; autoplay controls loop preload=&quot;auto&quot;&gt;&lt;/audio&gt;</code></li>
+<li>poster(video 独有) 当视频不可用，使用一张图片替代，否则是空白<br><code>&lt;video src=&quot;成都.mp4&quot; poster=&quot;封面.jpg&quot; controls&gt;&lt;/video&gt;</code></li>
+</ol>
+<h2 id="多类型资源"><a href="#多类型资源" class="headerlink" title="多类型资源"></a>多类型资源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio id=&quot;music&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;成都.mp3&quot; type=&quot;audio/mpeg&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;成都.ogg&quot; type=&quot;audio/ogg&quot;&gt;</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="脚本化"><a href="#脚本化" class="headerlink" title="脚本化"></a>脚本化</h2><ul>
+<li>var audio = document.getElementById(‘audio’);</li>
+<li>var audio = new Audio(‘./laojie.mp3’)</li>
+<li>var audio = document.createElement(‘video’)</li>
+</ul>
+<p>只能new Audio(),不能video，因为没有video这个函数</p>
+<h2 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h2><p>controls/loop/preload/autoplay属性</p>
+<ul>
+<li>audio.controls = true;</li>
+<li>audio.loop = ‘loop’;</li>
+<li>audio.preload = ‘auto’;</li>
+<li>audio.autoplay = true;<br>currentSrc 资源链接，媒体数据的url地址</li>
+</ul>
+<p>注意：window.onload</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li>play() 方法</li>
+<li>pause() 方法</li>
+<li>load() 方法<br>重新加载视频/音频元素，用于在更改来源或其他设置后对音频/视频元素进行更新</li>
+</ol>
+<h2 id="音量-volume属性"><a href="#音量-volume属性" class="headerlink" title="音量 volume属性"></a>音量 volume属性</h2><p>表示播放音量，介于0（静音）~1（最大音量）之间，默认1.将muted属于性设置为true则会进入静音模式，设置为false则会恢复之前指定的音量继续播放</p>
+<p>超过范围会报错[0,1]</p>
+<h2 id="播放速率-playbackRate"><a href="#播放速率-playbackRate" class="headerlink" title="播放速率 playbackRate"></a>播放速率 playbackRate</h2><p>用于指定媒体播放的速度。该属性值为1.0表示正常速度，大于1则表示“快进”，0~1之间表示“慢放”，负值表示回放。</p>
+<p>每个浏览器实现的会有差别，具体看浏览器实现</p>
+<h2 id="currentTime-duration属性"><a href="#currentTime-duration属性" class="headerlink" title="currentTime/duration属性"></a>currentTime/duration属性</h2><ul>
+<li>currentTime 设置或返回音频/视频播放的当前位置</li>
+<li>duration 返回当前音频/视频的时长（window.onload）</li>
+<li>单位 秒</li>
+</ul>
+<h2 id="played-buffered-seekable"><a href="#played-buffered-seekable" class="headerlink" title="played/buffered/seekable"></a>played/buffered/seekable</h2><p>played属性返回已经播放（看过）的时间段，buffered属性返回当前已经缓冲的时间段，seekable属性则返回用户可以跳转的时间段。这三个属性都是TimeRanges对象，每个对象都有一个length属性以及start()和end()方法，length属性表示当前的一个时间段，start()与end()分别返回当前时间段的起始时间点和结束时间点（单位是秒，起始参数是0）</p>
+<p>下面代码确定当前缓存内容的百分比：<br><code>var percent_loaded=Math.floor(song.buffered.end(0) / song.duration*100)</code></p>
+<h2 id="paused-seeking-ended"><a href="#paused-seeking-ended" class="headerlink" title="paused/seeking/ended"></a>paused/seeking/ended</h2><p>这三个属性用来查询媒体播放器状态，paused为true表示播放器暂停。seeking为true表示播放器正在调到一个新的播放点，如果播放器播放完媒体并且停下来，则ended属性为true</p>
+<p>作为了解</p>
+<h2 id="canPlayType-方法"><a href="#canPlayType-方法" class="headerlink" title="canPlayType() 方法"></a>canPlayType() 方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = new Audio();</span><br><span class="line">if(a.canPlayType(&apos;audio/mp3&apos;))&#123;</span><br><span class="line">    a.src = &apos;./成都.mp3&apos;;</span><br><span class="line">    a.play();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="事件-1"><a href="#事件-1" class="headerlink" title="事件"></a>事件</h2><ul>
+<li>play 开始播放触发</li>
+<li>pause 暂停触发</li>
+<li>loadedmetadata 浏览器获取完媒体的元数据触发</li>
+<li>loadeddata 浏览器已经加载完当前帧数据，准备播放时触发，注意IE8</li>
+<li>ended 当前播发结束后触发</li>
+</ul>
+<h2 id="readyState属性音频的当前就绪状态"><a href="#readyState属性音频的当前就绪状态" class="headerlink" title="readyState属性音频的当前就绪状态"></a>readyState属性音频的当前就绪状态</h2><p>表示音频元素的就绪转态：</p>
+<ul>
+<li>0 = HAVE_NOTHING 没有关于音频是否就绪的信息</li>
+<li>1 = HAVE_METADATA 关于音频就绪的元数据</li>
+<li>2 = HAVE_CURRENT_DATA 关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒</li>
+<li>3 = HAVE_FUTURE_DATA 当前及至少下一帧的数据是可用的</li>
+<li>4 = HAVE_ENOUGH_DATA 可用数据足以开始播放</li>
+</ul>
+<h2 id="networkState属性返回音频的当前网络状态"><a href="#networkState属性返回音频的当前网络状态" class="headerlink" title="networkState属性返回音频的当前网络状态"></a>networkState属性返回音频的当前网络状态</h2><p>表示音频元素的当前网络状态：</p>
+<ul>
+<li>0 = NETWORK_EMPTY 音频尚未初始化</li>
+<li>1 = NETWORK_IDLE 音频是活动的且已选取资源，但并未使用网络</li>
+<li>2 = NETWORK_LOADING 浏览器正在下载数据</li>
+<li>3 = NETWORK_NO_SOURCE 未找到音频来源</li>
+</ul>
+<h2 id="error-事件在音频-视频-audio-video-加载发生错误时触发"><a href="#error-事件在音频-视频-audio-video-加载发生错误时触发" class="headerlink" title="error 事件在音频/视频(audio/video)加载发生错误时触发"></a>error 事件在音频/视频(audio/video)加载发生错误时触发</h2><p><img src="../image/error.png" alt="error"></p>
+<h2 id="drag-amp-drop-FileReader-Web-Socket"><a href="#drag-amp-drop-FileReader-Web-Socket" class="headerlink" title="drag &amp; drop  FileReader  Web Socket"></a>drag &amp; drop  FileReader  Web Socket</h2><h2 id="drag-amp-drop"><a href="#drag-amp-drop" class="headerlink" title="drag &amp; drop"></a>drag &amp; drop</h2><ul>
+<li>常用于各种拖动操作中 (像电脑桌面拖拽的文件类似)</li>
+<li>创建可拖动元素<br><code>&lt;div id=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;</code></li>
+</ul>
+<h2 id="拖拽相关的事件"><a href="#拖拽相关的事件" class="headerlink" title="拖拽相关的事件"></a>拖拽相关的事件</h2><p><img src="../image/drag.png" alt="drag"></p>
+<h2 id="DragEvent-事件对象"><a href="#DragEvent-事件对象" class="headerlink" title="DragEvent 事件对象"></a>DragEvent 事件对象</h2><ul>
+<li>传值</li>
+</ul>
+<p><code>e.dataTransfer.setData(&quot;data&quot;,e.target.id)</code></p>
+<ul>
+<li>取值</li>
+</ul>
+<p><code>e.dataTransfer.getData(&quot;data&quot;)</code></p>
+<p><img src="../image/h5-drop.png" alt="列表换位"></p>
+<h2 id="使用拖拽上传文件"><a href="#使用拖拽上传文件" class="headerlink" title="使用拖拽上传文件"></a>使用拖拽上传文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ele.addEventListener(&apos;dragover&apos;, function(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;,false);</span><br><span class="line">ele.addEventListener(&apos;drop&apos;,function(e)&#123;</span><br><span class="line">    //调用preventDefault() 来避免浏览器对数据的默认处理（drop事件的默认行为是以链接形式打开）</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    console.log(e);</span><br><span class="line">    var dt = e.dataTransfer;</span><br><span class="line">    var files = dt.files;</span><br><span class="line">    console.log(files);</span><br><span class="line">&#125;,false)</span><br></pre></td></tr></table></figure>
+<h2 id="FileReader-用于读取文件"><a href="#FileReader-用于读取文件" class="headerlink" title="FileReader 用于读取文件"></a>FileReader 用于读取文件</h2><h3 id="FileReader-方法"><a href="#FileReader-方法" class="headerlink" title="FileReader() 方法"></a>FileReader() 方法</h3><p>abort() 终止读取</p>
+<p>readAsBinaryString(file) 将文件读取为二进制编码</p>
+<p>readAsDataURL(file) 将文件读取为DataURL编码</p>
+<p>readAsText(file,[encoding]) 将文件读取为文本</p>
+<p>readAsArrayBuffer(file) 将文件读取为arraybuffer</p>
+<p>通过不同的方式读取文件</p>
+<h3 id="FileReader-事件"><a href="#FileReader-事件" class="headerlink" title="FileReader 事件"></a>FileReader 事件</h3><p>onloadstart 读取开始是触发</p>
+<p>onprogress 读取中</p>
+<p>onloadend 读取完成触发，无论成功或失败</p>
+<p>onload 文件读取成功完成时触发</p>
+<p>onabort 中断时触发</p>
+<p>onerror 出错时触发</p>
+<h2 id="Web-Socket"><a href="#Web-Socket" class="headerlink" title="Web Socket"></a>Web Socket</h2><p>WebSocket 对象提供了一组 API，用于创建和管理WebSocket 连接，以及通过连接发送和接收数据</p>
+<p>WebSocket 其实是一个新协议，跟HTTP协议基本没有关系，只是为了兼容现有浏览器的握手规范而已。借用了HTTP的协议来完成握手</p>
+<p><img src="../image/webscoket.png" alt="webscoket"></p>
+<p><img src="../image/ws.png" alt="webscoket"></p>
+<h2 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h2><ul>
+<li>在HTTP/1.0中，默认非长链接大多实现为每个请求/响应交换使用新的连接</li>
+<li>在HTTP/1.0中，默认长连接一个连接可用于一次或多次请求/响应交换</li>
+<li>在HTTP/1.0中，服务端不能主动联系客户端，只能有客户端发起。</li>
+<li>webSoket服务器和客户端均可主动发送数据</li>
+</ul>
+<h2 id="创建webSocket"><a href="#创建webSocket" class="headerlink" title="创建webSocket"></a>创建webSocket</h2><p>var Socket = new WebSocket(url);</p>
+<p>‘ws://echo.websocket.org’(测试地址)</p>
+<h2 id="Web-Socket-事件"><a href="#Web-Socket-事件" class="headerlink" title="Web Socket 事件"></a>Web Socket 事件</h2><p><img src="../image/socket1.png" alt="webscoket"></p>
+<h2 id="Web-Socket-方法"><a href="#Web-Socket-方法" class="headerlink" title="Web Socket 方法"></a>Web Socket 方法</h2><ol>
+<li>Socket.send()<br>send(data) 方法使用连接传输数据</li>
+<li>Socket.close()<br>close() 方法用于终止任何现有连接</li>
+</ol>
+<h2 id="WebSocket-的优点"><a href="#WebSocket-的优点" class="headerlink" title="WebSocket 的优点"></a>WebSocket 的优点</h2><ul>
+<li>客户端与服务端都可以主动传送数据给对方；</li>
+<li>不用频率创建TCP请求及销毁请求，减少网络宽带资源的占用，同时也节省服务器资源</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/07/html5/" data-id="cjozvsxgr000f04nsar9tvanp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html5-SVG" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/07/html5-SVG/" class="article-date">
+  <time datetime="2018-11-07T09:06:55.000Z" itemprop="datePublished">2018-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/07/html5-SVG/">&#39;html5-SVG&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SVG-Scalable-Vector-Graphics-可缩放矢量图形"><a href="#SVG-Scalable-Vector-Graphics-可缩放矢量图形" class="headerlink" title="SVG (Scalable Vector Graphics) 可缩放矢量图形"></a>SVG (Scalable Vector Graphics) 可缩放矢量图形</h2><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
+<li><p>图表</p>
+</li>
+<li><p>图标 icon</p>
+</li>
+<li><p>动效</p>
+</li>
+<li><p>矢量图</p>
+</li>
+</ol>
+<h2 id="SVG元素"><a href="#SVG元素" class="headerlink" title="SVG元素"></a>SVG元素</h2><p>开始</p>
+<p><code>&lt;svg width=&quot;500px&quot; height=&quot;500px&quot;&gt;&lt;/svg&gt;</code></p>
+<ol>
+<li>直线</li>
+</ol>
+<p><code>&lt;line x1=&quot;100&quot; y1=&quot;100&quot; x2=&quot;200&quot; y2=&quot;100&quot;&gt;&lt;/line&gt;</code></p>
+<ol start="2">
+<li>矩形</li>
+</ol>
+<p><code>&lt;rect x=&quot;50&quot; y=&quot;50&quot; width=&quot;100&quot; height=&quot;100&quot; rx=&quot;10&quot; ry=&quot;20&quot;&gt;&lt;/rect&gt;</code></p>
+<ol start="3">
+<li>圆形</li>
+</ol>
+<p><code>&lt;circle r=&quot;50&quot; cx=&quot;220&quot; cy=&quot;100&quot;&gt;&lt;/circle&gt;</code></p>
+<ol start="4">
+<li>椭圆</li>
+</ol>
+<p><code>&lt;ellipse rx=&quot;100&quot; ry=&quot;50&quot; cx=&quot;100&quot; cy=&quot;200&quot;&gt;&lt;/ellipse&gt;</code></p>
+<ol start="5">
+<li>折线</li>
+</ol>
+<p><code>&lt;polyline point=&quot;60 50,75 35,100 50,125 35,150 50,175 35,190 50&quot;&gt;&lt;/polyline&gt;</code></p>
+<ol start="6">
+<li>多边形</li>
+</ol>
+<p><code>&lt;polygon points=&quot;125 125,130 140,120 140&quot;&gt;&lt;/polygon&gt;</code></p>
+<ol start="7">
+<li>文本</li>
+</ol>
+<p><code>&lt;text x=&quot;125&quot; y=&quot;220&quot;&gt;hello,world&lt;/text&gt;</code></p>
+<h2 id="样式属性"><a href="#样式属性" class="headerlink" title="样式属性"></a>样式属性</h2><ol>
+<li><p>fill</p>
+</li>
+<li><p>stroke</p>
+</li>
+<li><p>stroke-width</p>
+</li>
+<li><p>stroke-opacity/fill-opacity</p>
+</li>
+<li><p>stroke-linecap</p>
+</li>
+<li><p>stroke-linejoin</p>
+</li>
+</ol>
+<h2 id="8-path元素"><a href="#8-path元素" class="headerlink" title="8. path元素"></a>8. path元素</h2><ol>
+<li>M指令和L指令</li>
+</ol>
+<p><code>&lt;path d=&quot;M 10 10 L 20 10&quot;/&gt;</code></p>
+<p> m指令和l指令</p>
+<p><code>&lt;path d=&quot;m 10 10 | 20 10&quot;&gt;</code></p>
+<p>大写绝对坐标和小写相对坐标</p>
+<ol start="2">
+<li>H 和 V 命令</li>
+</ol>
+<p><code>&lt;path d=&quot;M 100 100 H 200 V 200&quot;/&gt;</code></p>
+<ol start="3">
+<li>Z命令</li>
+</ol>
+<p><code>&lt;path d=&quot;M 100 100 H 200 V 200 z&quot;/&gt;</code></p>
+<p>注：Z不区分大小写</p>
+<h2 id="圆弧指令"><a href="#圆弧指令" class="headerlink" title="圆弧指令"></a>圆弧指令</h2><ol start="4">
+<li>A 命令 七个参数</li>
+</ol>
+<p><code>rx ry x-axis-rotation large-arc-flag sweep-flag x y</code></p>
+<ul>
+<li>rx ry 圆弧的x轴半径和y轴半径</li>
+<li>x-axis-rotation 圆弧相对x轴的旋转角度，默认是顺时针，可以设置负值</li>
+<li>large-arc-flag 表示圆弧路劲是大圆弧还是小圆弧1大圆弧</li>
+<li>sweep-flag 表示从起点到终点是顺时针还是逆时针，1表示顺时针，0表示逆时针</li>
+<li>x y表示终点坐标，绝对或相对</li>
+</ul>
+<p><code>&lt;path d=&quot;M 100 100 A 70 120 90 1 1 150 200&quot;&gt;&lt;/path&gt;</code></p>
+<h2 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h2><ol>
+<li>二次贝塞尔</li>
+</ol>
+<p>Q x1 y1,x y</p>
+<p>T x y</p>
+<ol start="2">
+<li>三次贝塞尔曲线</li>
+</ol>
+<p>C x1 y1,x2 y2,x y</p>
+<p>S x2 y2,x y</p>
+<h2 id="自动生成路劲"><a href="#自动生成路劲" class="headerlink" title="自动生成路劲"></a>自动生成路劲</h2><p>Method Draw</p>
+<p>地址：<a href="http://editor.method.ac/" target="_blank" rel="noopener">http://editor.method.ac/</a></p>
+<h2 id="SVG渐变"><a href="#SVG渐变" class="headerlink" title="SVG渐变"></a>SVG渐变</h2><ol>
+<li>线性渐变</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;</span><br><span class="line">    &lt;linearGradient id=&quot;bg1&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;</span><br><span class="line">        &lt;stop sffset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,0);&quot; /&gt;</span><br><span class="line">        &lt;stop sffset=&quot;100%&quot; style=&quot;stop-color:rgb(255,0,0);&quot; /&gt;</span><br><span class="line">    &lt;/linearGradient&gt;</span><br><span class="line">&lt;/defs&gt;</span><br><span class="line">&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot; style=&quot;fill:url(#bg1)&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>径向渐变</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;</span><br><span class="line">    &lt;radialGradient id=&quot;bg2&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;50%&quot; fx=&quot;50%&quot; fy=&quot;50%&quot;&gt;</span><br><span class="line">        &lt;stop sffset=&quot;0%&quot; style=&quot;stop-color:green;&quot; /&gt;</span><br><span class="line">        &lt;stop sffset=&quot;100%&quot; style=&quot;stop-color:red;&quot; /&gt;</span><br><span class="line">    &lt;/radialGradient&gt;</span><br><span class="line">&lt;/defs&gt;</span><br><span class="line">&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot; style=&quot;fill:url(#bg2)&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="SVG-滤镜"><a href="#SVG-滤镜" class="headerlink" title="SVG 滤镜"></a>SVG 滤镜</h2><ol>
+<li>高斯滤镜</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;</span><br><span class="line">    &lt;filter id=&quot;Gaussian_Blur&quot;&gt;</span><br><span class="line">        &lt;feGaussianBlur in=&quot;SourceGraphic&quot; stdDeviation=&quot;20&quot;/&gt;</span><br><span class="line">    &lt;/filter&gt;</span><br><span class="line">&lt;/defs&gt;</span><br><span class="line">&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot; fill=&quot;yellow&quot; style=&quot;filter:url(#Gaussian_Blur)&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>其他滤镜</li>
+</ol>
+<p><a href="http://www.w3school.com.cn/svg/svg_filters_intro.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/svg/svg_filters_intro.asp</a></p>
+<h2 id="SVG-路径动画"><a href="#SVG-路径动画" class="headerlink" title="SVG 路径动画"></a>SVG 路径动画</h2><ol>
+<li><p>stroke-dasharray: 100px</p>
+</li>
+<li><p>stroke-dashoffset: 15px</p>
+</li>
+<li><p>getTotalLength</p>
+</li>
+</ol>
+<p><img src="../image/svg-cf.png" alt="抽风路劲"><br>获取路径总长度</p>
+<ol start="2">
+<li>getPointAtLength(x)</li>
+</ol>
+<p>获取路径上距离起始点距离x长度的点的坐标</p>
+<p>注：严格来说上面两方法只适用于path元素，但各个浏览器实现起来都会有一个谷歌浏览器也能获取到line元素的路径长度</p>
+<h2 id="ViewBox"><a href="#ViewBox" class="headerlink" title="ViewBox"></a>ViewBox</h2><ol>
+<li><p><code>&lt;svg width=&quot;400&quot; height=&quot;300&quot; viewBox=&quot;0,0,40,30&quot;&gt;&lt;/svg&gt;</code></p>
+</li>
+<li><p>preserveAspectRatio</p>
+</li>
+</ol>
+<p>xMin xMid xMax –&gt; x轴 左中右对齐</p>
+<p>YMin YMid YMax –&gt; y轴 上中下对齐</p>
+<p>meet slice none –&gt; 设置填充方式</p>
+<p>eg：svg.setAttribute(“preserveAspectRatio”,”xMinYMin meet”);</p>
+<h2 id="js-生成-SVG-元素"><a href="#js-生成-SVG-元素" class="headerlink" title="js 生成 SVG 元素"></a>js 生成 SVG 元素</h2><ol>
+<li><p>创建SVG元素需要指定命名空间</p>
+</li>
+<li><p>SVG元素对象一般通过调用setAttribute()方法来设定属性值</p>
+</li>
+</ol>
+<h2 id="哆啦A梦"><a href="#哆啦A梦" class="headerlink" title="哆啦A梦"></a>哆啦A梦</h2><p><img src="../image/svg-dlam.png" alt="哆啦A梦"><br><img src="../image/svg-y.png" alt="旋转圆"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg width=100 height=100&gt;</span><br><span class="line">	&lt;circle r=&quot;40&quot; cx=&quot;50&quot; cy=&quot;50&quot;&gt;&lt;/circle&gt;</span><br><span class="line">	&lt;path d=&quot;M 10 50 A 40 40 0 0 1 50 10&quot;&gt;</span><br><span class="line">		&lt;animateTransform attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 50 50&quot; to=&quot;360 50 50&quot; dur=&quot;0.5s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;</span><br><span class="line">	&lt;/path&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/07/html5-SVG/" data-id="cjozvsxh1000h04nsuayydtzj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-h5-canvas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/05/h5-canvas/" class="article-date">
+  <time datetime="2018-11-05T09:04:57.000Z" itemprop="datePublished">2018-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/05/h5-canvas/">h5-canvas</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><h3 id="canvas的应用场景"><a href="#canvas的应用场景" class="headerlink" title="canvas的应用场景"></a>canvas的应用场景</h3><ol>
+<li>游戏</li>
+<li>图表</li>
+<li>动画</li>
+<li>codepen.io(HTML5 动效 网址)</li>
+</ol>
+<h2 id="Canvas发展史"><a href="#Canvas发展史" class="headerlink" title="Canvas发展史"></a>Canvas发展史</h2><ol>
+<li>最早在apple的safari 1.3中引入</li>
+<li>ie9之前的浏览器不支持canvas</li>
+<li><a href="http://caniuse.com/" target="_blank" rel="noopener">http://caniuse.com/</a> (查看兼容性)</li>
+</ol>
+<h2 id="如何使用canvas"><a href="#如何使用canvas" class="headerlink" title="如何使用canvas"></a>如何使用canvas</h2><ol>
+<li><p>添加canvas标签<br><code>&lt;canvas width=500 height=500&gt;&lt;/canvas&gt;</code></p>
+</li>
+<li><p>获得canvas元素<br><code>var canvas = document.getElementById(&#39;myCanvas&#39;)</code></p>
+</li>
+<li><p>获得canvas上下文对象<br><code>var ctx = canvas.getContext(&#39;2d&#39;);//为啥不是3d呢？WebGL绘图上下文时才是3d</code></p>
+</li>
+</ol>
+<h2 id="两个对象"><a href="#两个对象" class="headerlink" title="两个对象"></a>两个对象</h2><ol>
+<li><p>元素对象（canvas元素）和上下文对象（通过getContext(‘2d’)方法获取到的CanvasRenderingContext2D对象）</p>
+</li>
+<li><p>元素对象相当于我们的画布，上下文对象相当于画笔，我们接下来的所有操作是基于上下文对象的</p>
+</li>
+</ol>
+<h2 id="线段"><a href="#线段" class="headerlink" title="线段"></a>线段</h2><ol>
+<li>ctx.moveTo(x,y);移动到x，y坐标点</li>
+<li>ctx.lineTo(x,y);从当前点绘制直线到x，y点</li>
+<li>ctx.stroke();描边</li>
+<li>ctx.lineWidth = 20;设置线段宽度</li>
+<li>ctx.closePath();闭合当前路径和回到起始点的区别</li>
+<li>ctx.fill();填充</li>
+</ol>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ol>
+<li><p>fill和stroke方法都是作用在当前的所有子路径</p>
+</li>
+<li><p>完成一条路径后要重新开始另一条路径时必须使用beginPath()方法，betinPath开始子路径的一个新的集合</p>
+</li>
+</ol>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><ol>
+<li>ctx.rect(x,y,dx,dy);</li>
+<li>ctx.fillRect(x,y,dx,dy);</li>
+<li>ctx.strokeRect(x,y,w,h);</li>
+</ol>
+<h2 id="擦除当前区域"><a href="#擦除当前区域" class="headerlink" title="擦除当前区域"></a>擦除当前区域</h2><ol>
+<li>ctx.clearRect(x,y,dx,dy)</li>
+<li>实现矩形落地动画<br><img src="../image/h5-rect.png" alt="矩形落地动画"></li>
+</ol>
+<h2 id="弧形"><a href="#弧形" class="headerlink" title="弧形"></a>弧形</h2><ol>
+<li>arc(x,y,r,起始弧度，结束弧度，弧形的方向)<br><img src="../image/h5-arc2.png" alt="弧形2"><br><img src="../image/h5-arc3.png" alt="扇形"></li>
+<li>角 以弧度计，0顺时针 1逆时针<br><img src="../image/h5-arc.png" alt="弧形"></li>
+</ol>
+<h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><ol>
+<li>ctx arcTo(x1,y1,x2,y2,r)</li>
+<li>绘制的弧线与当前点和x1,y1连线，x1,y1和x2，y2连线都相切<br><img src="../image/h5-arcTo.png" alt="圆角"><br><img src="../image/h5-arcTo2.png" alt="圆角矩形"></li>
+</ol>
+<h2 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h2><ol>
+<li>quadraticCurveTo(x1,y1,ex,ey)二次贝塞尔曲线</li>
+<li>bezierCurveTo(x1,y1,x2,y2,ex,ey)三次贝塞尔曲线</li>
+</ol>
+<p>x1，y1， x2，y2 控制点</p>
+<p>ex，ey 结束点</p>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ol>
+<li>createLinearGradient(x1,y1,x2,y2); 线性渐变 必须在填充渐变的区域里定义渐变，否则没有效果</li>
+<li>createRadialGradient(x1,y1,r1,x2,y2,r2);径向渐变</li>
+<li>bg.addColorStop(p,color);<br><img src="../image/h5-gra.png" alt="渐变圆"></li>
+</ol>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ol>
+<li>ctx.shadowColor</li>
+<li>ctx.shadowOffsetX</li>
+<li>ctx.shadowOffsetY</li>
+<li>ctx.shadowBlur</li>
+</ol>
+<p>注：这里的阴影偏移量不受坐标系变换的影响</p>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><ol>
+<li>fillText()</li>
+<li>strokeText()</li>
+<li>measureText(‘hello world’) 了解<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.fillStyle = &apos;green&apos;;</span><br><span class="line">ctx.font = &apos;50px sans-serif&apos;</span><br><span class="line">ctx.fillText(&apos;hello world&apos;, 100, 100);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="线段样式"><a href="#线段样式" class="headerlink" title="线段样式"></a>线段样式</h2><ol>
+<li>lineCap</li>
+<li>lineJoin</li>
+</ol>
+<p><img src="../image/line.png" alt="lineCap属性和lineJoin属性"></p>
+<p>ctx.miterLimit</p>
+<p>当lineJoin是miter时，用于控制斜接部分的长度如果斜接长度超过miterLimit的值，变成bevel</p>
+<p>注：实际运算是大于limit*lineWidth/2的值，了解就好</p>
+<h2 id="全局透明度"><a href="#全局透明度" class="headerlink" title="全局透明度"></a>全局透明度</h2><p>ctx.globalAlpha = ‘0.5’;</p>
+<h2 id="坐标轴转换"><a href="#坐标轴转换" class="headerlink" title="坐标轴转换"></a>坐标轴转换</h2><ol>
+<li>translate(dx, dy) 重新映射画布上的（0,0）位置</li>
+<li>scale(sx, sy) 缩放当前绘图</li>
+<li>rotate(Math.PI) 旋转当前的绘图</li>
+<li><p>save() restore()</p>
+<p> 保存当前图像状态的一份拷贝</p>
+<p> 从栈中弹出存储的图形状态并恢复</p>
+</li>
+<li><p>setTransform(a,b,c,d,e,f) 先重置再变换</p>
+<p> 参数：水平缩放、水平倾斜、垂直倾斜、垂直缩放、水平移动、垂直移动</p>
+</li>
+<li>transform(a,b,c,d,e,f) 在之前的基础上变换</li>
+</ol>
+<h2 id="填充图案-fillStyle"><a href="#填充图案-fillStyle" class="headerlink" title="填充图案 fillStyle"></a>填充图案 fillStyle</h2><ol>
+<li>createPattern(image,”repeat|repeat-x|repeat-y|no-repeat”)</li>
+<li>img元素（Image对象），canvas元素，video元素（有图形的）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var img = document.getElementById(&apos;img&apos;);</span><br><span class="line">img.onload = function () &#123;</span><br><span class="line">    ctx.fillStyle = ctx.createPattern(img, &apos;repeat&apos;);</span><br><span class="line">    ctx.fillRect(0, 0, w, h);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="裁剪"><a href="#裁剪" class="headerlink" title="裁剪"></a>裁剪</h2><p>ctx.clip(); 当前路径外的区域不再绘制</p>
+<p>注：可在clip()前用save()方法保存，后续通过restore()方法恢复</p>
+<h2 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h2><ol>
+<li><p>ctx.globalCompositeOperation = ‘source-over’; 新像素和原像素的合并方式</p>
+</li>
+<li><p>11种值 默认source-over w3c标准</p>
+</li>
+<li><p>常用source-over，destination-over，copy</p>
+</li>
+</ol>
+<p><img src="../image/h5.png" alt="新旧像素合并方式"></p>
+<h2 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h2><ol>
+<li><p>ctx.drawImage(); 第一个参数是img(Image,canvas,video) 注：onload</p>
+</li>
+<li><p>3个参数 (x,y) 起始点坐标</p>
+</li>
+<li><p>5个参数 (x,y,dx,dy) 起始点坐标及图片所存区域的宽高</p>
+</li>
+<li><p>9个参数 (x1,y1,dx1,dy1,x2,y2,w2,h2) 前四个为所绘制目标元素的起始点和宽高；后四个为canvas绘制的起始点和大小 </p>
+</li>
+</ol>
+<h2 id="将canvas内容导出"><a href="#将canvas内容导出" class="headerlink" title="将canvas内容导出"></a>将canvas内容导出</h2><ol>
+<li><p>canvas.toDataURL(); 是canvas自身的方法不是上下文对象</p>
+</li>
+<li><p>将canvas的内容抽取成一张图片，base64编码格式 注：同源策略的限制</p>
+</li>
+<li><p>将canvas的内容放入img元素里</p>
+</li>
+</ol>
+<h2 id="获取canvas像素信息"><a href="#获取canvas像素信息" class="headerlink" title="获取canvas像素信息"></a>获取canvas像素信息</h2><ol>
+<li><p>ctx.getImageData(x,y,dx,dy) 同源策略</p>
+</li>
+<li><p>ctx.createImageData(w,h) 创建新的空白ImageData对象</p>
+</li>
+<li><p>ctx.putImageData(imgData,x,y) 将图像数据放回画布上</p>
+</li>
+</ol>
+<h2 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h2><ol>
+<li>把图片放到canvas中 drawImage</li>
+<li>getImageData</li>
+<li>gs</li>
+<li>putImageData</li>
+<li>toDataURL</li>
+<li>img.src</li>
+</ol>
+<p><img src="../image/h5-gs.png" alt="高斯模糊"></p>
+<h2 id="命中检测"><a href="#命中检测" class="headerlink" title="命中检测"></a>命中检测</h2><ol>
+<li><p>ctx.isPointInPath(x,y); 检测是否在区域内，Chrome 与 safari的区别</p>
+</li>
+<li><p>ctx.isPointInStroke(x,y); 检测是否在线上</p>
+</li>
+<li><p>还可以通过检测当前点的像素值，如果为透明，则该点不再路径上</p>
+</li>
+</ol>
+<h2 id="非零绕数准则"><a href="#非零绕数准则" class="headerlink" title="非零绕数准则"></a>非零绕数准则</h2><p>判断点p是否在多边形内，从点p向外做一条射线（可以任意方向），多边形的边从左到右经过射线时环绕数减1，多变形的边从右往左经过射线时环绕数加1，最后环数不为0，即表示在多边形内部。</p>
+<h2 id="如何解决canvas高分屏模糊问题"><a href="#如何解决canvas高分屏模糊问题" class="headerlink" title="如何解决canvas高分屏模糊问题"></a>如何解决canvas高分屏模糊问题</h2><p>在分辨率比较高的屏幕，例如ip6/6S/mac等机器上，因为canvas绘制的是位图，所以会导致模糊，解决方法是根据屏幕分辨率修改canvas样式代码中的宽和高与canvas的width和height属性的比例</p>
+<h2 id="刮刮乐"><a href="#刮刮乐" class="headerlink" title="刮刮乐"></a>刮刮乐</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">var canvas1 = document.getElementById(&apos;canvas1&apos;);</span><br><span class="line">var ctx = canvas1.getContext(&apos;2d&apos;);</span><br><span class="line">var w = canvas1.width;</span><br><span class="line">var h = canvas1.height;</span><br><span class="line">var lastPonitX, lastPointY;</span><br><span class="line">var nowPointX, nowPointY;</span><br><span class="line"></span><br><span class="line">function init() &#123;</span><br><span class="line">    //蒙层</span><br><span class="line">    ctx.fillStyle = &apos;ccc&apos;;</span><br><span class="line">    ctx.fillRect(0, 0, w, h);</span><br><span class="line"></span><br><span class="line">    //一般后台返回图片</span><br><span class="line">    var r = Math.random();</span><br><span class="line"></span><br><span class="line">    if (r &gt; 0.5) &#123;</span><br><span class="line">        canvas1.style.backgroundImage = &apos;url(./baozou1.png)&apos;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        canvas1.style.backgroundImage = &apos;url(./baozou1.jpg)&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ctx.globalCompositeOperation = &apos;destination-out&apos;;</span><br><span class="line"></span><br><span class="line">    canvas1.addEventListener(&apos;mousedown&apos;, downFun, false);</span><br><span class="line">&#125;</span><br><span class="line">init();</span><br><span class="line">function downFun(e) &#123;</span><br><span class="line">    lastPointX = e.clientX - canvas1.offsetLeft;</span><br><span class="line">    lastPointY = e.clientY - canvas1.offsetTop;</span><br><span class="line"></span><br><span class="line">    canvas1.addEventListener(&apos;mousemove&apos;, moveFun, false);</span><br><span class="line">    document.addEventListener(&apos;mouseup&apos;, upFun, false);    </span><br><span class="line">&#125;</span><br><span class="line">function moveFun(e) &#123;</span><br><span class="line">    nowPointX = e.clientX - canvas1.offsetLeft;</span><br><span class="line">    nowPointY = e.clientY - canvas1.offsetTop;</span><br><span class="line"></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx,lineWidth = 40;</span><br><span class="line">    ctx.linCap = &apos;round&apos;;</span><br><span class="line">    ctx.moveTo(lastPointX, lastPointY);</span><br><span class="line">    ctx.lineTo(nowPointX, nowPointY);</span><br><span class="line">    ctx.stroke();</span><br><span class="line"></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.arc(nowPonitX, nowPointY, 20, 0, Math.PI * 2);</span><br><span class="line">    ctx.closePath();</span><br><span class="line">    ctx.fill();</span><br><span class="line"></span><br><span class="line">    lastPointX = nowPonitX;</span><br><span class="line">    lastPointY = nowPonitY;</span><br><span class="line">&#125;</span><br><span class="line">function upFun() &#123;</span><br><span class="line">    canvas1.removeEventListener(&apos;mousemove&apos;, moveFun, false);</span><br><span class="line">    document.removeEventListener(&apos;mouseup&apos;, upFun, false); </span><br><span class="line">    clearAll();   </span><br><span class="line">&#125;</span><br><span class="line">function clearAll() &#123;</span><br><span class="line">    var d = ctx.getImageDat(0, 0, w, h);</span><br><span class="line">    var len = d.data.length,</span><br><span class="line">        c = 0;</span><br><span class="line">    for(var i = 0; i &lt; len; i += 4) &#123;</span><br><span class="line">        if(d.data[i] === 0) &#123;</span><br><span class="line">            c++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(c &gt; w * h * 0.7) &#123;</span><br><span class="line">        ctx.clearRect(0, 0, w, h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/05/h5-canvas/" data-id="cjozvsxgi000d04nsepjomnmc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RWD" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/03/RWD/" class="article-date">
+  <time datetime="2018-11-03T03:00:28.000Z" itemprop="datePublished">2018-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/03/RWD/">&#39;RWD&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS3内容总结</p>
+<ol>
+<li><p>选择器</p>
+</li>
+<li><p>背景和边框</p>
+</li>
+<li><p>文字和颜色</p>
+</li>
+<li><p>盒模型、弹性盒子</p>
+</li>
+<li><p>动画</p>
+</li>
+<li><p>响应式布局</p>
+</li>
+</ol>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><p>为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD）</p>
+<p>响应式设计的三个条件：</p>
+<ol>
+<li><p>网站必须建立灵活的网格基础（设置的宽高不能够固定）</p>
+</li>
+<li><p>引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）</p>
+</li>
+<li><p>不同的显示风格，需要在MediaQuery上设置不同的样式（在不同终端上正常展示页面，让用户体验不变）</p>
+</li>
+</ol>
+<p>meta响应标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">&lt;!-- viewport 视口 content 视口的内容 width=device-width 视口宽度等于设备的宽度 initial-scale 缩放比例 --&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="响应式设计中的术语"><a href="#响应式设计中的术语" class="headerlink" title="响应式设计中的术语"></a>响应式设计中的术语</h2><ol>
+<li><p>流体网格：可伸缩的网格（大小宽高 都是可伸缩（可用flex））</p>
+</li>
+<li><p>弹性图片：图片自适应（可把图片放在背景图片的位置 让div自适应）</p>
+</li>
+<li><p>媒体查询：让网页在不同的终端上面展示效果相同（用户体验相同）</p>
+</li>
+<li><p>屏幕分辨率：</p>
+</li>
+<li><p>主要断点：设备宽度的临界点</p>
+</li>
+</ol>
+<h2 id="响应式布局的技巧"><a href="#响应式布局的技巧" class="headerlink" title="响应式布局的技巧"></a>响应式布局的技巧</h2><ol>
+<li><p>尽量少用无关紧要的div</p>
+</li>
+<li><p>不要使用内联元素</p>
+</li>
+<li><p>尽量少用JS或Flash</p>
+</li>
+<li><p>丢弃没用的绝对定位和浮动样式</p>
+</li>
+<li><p>摈弃任何冗余结构和不适用100%设置</p>
+</li>
+<li><p>使用H5 Doctype和相关指南</p>
+</li>
+<li><p>重置好样式</p>
+</li>
+<li><p>一个简单的有语义的核心布局</p>
+</li>
+<li><p>给重要的网页元素使用简单的技巧，比如导航菜单之类的元素</p>
+</li>
+</ol>
+<p>p.s 如何判断结构的好坏呢？很简单，把页面的样式全部注释掉，在浏览器里面打开，如果内部排列有序，方便阅读，那么这个结构就不会差</p>
+<h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p>模拟移动端的meta</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</code></p>
+<p>width: 可视区宽度</p>
+<p>device-width:设备宽度</p>
+<p>minimum-scale：最小缩放比</p>
+<p>maximum-scale：最大缩放比</p>
+<p>user-scalable：是否允许用户缩放</p>
+<p>单位值</p>
+<p>rem：rem是css3新增的一个相对单位（root em，根em）相对的只是HTML根元素（相对于根节点 2rem = 2 * 根节点）</p>
+<p>em：em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。（相对于父级的大小 2em = 2 * 父级）</p>
+<p>px：px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的</p>
+<p>媒体查询</p>
+<p>CSS2：media type</p>
+<p>media type（媒体类型）是css2中的一个非常有用的属性，通过media type我们可以对不同的设备指定特定的样式，从而实现更丰富的界面</p>
+<p>CSS3：media query</p>
+<p>media query 是CSS3对media type的增强，事实上我们可以将media query看成是media type + css  属性（媒体特性Media features）判断</p>
+<p>媒体类型（media type）</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td style="text-align:left">所有设备</td>
+</tr>
+<tr>
+<td>braille</td>
+<td style="text-align:left">盲文</td>
+</tr>
+<tr>
+<td>embossed</td>
+<td style="text-align:left">盲文打印</td>
+</tr>
+<tr>
+<td>handheld</td>
+<td style="text-align:left">手持设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td style="text-align:left">文档打印或打印预览模式</td>
+</tr>
+<tr>
+<td>projection</td>
+<td style="text-align:left">项目演示，比如幻灯</td>
+</tr>
+<tr>
+<td>screen</td>
+<td style="text-align:left">彩色电脑屏幕</td>
+</tr>
+<tr>
+<td>speech</td>
+<td style="text-align:left">演讲</td>
+</tr>
+<tr>
+<td>tty</td>
+<td style="text-align:left">固定字母间距的网格的媒体，比如电传打字机</td>
+</tr>
+<tr>
+<td>tv</td>
+<td style="text-align:left">电视</td>
+</tr>
+</tbody>
+</table>
+<p>如何使用媒体查询？</p>
+<p>媒体查询引用方法有很多种：</p>
+<p>link标签</p>
+<p>@import</p>
+<p>css3新增的@media</p>
+<p><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (max-width:800px)&quot; href=&quot;index.css&quot; /&gt;</code></p>
+<p><code>@import url(&#39;index.css&#39;) screen and (max-width:500px) ie6、7不兼容</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width:700px) &#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background: red</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 合并多个媒体属性 --&gt;</span><br><span class="line">@media screen and (max-width:700px) and (min-width:500px)&#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background:green</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>逻辑操作符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 合并多个媒体属性 --&gt;</span><br><span class="line">@media screen and (max-width:700px) and (min-width:500px)&#123;</span><br><span class="line">    div &#123;</span><br><span class="line">        background:green</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>指定否定条件</p>
+<p><code>@media not screen and (monochrome)</code></p>
+<p>要指定否定条件，可以在媒体声明中添加关键字not，不能再单个条件钱使用not。该关键字必须位于声明的开头，而且它会否定整个声明。所以，上面的示例会应用于除单色屏幕外的所有设备</p>
+<p>向早起浏览器隐藏媒体查询</p>
+<p><code>media = &quot;only screen and (min-width:401px) and (max-width:600px)&quot;</code></p>
+<p>媒体查询规范还提供了关键字only，它用于早起浏览器隐藏媒体查询。类似于not，该关键字必须位于声明的开头。</p>
+<p>早起浏览器应该将以下语句<code>media = &quot;only screen and (min-width:401px) and (max-width:600px)&quot;</code>解释为media=”screen”;换句话说，它应该将样式规则应用于所有屏幕设备，即使它不知道媒体查询的含义。</p>
+<p>无法识别媒体查询的浏览器要求获得逗号分割的媒体类型列表，规范要求，它们应该在第一个不是连字符的非数字字母字符之前截断每个值。所以，早起浏览器应该将上面的示例解释为：media=”only”</p>
+<p>因为没有only这样的媒体类型，所以样式表被忽略</p>
+<p>易混淆的宽度</p>
+<p><code>device-width/height width/height</code>来作为的判定值</p>
+<p>device-width/height 是设备的宽度（如电脑手机的宽度 不是浏览器的宽度）</p>
+<p>width/height 使用documentElement.clientWidth/Height即viewport的值。渲染宽度/高度</p>
+<h2 id="物理像素-和-设备独立像素"><a href="#物理像素-和-设备独立像素" class="headerlink" title="物理像素 和 设备独立像素"></a>物理像素 和 设备独立像素</h2><p>物理像素： 设备能控制显示的最小单位，我们常说的1920X1080像素分辨率就是用的设备像素单位，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。</p>
+<p>设备独立像素（也叫目睹无关像素）：可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素（css像素），然后由相关系统转换为物理像素</p>
+<p>标准情况下一个设备独立像素 = 一个物理像素</p>
+<p>设备像素比（device pixel ratio）： 简称dpr，定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式得到</p>
+<p>设备像素比 = 物理像素/设备独立像素 js中可以通过window.devicePixelRatio</p>
+<p>物理像素：最大分辨率 ——— 电脑生产厂商定义（1920*1080）每行1920个像素点，每列1080个像素点</p>
+<p>实际分辨率：实际自己设置的电脑分辨率 ——— 自定义的</p>
+<p>css像素：感官像素 – 浏览器定义的（css像素是一个变化值） –（参考像素：根据设备独立像素做了一层调节，css像素根据参考像素进行调节）</p>
+<p>像素：包括 每个像素点 + 颜色 + 其他属性</p>
+<p>设备独立像素： – 操作系统定义的</p>
+<p>设备像素比 = 实际分辨率/css像素 = 物理像素/设备独立像素</p>
+<p>一般默认：</p>
+<p>实际分辨率 ： 物理像素 = 1:1</p>
+<p>css像素 ： 设备独立像素 = 1：1</p>
+<p>以iPhone6为例</p>
+<ol>
+<li><p>设备宽高为375 * 667，可以理解为设备独立像素（或css像素）、</p>
+</li>
+<li><p>drp为2，根据上面的计算公式，器物理像素就应该 <em> 2,为750 </em> 1334</p>
+</li>
+</ol>
+<p>css像素在pc端显示器需要用（1 <em> 1）个栅格点表示 在iPhone6中则需要4（2 </em> 2）个</p>
+<p>也就是在不同的屏幕上（普通屏幕 vs retina屏幕），css像素所呈现的大小（物理尺寸）是一致的，不同的是一个css像素所对象的物理像素个数是不一致</p>
+<p>在普通的屏幕下，1个css像素对应的1个物理像素 为 1：1，在retina（视网膜屏幕）屏幕下，1个css像素对应4个物理像素1:4</p>
+<p>位图像素</p>
+<p>1个位图像素是栅格图像（如：png，jpg，gif等）最小的数据单元。每一个位图像素都包含这一些资深的现实信息（如：显示位置，颜色值，透明度等）</p>
+<p>在普通屏幕下是没问题的，但是在retina屏幕下就会出现位图像素点不够，从而导致图片模糊的情况</p>
+<h2 id="图片像素问题"><a href="#图片像素问题" class="headerlink" title="图片像素问题"></a><strong>图片像素问题</strong></h2><ol>
+<li>对于dpr = 2的，1个位图像素对应于4个物理像素，由于单个位图像素不以再进一步分割，所以只能就近取色，从而导致图片模糊</li>
+</ol>
+<p>解决办法使用分辨率大两倍的图片</p>
+<p>如200 <em> 300 img标签，就需要提供400 </em> 600的图片。由此一来位图像素点的个数是原来的4倍，在retina屏幕下，位图像素点个数就可以物理像素点个数形成1:1的比列，图片自然就清晰了 </p>
+<ol start="2">
+<li>这里就还有另一个问题，如果普通屏幕下，也用了两倍图片，会怎样呢？</li>
+</ol>
+<p>很明显，在普通屏幕下，200 <em> 300（css pixel）img标签，所对应的物理像素个数就是200 </em> 300个，而两倍图片的位置像素个数则是200 <em> 300 </em> 4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法（显示结果就是一张只有原图像素总数四份之一，我们称这个过程叫做 downsampling），肉眼看上去虽然图片不会模糊，但是会觉得图片缺少一些锐利度，或者是有点色差（但还可以接受）</p>
+<h2 id="媒体查询常用尺寸"><a href="#媒体查询常用尺寸" class="headerlink" title="媒体查询常用尺寸"></a>媒体查询常用尺寸</h2><p>@media screen and (min-width:1200px)</p>
+<p>@media screen and (min-width:992px)</p>
+<p>@media screen and (min-width:768px)</p>
+<p>@media screen and (min-width:480px)</p>
+<p>在设置时，需要注意先后顺序，不然后面的会覆盖前面的样式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjozvsxfz000a04nsygmn87ag" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3-animation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/03/css3-animation/" class="article-date">
+  <time datetime="2018-11-03T02:17:13.000Z" itemprop="datePublished">2018-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/03/css3-animation/">&#39;css3-animation&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS3-animation-动画属性"><a href="#CSS3-animation-动画属性" class="headerlink" title="CSS3 animation 动画属性"></a>CSS3 animation 动画属性</h1><p>动画关键帧</p>
+<p>@keyframes</p>
+<p>animation 动画会按照keyframes 关键帧里面指定的帧状态而过渡执行</p>
+<p>0% - 100% 代表动画的时间过渡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes demoMove &#123;</span><br><span class="line">    0% &#123;background-color: red&#125;</span><br><span class="line">    10% &#123;background-color: green&#125;</span><br><span class="line">    20% &#123;background-color: white&#125;</span><br><span class="line">    50% &#123;width: 200px&#125;</span><br><span class="line">    100% &#123;height: 200px&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>帧频里面如果只有 0% 和 100% 两个关键帧，那么可以用from to 代替</p>
+<p>animation: demoMove 4s linear </p>
+<p>animation: name duration timing-function</p>
+<p>transition: left 1s linear 1s linear</p>
+<p>a:hover + .demo{}</p>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p>animation 属性为css3的复合属性，主要包括以下子属性</p>
+<p>animation-name：此属性为执行动画的keyframe名</p>
+<p>animation-duration：此属性为动画执行时间</p>
+<p>animation-timing-function：指定过渡函数速率</p>
+<p>animation-delay：执行延迟时间</p>
+<p>animation-direction：</p>
+<p>normal/reverse/alternate/alternate-reverse；</p>
+<p>animation-iteration-count：infinite/number；</p>
+<p>animation-fill-mode：forwards（动画结束位置是100%关键帧得位置）/backwards（动画开始位置即0%关键帧的位置立即执行 不会等待延迟）/both（动画开始0%关键帧立即执行，动画结束位置为100%关键帧得位置）/none</p>
+<p>animation-play-state: 属性主要用来控制元素动画的播放状态。</p>
+<p>running 播放 | paused 暂停</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/03/css3-animation/" data-id="cjozvsxgd000c04nsebu3xwqo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3-transform" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/02/css3-transform/" class="article-date">
+  <time datetime="2018-11-02T13:46:54.000Z" itemprop="datePublished">2018-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/02/css3-transform/">&#39;css3-transform&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3-transform属性"><a href="#CSS3-transform属性" class="headerlink" title="CSS3 - transform属性"></a><strong>CSS3 - transform属性</strong></h2><p>##transform：变换属性</p>
+<p>transform 可以实现元素的形状、角度、位置等的变化值：</p>
+<p>rotate() 以x/y/z为轴进行旋转，默认为z轴</p>
+<p>rotatex(),rotatey(),rotatez(),rotate3d(x,y,z,angle) x,y,z</p>
+<p>scale() 以x/y为轴进行缩放</p>
+<p>scale(x,y) 接受两个值，如果第二参数未提供，则第二个参数使用第一个参数的值</p>
+<p>scalex(),scaley()值时数字表示倍数，不加任何单位</p>
+<p>scalez()</p>
+<p>scale3d() –&gt; scale3d(sx,sy,sz)</p>
+<p>skew() 对元素进行倾斜扭曲</p>
+<p>skew(x,y) 接受两个值，第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</p>
+<p>skewx(),skewy()</p>
+<p>translate() 可以移动距离，相对于自身位置</p>
+<p>translate(x,[ y ])</p>
+<p>tanslatex(),translatey(),translatez(),translate3d(x,y,z)</p>
+<p>rotateX() rotateY() rotateZ()</p>
+<p>rotate() translate()</p>
+<p>##transform-origin 变换原点</p>
+<p>任何一个元素都有一个中心点，默认情况下，其中心点是居于元素x轴和y轴的50%处，</p>
+<h2 id="transition-过渡动画"><a href="#transition-过渡动画" class="headerlink" title="transition 过渡动画"></a>transition 过渡动画</h2><p>transition 属性是css3的一个复合属性，主要包括以下几个子属性</p>
+<p>transition: transition-property, transition-duration, transition-timing-function, transition-delay</p>
+<p>transition-property：指定过渡或动态模拟的css属性</p>
+<p>transition-duration：指定过渡所需要的时间</p>
+<p>transition-timing-function：指定过渡函数</p>
+<p>transition-delay: 指定开始出现的延迟时间</p>
+<p>transition: left, 1s, linear, 2s;</p>
+<h2 id="steps功能符"><a href="#steps功能符" class="headerlink" title="steps功能符"></a>steps功能符</h2><p>(张旭鑫博客)[<a href="https://www.zhangxinxu.com/wordpress/2018/06/css3-animation-steps-step-start-end/]" target="_blank" rel="noopener">https://www.zhangxinxu.com/wordpress/2018/06/css3-animation-steps-step-start-end/]</a></p>
+<h2 id="3D变换"><a href="#3D变换" class="headerlink" title="3D变换"></a>3D变换</h2><p>transform-style：flat | presserve-3d</p>
+<p>flat：默认，子元素将不保留其3D位置</p>
+<p>preserve-3d：子元素将保留其3D位置</p>
+<p>注意：transform-style<br>属性需要设置在父元素中，高于任何嵌套的变形元素</p>
+<p>设置了transform-style：preserve-3d的元素，就不能防止子元素溢出设置overflow：hideen；否则会导致preserve-3d失效</p>
+<h2 id="perspective-景深"><a href="#perspective-景深" class="headerlink" title="perspective 景深"></a>perspective 景深</h2><p>可以简单的把perspective理解成人距离显示器的距离</p>
+<p>perspective: 600px;默认值none</p>
+<p>物体距离人眼的距离是600px</p>
+<p>perspective-origin: 默认值是50% 50%</p>
+<p>perspective 与 translateZ()</p>
+<p>在元素运动过程中，能否展示元素的背面</p>
+<p>backface-visibility：visible | hidden</p>
+<h2 id="CSS3动画性能优化"><a href="#CSS3动画性能优化" class="headerlink" title="CSS3动画性能优化"></a>CSS3动画性能优化</h2><ol>
+<li>尽可能多的利用硬件能力，如使用3D变形来开启GPU加速</li>
+</ol>
+<p>注意：如动画过程有闪烁（通常发生在动画开始的时候），可以尝试Hack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-webkit-transform: translate3d(0, 0, 0)</span><br><span class="line">-moz-transform: translate3d(0, 0, 0)</span><br><span class="line">-ms-transform: translate3d(0, 0, 0)</span><br><span class="line">transform: translate3d(0, 0, 0)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>尽可能少的使用box-shadows与gradients，这两个都是页面性能杀手，能避免尽量避免</p>
+</li>
+<li><p>尽可能的让动画元素不在文档流中，以减少重排</p>
+</li>
+<li><p>优化 DOM reflow</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/02/css3-transform/" data-id="cjozvsxfq000904nsnf2i9ez5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-css3-二" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/11/01/css3-二/" class="article-date">
@@ -218,7 +1339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjou1hrqb0007swnssyp5q827" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/01/css3-二/" data-id="cjozvsxgn000e04nsgjfvjfy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -476,7 +1597,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjou1hrsk000hswns8ahgqym7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/two/" data-id="cjozvsxhh000k04ns58homwbq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +1696,7 @@ select标签
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjou1hrrq000cswnshm61i6t6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/one/" data-id="cjozvsxh6000i04nsdc7wv9xd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -689,314 +1810,7 @@ src\components\shopcart.vue:92:9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjou1hrs8000fswnsso0gabf6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/CSS3/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/CSS3/">CSS3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>什么是css3？
-css3是css2的升级版
-
-css3的属性是向后兼容的，为了向前兼容css3做了前缀处理
--webkit chrome/safair
--moz firefox
--ms IE
--o opera
-
-css3兼容性查询网址
-canluse
-http://www.runoob.com/cssref/css3-browsersupport.html
-一、css3选择器
-    1、属性选择器
-        E[att^= &apos;val&apos;] {} 以val开头
-        E[att$= &apos;val&apos;] {} 以val结尾
-        E[att*= &apos;val&apos;] {} 包含val
-        E[att~= &apos;val&apos;] {} 存在单独demo data=”demo ccc“（可以选到demo） data=”xxdemo“（这个选不了） 
-        div[data=&quot;demo&quot;] {
-            width:100px;
-            height:100px;
-            background:red
-        }
-        &lt;div class=&quot;demo&quot; data=&quot;demo&quot;&gt;&lt;/div&gt;
-    2、初级伪类选择器：伪类用于向某些选择器添加特殊的效果
-        root 根标签选择器
-            :root {} 和 html {} 效果一样
-        :not 否定选择器
-            div:not([class=&quot;demo&quot;]) {}
-            除了class为demo的div以外
-    3、empty 空标签选择器
-        用来选择没有内容的元素、不在文档树中的元素，这里没有内容指的是一点内容都没有，哪怕是一个空格
-    4、:target 目标元素选择器
-        用来匹配被location.hash 选中的元素（即锚点元素）
-        选择器可用于选取当前活动的目标元素
-    5、伪类选择器
-       :first-child 第一个子元素
-       :last-child 最后一个子元素
-       :nth-child (n) {} 第xx个子元素，n代表变量自然数
-       :nth-last-child (n) {} 从后往前数
-       odd 2n-1奇数 even 2n偶数
-        以上四个选择器均有弊端，即如果当前位置元素不是前面所修饰的元素，那么无效
-
-        :first-of-type 第一个子元素
-        :last-of-type 最后一个子元素
-        :nth-of-type (n) {} 第xx个子元素，n代表变量自然数
-        :nth-last-of-type (n) {} 从后往前数
-        此种选择器，限制了类型，即在所修饰元素的类型下选择特定位置的元素
-
-        :only-child 唯一子元素选择器
-        选择是独生子的子元素，即该子元素不能有兄弟元素，它的父元素只有他一个直接子元素
-        注意：选择的元素是独生子子元素，而非有唯一子元素的父元素
-
-        :only-of-type
-        如果要选择第某类特定的子元素（p） 在兄弟节点中是此类元素唯一的话 就需要用到这个属性
-
-        :enabled 可用的元素
-        :disabled 不可用的元素
-        :checked 选择框的被选中状态
-         eg：&lt;input type=&apos;text&apos; name=&apos;age&apos; disabled /&gt;
-
-         :read-only 选中只读的元素
-          eg：&lt;input type=&apos;text&apos; name=&apos;age&apos; readonly=&quot;readonly&quot; /&gt;
-         :read-write 选中非只读的元素
-          eg：&lt;input type=&apos;text&apos; name=&apos;age&apos; /&gt;
-
-    6、伪元素选择器
-        css3对伪元素进行了一定的调整，在以前的基础上增加了一个：
-        也就是现在变成了::first-letter,::first-line,::before,::after
-        另外还增加了一个::selection
-
-        ::selection
-            &quot;::selection&quot;选择器是用来匹配突出显示的文本（用鼠标选择文本的时候）
-            浏览器默认情况下，用鼠标选择网页文本是以“蓝色的背景，白色的字体”显示的
-            属性：user-select:none
-            注：火狐下必须加-moz-
-            -moz-::selection
-        ::first-letter
-            选择p标签内第一个字符
-        ::first-line
-            选择p标签内文字第一行
-        ::before
-            标签前面添加样式
-        ::after
-            标签后面添加样式
-
-    7、条件选择器
-        E &gt; F 直接子元素
-        E + F 后面的紧挨着的兄弟节点
-        E ~ F 后面的兄弟节点
-
-1、border-radius  圆角
-    border-radius:20px 40px 60px 80px;
-    border-top-left-radius:20px;
-    border-top-right-radius:20px;
-    border-bottom-left-radius:20px;
-    border-top-right-radius:20px 10px;
-2、box-shadow  盒子阴影
-    box-shadow：x轴偏移量 Y轴偏移量 [阴影模糊半径] 
-    [阴影扩展半径] [阴影颜色] [投影方式];
-    eg:
-        .box_shadow{4px 2px 6px 7px #333 inset;} 
-        同一盒子可以加多个阴影，阴影之间可用“，”隔开
-3、text-shadow  文本阴影
-    text-shadow:X-Offset Y-Offset blur color
-    text-shadow:0 1px 1px #fff
-4、颜色值RGBA
-5、渐变的背景颜色
-    css3渐变分为两种
-    1）线性渐变（linear-to）
-     liner-gradient([direction],color[percent],color[percent],..)
-     []内为选填，direction角度的单位为“deg”，也可用to bottom，
-     to left，to top left等方式表达
-    2）径向渐变（radial-at）
-     radial-gradient(shape at position,color[percent],color,...)
-     shape:放射的形状，可以为原型circle，可以为椭圆ellipse
-     postiion：圆心位置，可以两个值，也可以一个，如果为一个时，
-     第二个值默认center即50%。值类型可以为，百分数，距离像素，也可以是方位值
-     （left，top...）;/* x轴主半径 y轴次半径 */
-6、word-wrap:normal|break-word（强制换行）;
-    文字边界换行
-7、font-face 引入字体库 http：//www.w3cplus/content/css3-font-face字体库网址
-    @font-face{
-        font-family:&quot;myFirstFont&quot;;
-        src:url(&apos;Sansation_Light.ttf&apos;),
-            url(&apos;Sansation_Light.eot&apos;)format(&apos;eot&apos;);
-    }
-    p{
-        font-family:&quot;myFirstFont&quot;;
-    }
-    format:此值指的是你自定义的字体格式，主要用来帮助浏览器识别浏览器对
-    @font-face的兼容问题，这里涉及到一个字体format的问题，因为不同的浏览器
-    对字体格式支持是不一致的，浏览器自身也无法通过路径后缀来判断字体
-    兼容性写法
-        @font-face {
-            font-famil:&apos;ifont&apos;;
-            src:url(&apos;ifont.eot&apos;);//IE9+
-            src:url(&apos;ifont.eot?#iefix&apos;)format(&apos;embedded-opentype&apos;),//IE6-IE8
-                url(&apos;ifont.woff&apos;)format(&apos;woff&apos;),//chrome、firefox
-                url(&apos;ifont.ttf&apos;)format(&apos;truetype&apos;),//chrome、firefox、opera、safari、Android、ios 4.2+
-                url(&apos;ifont.svg#fontname&apos;).format(&apos;svg&apos;);//ios 4.1-
-        }
-8.border-image 边框应用背景
-    border-image:url(xxx.png) number 切割图片
-        stretch 若宽度超出border的宽度的话 拉伸
-        repeat 若宽度超出border宽度的话 复制图片
-        round （content宽度 / border相应的位置宽度）四舍五入 张图片 填充
-        eg：border-image：url(&apos;./border.png&apos;) 27 round;
-9.background-origin 背景图片起始位置
-    语法：
-    background-origin:border-box|padding-box|content-box;
-    参数分别表示背景图片是从边框，还是内边距（默认值），或者是内容区域开始显示
-10.background-clip:border-box|padding-box|content-box|no-clip
-    默认值border-box
-
-    text：background-clip:text;
-    从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可使用背景作为填充色之类的遮罩效果
-    注意：webkit独有属性，且必须配合text-fill-color属性
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    text-fill-color:-webkit-background-clip;
-    -webkit-background-clip:text;
-11.background-size 背景图片尺寸
-    background-size：auto|长度值|百分比|cover|contain
-    cover：等比放大（或缩小）到把整个元素包裹住
-    contain: 等比放大（或缩小）到被整个元素包裹住
-
-    object-fit:cover|contain
-    ![11](../image/img1.png);
-    ![11](../image/img2.png);
-
-12.background-position 背景图片位置
-
-13. background-attachment:定义背景图片随滚动轴的移动方式
-
-local：
-scroll: 随着页面的滚动轴背景图片将移动
-fixed: 随着页面的滚动轴背景图片不会移动
-inherit: 继承初始值: scroll
-
-position:absolute;
-position:relative;
-position:fixed; 相对于浏览器窗口定位，脱离常规流
-position:sticky; 
-粘连定位，
-有时是static：元素四个边都在视口以为
-有时是fixed：元素有任意一边即将离开视口 
-同时它自身的布局box不能离开其包含块
-应用：通讯录标题切换效果()，导航悬浮效果（position:sticky; top：0；)
-position:static; 静态定位，不定位，position默认值
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/CSS3/" data-id="cjou1hrph0002swns94ns8n01" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-book1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/book1/" class="article-date">
-  <time datetime="2018-08-02T10:53:19.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/book1/">读《javascript高性能》</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/book1/" data-id="cjou1hrrv000dswns9so1bnu4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/08/02/hello-world/" class="article-date">
-  <time datetime="2018-08-02T10:13:14.894Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/hello-world/" data-id="cjou1hrri000bswnsqfaf32ko" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/three/" data-id="cjozvsxhc000j04ns0jlvqm4q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1010,7 +1824,7 @@ position:static; 静态定位，不定位，position默认值
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1042,23 +1856,23 @@ position:static; 静态定位，不定位，position默认值
       <ul>
         
           <li>
-            <a href="/blog/2018/11/22/ES6/">ES6</a>
+            <a href="/blog/2018/11/27/ES6-Promise/">ES6-Promise</a>
           </li>
         
           <li>
-            <a href="/blog/2018/11/17/Less/">&#39;Less&#39;</a>
+            <a href="/blog/2018/11/27/ES6-class/">ES6-class</a>
           </li>
         
           <li>
-            <a href="/blog/2018/11/16/webpack/">webpack</a>
+            <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
           </li>
         
           <li>
-            <a href="/blog/2018/11/15/module/">module</a>
+            <a href="/blog/2018/11/26/ES6-四/">ES6(四)</a>
           </li>
         
           <li>
-            <a href="/blog/2018/11/07/html5/">html5</a>
+            <a href="/blog/2018/11/24/ES6-三/">ES6(三)</a>
           </li>
         
       </ul>
