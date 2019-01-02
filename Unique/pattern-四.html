@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="function Event () {                         // 存储 不同事件类型对应的不同处理函数                         this.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/Unique/pattern-四.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="function Event () {                         // 存储 不同事件类型对应的不同处理函数                         this.">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-14T09:27:34.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="function Event () {                         // 存储 不同事件类型对应的不同处理函数                         this.">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
+        
+          <a class="main-nav-link" href="/blog/Interview">Interview</a>
+        
+          <a class="main-nav-link" href="/blog/Unique">Unique</a>
+        
+          <a class="main-nav-link" href="/blog/Vue">Vue</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/Unique/pattern-四.html" class="article-date">
+  <time datetime="2018-12-14T09:27:34.944Z" itemprop="datePublished">2018-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+ <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+            <script>
+                    function Event () {
+                        // 存储 不同事件类型对应的不同处理函数
+                        this.cache = {};
+                    }
+                    Event.prototype.on = function (type, handle) {
+                        if (!this.cache[type]) {
+                            this.cache[type] = [handle];
+                        }else {
+                            this.cache[type].push(handle);
+                        }
+                    }
+                    Event.prototype.emmit = function () {
+                        var type = arguments[0];
+                        var arg = [].slice.call(arguments, 1);
+                        for (var i = 0; i < this.cache[type].length; i++) {
+                            this.cache[type][i].apply(this, arg);
+                        }
+                    }
+                    Event.prototype.empty = function () {
+                        this.cache[type] = [];
+                    }
+                    Event.prototype.remove = function () {
+                        this.cache[type].filter(function(ele) {
+                            return ele != handle;
+                        })
+                    }
+
+                    Event.prototype.once = function(type, handle) {
+
+                    }
+
+                    var oE = new Event();
+                    oE.on('over', function (time) {
+                        console.log('overtime1:' + time);
+                    });
+                    oE.on('over', deal1);
+                    oE.on('over', function (time) {
+                        console.log('overtime2:' + time);
+                    });
+                    oE.on('over', deal2);
+                    oE.emmit('over','2018-9-2');
+                    oE.remove('over', deal2);
+                    oE.emmit('over', 'second-2018-11-2');
+
+            </script>
+
+        <script>
+            // 1. 原始模式
+            // 飞机很多 需要copy很多次0.0
+            var smallPlane = {
+                width:100,
+                height:100,
+                blood:100,
+                touch: function () {
+                    this.blood -= 50;
+                    if (this.blood == 0) {
+                        console.log('die');
+                    }
+                }
+            } 
+            // 2.构造函数
+            // 可以建很多个。不能建很多种,需要统一管理
+            function SmallPlan () {
+                this.width = 100;
+                this.height = 100;
+                this.name = 'smallPlane';
+                this.blood = 100;
+                this.touch = function () {
+                    this.blood -= 100;
+                    if (this.blood == 0) {
+                        console.log('die')
+                    }
+                }
+            }
+            new SmallPlane();
+
+            function BigPlane () {
+                this.width = 150;
+                this.height = 200;
+                this.blood = 200;
+                this.name = 'bigPlane';
+                this.touch = function () {
+                    this.blood -= 50;
+                    if (this.blood == 0) {
+                        console.log('die');
+                    }
+                }
+            }
+            
+            function AttackPlane () {
+                this.width = 125;
+                this.height = 100;
+                this.blood = 100;
+                this.name = 'AttackPlane';
+                this.touch = function () {};
+                this.attack = function () {
+                    console.log('bultt');
+                }
+            }
+
+            // 工厂模式
+            function PlaneFactory (type) {
+                var newPlane = null;
+                switch (type) {
+                    case 'SmallPlane':
+                        newPlane = new SmallPlane();
+                        break;
+                    case 'SmallPlane':
+                        newPlane = new SmallPlane();
+                        break;
+                }
+                newPlane.die = function () {
+                    console.log('boomb');
+                }
+                return newPlane;
+            }
+            PlaneFactory (SmallPlane)
+        </script>
+        
+        <script>
+                PlaneFactory.prototype = new Event();
+                // 工厂方法模式
+                function PlaneFactory () {
+                    this.decorate_list = [];
+                }
+                // 集合所有装饰方法
+                PlaneFactory.prototype.decorators = {
+                    eatOneLife: function (obj) {
+                        obj.blood += 100;
+                    },
+                    eatTwoLife: function () {
+                        obj.blood += 200;
+                    },
+                    eatShrinkLife: function (obj) {
+                        obj.blood -= 50;
+                    }
+                }
+                // 搜集对某对象的装饰描述
+                PlaneFactory.prototype.decorate = function (decorator) {
+                    // 
+                    // this.decorate_list_self = 
+                    this.decorate_list.push(decorator);
+                }
+                // 让装饰方法作用在该对象的身上
+                PlaneFactory.prototype.update = function () {
+                    // 
+                    for (var i = 0; i < this.decorate_list.length; i++) {
+                        this.decorators[ this.decorate_list[i] ] && this.decorators[ this.decorate_list[i] ](this);
+                    }
+                }
+
+                PlaneFactory.prototype.empty = function () {
+                    this.decorate_list = [];
+                }
+
+                PlaneFactory.prototype.remove = function (type) {
+                    // eatOneLife
+                    this.decorate_list = this.decorate_list.filter(function (eleType){
+                        return !(eleType == type);
+                    })
+                }
+
+                // 子类工厂都可以使用的公共方法
+                PlaneFactory.prototype.touch = function () {
+                    this.blood -= 50;
+                    if (this.blood == 0) {
+                        console.log('die');
+                    }
+                }
+                PlaneFactory.prototype.die = function () {
+                    alert('boomb');
+                }
+    
+                // 创建对象的接口
+                PlaneFactory.create = function(type) {
+                    // 判断一下是否存在该类型的子类工厂
+                    if (PlaneFactory.prototype[type] == undefined) {
+                        throw 'no this constructor';
+                    }
+                    // 继承
+    
+                    if (PlaneFactory.prototype[type].prototype.__proto__ !== PlaneFactory.prototype) {
+                        PlaneFactory.prototype[type].prototype = new PlaneFactory();
+                    }
+                    var arg = [].slice.call(arguments, 1);
+                    //arg => [10, 20]
+                    var newPlane = new PlaneFactory.prototype[type](...arg);
+                    return newPlane;
+                // 真正定义子类工厂
+                PlaneFactory.prototype.SmallPlan = function () {
+                    this.width = 100;
+                    this.height = 100;
+                    this.name = 'SmallPlane';
+                    this.blood = 100;
+    
+                }
+                PlaneFactory.prototype.BigPlane = function () {
+                    this.width = 150;
+                    this.height = 200;
+                    this.name = 'BigPlane';
+                    this.blood = 100;
+    
+                }
+                PlaneFactory.prototype.AttackPlane = function (x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.width = 100;
+                    this.height = 125;
+                    this.name = 'AttackPlane';
+                    this.blood = 100;
+               
+                    this.attack = function () {
+                        console.log('biu~ biu~ biu!')
+                    }
+    
+                }
+               var oAp = PlaneFactory.create('AttackPlane',10,20);
+               var oSp = PlaneFactory.create('SamllPlane',20,30);
+               var oBp = PlaneFactory.create('BigPlane',30,40);
+
+               // 装饰者模式
+               oAp1.decorate('eatOneLife');
+               oAp1.decorate('eatTwoLife');
+               oAp1.remove('eatOneLife');
+
+               oAp1.on('over', function () {
+                   this.die();
+               })
+            </script>
+
+    
+    </body>  
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Unique/pattern-四.html" data-id="cjq4jl7ux000csgnsangb7zqx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/28/Git/">Git</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-Promise/">ES6-Promise</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-class/">ES6-class</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+    <a href="/blog/Interview" class="mobile-nav-link">Interview</a>
+  
+    <a href="/blog/Unique" class="mobile-nav-link">Unique</a>
+  
+    <a href="/blog/Vue" class="mobile-nav-link">Vue</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用户名：                          密码：                          提交                               //">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/Unique/patter2-2.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="用户名：                          密码：                          提交                               //">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-19T13:13:23.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="用户名：                          密码：                          提交                               //">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
+        
+          <a class="main-nav-link" href="/blog/Interview">Interview</a>
+        
+          <a class="main-nav-link" href="/blog/Unique">Unique</a>
+        
+          <a class="main-nav-link" href="/blog/Vue">Vue</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/Unique/patter2-2.html" class="article-date">
+  <time datetime="2018-12-19T13:13:23.411Z" itemprop="datePublished">2018-12-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="demo"></div>
+
+        <div>
+            用户名：<input type="text" id="userDom" name="username">
+            <span id="showUser"></span>
+            密码：<input type="password" id="psDom" name="code">
+            <span id="showPs"></span>
+            <button id="submit">提交</button>
+        </div>
+        <script>
+            // 
+            // 1. 预加载 -> 塞图片
+            // 首先要在计算机性能较好的时候，先发送一次。之后再用就是取缓存了
+            // 2. 懒加载 -> 监控真正要展示的图片内容 是否有被加载成功
+            // 提高用户体验的同时 减少对性能的伤害
+            function MyImage (_id) {
+                var oImg = document.createElement('img');
+                this.setSrc = function (_src) {
+                    oImg.src = _src;
+                }
+                document.getElementById(_id).appendChild(oImg);
+            }
+            //new MyImage('demo').setSrc('https://.....')
+            
+            var ProxyImage = (function () {
+                var oImg = new Image();
+                var oMyImage = new MyImage();
+
+                oImg.onload = function () {
+                    oMyImage.setSrc(oImg.src);
+                }
+                return function (occupySrc,src) {
+                    oImg.src = src;
+                    oMyImage.setSrc(occupySrc); // 占位图
+                }        
+            })();
+            ProxyImage('https://...'); // 真正要加载的图片
+        </script>
+
+        <script>
+            // 用户名长度不能超过四个
+            // 密码不能为空 密码长度不能低于6
+            // 先假定 数据是可以发送成功的
+            // 
+
+            var flag = true;
+            submit.onclick = function () {
+                // showUser.innerText = '';
+                // showPs.innerText = '';
+                // if (userDom.value == '') {
+                //     falg = false;
+                //     showUser.innerText = '用户名不能为空'
+                // }else if (userDom.value.length >= 4) {
+                //     flag = false;
+                //     show.innerText = '用户名长度不能大于等于4'
+                // }
+
+                // if (psDom.value == '') {
+                //     flag = false;
+                //     showPs.innerText = '密码不能为空'
+                // }else if (psDom.value.length < 6) {
+                //     flag = false;
+                //     showPs.innerText = '密码不能小于6'
+                // }
+
+                ProxyRequest();
+            }
+
+            // 代理模式 和策略模式 结合
+            
+            // A = C = B
+            function Request () {
+                console.log('send');
+            }
+            // 构造函数 => 对象实例
+            function Validator () {
+                this.cache = [];
+                this.warnDom = [];
+            }
+            Validator.prototype.strategies = {
+                isNonEmpty: function(value, errorMsg) {
+                    if (value == '') {
+                        return errorMsg;
+                    }
+                    return true;
+                },
+                maxLength: function(value, length, errorMsg) {
+                    if (value != '' && value.length > length) {
+                        return errorMsg;
+                    }
+                    return true;
+                },
+                minLength: function(value, length, errorMsg) {
+                    if (value != '' && value.length < length) {
+                        return errorMsg;
+                    }
+                    return true;
+                }
+            }
+
+            Validator.prototype.add = function (dom, showDom, strategyArr) {
+                var self = this;
+                this.warnDom.push(showDom);
+                strategyArr.forEach(function(ele, index) {
+                    self.cache.push(function () {
+                        // arr => ['isNonEmpty'] ['maxLength','4'];
+                        var arr = ele.strategy.split(':');
+                        // arr => [] ['4']
+                        // type => isNonEmpty  maxLength
+                        var type = arr.shift();
+
+                        arr.unshift(dom.value);
+                        arr.push(ele.errorMsg);
+
+                        var msg = self.strategies[type].apply(self, arr);
+
+                        if (msg != true) {
+                            showDom.innerText = msg;
+                        }
+
+                        return msg;
+                    })
+                })
+            }
+
+            Validator.prototype.start = function () {
+                // 标记最后是否符合规则
+                var flag = true;
+                this.warnDom.forEach(function (ele) {
+                    ele.innerText = '';
+                })
+                this.cache.forEach(function (ele) {
+                    if (ele() != true) {
+                        flag = false;
+                    }
+                })
+                return flag;
+            }
+
+            Validator.prototype.extend = function (config) {
+                for (var pop in config) {
+                    Validator.prototype.strategies[prop] = config[prop];
+                }
+                
+            }
+
+            // add 添加校验规则 (dom, showDom,
+            //[{strategy:'isNonEmpty',errorMsg:'用户名不为空'}, {strategy:'maxLength:4'}, errorMsg:'用户名长度不能超过4'])
+            // start 开始校验并返回真正的校验结果
+            // extend 可以扩展  算法 {isMail：function（）{}}
+            var validator = new Validator();
+            validator.extend ({
+                isEmail:function (value, errorMsg) {
+                    if (value != '' && value.indexOf('@') == -1) {
+                        return errorMsg
+                    }
+                    return true;
+                },
+                isPhone: function (value, errorMsg) {
+                    if (value != '' && value.length != 11) {
+                        return errorMsg;
+                    }
+                    return true;
+                }
+            })
+            var ProxyRequest = (function () {
+                // 1. 校验内容dom  2.错误信息显示dom 3.校验规则
+                validator.add(userDom, showUser, [{strategy:'isNonEmpty',errorMsg:'用户名不为空'},
+                 {strategy:'maxLength:4', errorMsg:'用户名长度不能超过4'}]);
+                validator.add(psDom, showPs,  [{strategy:'isNonEmpty',errorMsg:'密码不为空'},
+                 {strategy:'minLength:6', errorMsg:'密码长度不能小于6'}]);
+                validator.add(emDom, showEm, [{strategy:'isNonEmpty',errorMsg:'邮箱不为空'},
+                 {strategy:'isEmail', errorMsg:'邮箱格式不正确'}])
+                return function () {
+                    if (validator.start() == true) {
+                        Request();
+                    }
+                }
+            })();
+        </script>
+    </body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Unique/patter2-2.html" data-id="cjq4jl7v6000esgnsq1ddzspe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/28/Git/">Git</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-Promise/">ES6-Promise</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-class/">ES6-class</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+    <a href="/blog/Interview" class="mobile-nav-link">Interview</a>
+  
+    <a href="/blog/Unique" class="mobile-nav-link">Unique</a>
+  
+    <a href="/blog/Vue" class="mobile-nav-link">Vue</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

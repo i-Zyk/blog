@@ -48,6 +48,12 @@
         
           <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
         
+          <a class="main-nav-link" href="/blog/Interview">Interview</a>
+        
+          <a class="main-nav-link" href="/blog/Unique">Unique</a>
+        
+          <a class="main-nav-link" href="/blog/Vue">Vue</a>
+        
       </nav>
       <nav id="sub-nav">
         
@@ -63,6 +69,48 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Javascript运动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/12/02/Javascript运动/" class="article-date">
+  <time datetime="2018-12-02T06:12:13.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="匀速运动"><a href="#匀速运动" class="headerlink" title="匀速运动"></a>匀速运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var oDiv = document.getElementsByTagName(&apos;div&apos;)[0]; </span><br><span class="line">var oBtn = document.getElementById(&apos;btn&apos;); </span><br><span class="line">btn.onclick = function () &#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    var iSpeed = 300 - oDiv.offsetLeft &gt; 0 ? 7 : -7;</span><br><span class="line">    timer = setInterval(function () &#123;</span><br><span class="line">        if (Math.abs(300 - oDiv.offsetLeft) &lt; Math.abs(iSpeed)) &#123;</span><br><span class="line">            clearInterval(timer);</span><br><span class="line">            oDiv.style.left = &apos;300px&apos;;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            oDiv.style.left = oDiv.offsetLeft + iSpeed + &apos;px&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,30)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function startMove() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="缓冲运动-物体的速度-距离目标点越近-就越小-当到达目标点时-速度减小为0"><a href="#缓冲运动-物体的速度-距离目标点越近-就越小-当到达目标点时-速度减小为0" class="headerlink" title="缓冲运动  物体的速度 距离目标点越近 就越小 当到达目标点时 速度减小为0"></a>缓冲运动  物体的速度 距离目标点越近 就越小 当到达目标点时 速度减小为0</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function startMove (dom, target) &#123;</span><br><span class="line">    cleartInterval(timer);</span><br><span class="line">    var iSpeed = null;</span><br><span class="line">    timer = setInterval(function () &#123;</span><br><span class="line">        iSpeed = (target - oDiv.offsetLeft) / 7;</span><br><span class="line">        </span><br><span class="line">        iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</span><br><span class="line">        if (oDiv.offsetLeft == target) &#123;</span><br><span class="line">            clearInterval(timer)</span><br><span class="line">        &#125;esle &#123;</span><br><span class="line">            oDiv.style.left = oDiv.offsetLeft + iSpeed + &apos;px&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多物体运动"><a href="#多物体运动" class="headerlink" title="多物体运动"></a>多物体运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function getStyle(dom, attr) &#123;</span><br><span class="line">    if (window.getComputed) &#123;</span><br><span class="line">        return window.getComputed(dom, null)[attr]</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return dom.currentStyle[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function startMove(dom, target) &#123;</span><br><span class="line">    clearInterval (dom.timer);</span><br><span class="line">    var iSpeed = null, iCur = null;</span><br><span class="line">    dom.timer = setInterval(function () &#123;</span><br><span class="line">        iCur = parseInt( getStyle(dom, &apos;width&apos;));// opacity 要 *100</span><br><span class="line">        iSpeed = ( target - iCur) / 7;</span><br><span class="line"></span><br><span class="line">        iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</span><br><span class="line">        if (iCur == target) &#123;</span><br><span class="line">            clearInteral(dom..timer);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            dom.style.width = iCur + iSpeed + &apos;px&apos;; // /100</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多物体不同值运动"><a href="#多物体不同值运动" class="headerlink" title="多物体不同值运动"></a>多物体不同值运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function getStyle(dom, attr) &#123;</span><br><span class="line">    if (window.getComputed) &#123;</span><br><span class="line">        return window.getComputed(dom, null)[attr]</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return dom.currentStyle[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">functon startMoe( dom, attr target) &#123;</span><br><span class="line">    clearInterval(dom.tmer);</span><br><span class="line">    var iSpeed = null, iCur = null;</span><br><span class="line">    dom.timer = setInterval(function() &#123;</span><br><span class="line">        if(attr == &apos;opacity&apos;) &#123;</span><br><span class="line">            iCur = parseFloat( getStyle(dom, attr) ) * 100;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            iCur = parseInt( getStyle(dom, attr));</span><br><span class="line">        &#125;</span><br><span class="line">        iSpeed = (target - iCur) / 7;</span><br><span class="line">        iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</span><br><span class="line">        if(iCur == target) &#123;</span><br><span class="line">            clearInterval(dom.timer);</span><br><span class="line">        &#125;</span><br><span class="line">        if(attr == &apos;&apos;opacity&apos;) &#123;</span><br><span class="line">            dom.style.opacity = ( iCur + iSpeed) / 100;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            dom.style[attr] = iCur + iSpeed + &apos;px&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多物体多值运动-回调机制"><a href="#多物体多值运动-回调机制" class="headerlink" title="多物体多值运动 + 回调机制"></a>多物体多值运动 + 回调机制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">oTopDiv.onclick = function() &#123;</span><br><span class="line">    startMove(this, &#123;width: 400, height:400, left:200, top: 300, opacity: 50&#125;, function() &#123;</span><br><span class="line">        startMove(oBottomDiv, &#123;width: 400, height:400, left:200, top: 300, opacity: 50&#125;,function()&#123;</span><br><span class="line">            alert(&apos;over&apos;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function getStyle(dom, attr) &#123;</span><br><span class="line">    if (window.getComputed) &#123;</span><br><span class="line">        return window.getComputed(dom, null)[attr]</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return dom.currentStyle[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function startMove (dom, attrObj, callback) &#123;</span><br><span class="line">    clearInterval(dom,.timer);</span><br><span class="line">    var iSpeed = null, iCur = null;</span><br><span class="line">    dom.timer = setInterval(function() &#123;</span><br><span class="line">        var bStop = true;</span><br><span class="line">        for (var attr in attrObj) &#123;</span><br><span class="line">            if (attr == &apos;opacity&apos;) &#123;</span><br><span class="line">                iCur = parseFloat(getStyle(dom, attr)) * 100 </span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                iCur = parseInt( getStyle(dom, attr) );</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            iSpeed = (attrObj[attr] - iCur) / 7;</span><br><span class="line">            iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math:.floor(iSpeed);</span><br><span class="line"></span><br><span class="line">            if(attr == &apos;opacity&apos;) &#123;</span><br><span class="line">                dom.style.opacity = (iCur + iSpeed) / 100;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                dom.style[attr] = iCur + iSpeed + &apos;px&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            if(iCur != attrObj[attr]) &#123;</span><br><span class="line">                bStop = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (bStop) &#123;</span><br><span class="line">            clearInteravl(dom.timer);</span><br><span class="line">            typeof callback == &apos;function&apos; &amp;&amp; callback()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="弹性运动"><a href="#弹性运动" class="headerlink" title="弹性运动"></a>弹性运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var oLiArry = Array.prototype.slice.call(document.getElementsByClassName(&apos;nav&apos;),0);</span><br><span class="line">var oBg = document.getElementsByClassName(&apos;bg&apos;)[0];</span><br><span class="line">oLiArray.forEach(function(ele, index) &#123;</span><br><span class="line">    ele.onmouseenter = function () &#123;</span><br><span class="line">        newLeft = this.offsetLeft;</span><br><span class="line">        startMove(oBg, newLeft);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">function startMove(obj, target) &#123;</span><br><span class="line">    clearInterval(obj.timer);</span><br><span class="line">    var iSpeed = 40, a, u = 0.8;</span><br><span class="line">    obj.timer = setInteral(function()&#123;</span><br><span class="line">        a = (target - obj.offsetLeft) / 8;</span><br><span class="line">        iSpeed = iSpeed + a;</span><br><span class="line">        iSpeed = iSpeed * u;</span><br><span class="line"></span><br><span class="line">        if (Math.abs(iSpeed) &lt;= 1 &amp;&amp; Math.abs(target - obj.offsetLeft) &lt;= 1) &#123;</span><br><span class="line">            clearInter(obj.timer);</span><br><span class="line">            obj.style.left = target + &apos;px&apos;;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            obj.style.let = obj.offsetLeft + iSpeed + &apos;px&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/02/Javascript运动/" data-id="cjq4jl7wb000lsgnsztoibuvm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -86,11 +134,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Git的起源与发展"><a href="#Git的起源与发展" class="headerlink" title="Git的起源与发展"></a>Git的起源与发展</h1><p>Linus -&gt; linux -&gt; no svn -&gt; bitKeeper -&gt; git</p>
+<p>集中式版本控制工具SVN 与 分布式版本控制工具GIT</p>
+<h2 id="集中式与分布式的区别"><a href="#集中式与分布式的区别" class="headerlink" title="集中式与分布式的区别"></a>集中式与分布式的区别</h2><ol>
+<li>文件保存方式  </li>
+</ol>
+<ul>
+<li><p>集中式：文件前后差异对比</p>
+</li>
+<li><p>分布式：每个版本存在的都是一整套文件</p>
+</li>
+</ul>
+<p>2.</p>
+<ul>
+<li><p>SVN是集中化的版本控制系统，大家协同工作但是用的是同一个服务器，一旦出了问题所有人都不能提交更新。历史记录存放位置单一，出现问题可能面临版本丢失的问题</p>
+</li>
+<li><p>Git是分布式存储管理，客户端存的是原始代码的完整镜像，存储到本地，也就是说每一个客户端的代码仓库都是一样的，任何部分代码出现问题，可以使用其他客户端代码进行修复</p>
+</li>
+</ul>
+<h2 id="Git-下载与安装"><a href="#Git-下载与安装" class="headerlink" title="Git 下载与安装"></a>Git 下载与安装</h2><ol>
+<li><p>git init 初始化本地仓库</p>
+</li>
+<li><p>远程仓库  ———  github</p>
+</li>
+</ol>
+<ul>
+<li>注册账号</li>
+<li>创建项目</li>
+</ul>
+<ol>
+<li><p>本地环境配置与秘钥SSH配置</p>
+</li>
+<li><p>秘钥SSH</p>
+<p> ssh-Keygen</p>
+</li>
+<li><p>本地环境配置</p>
+<p> git config –global user.name ‘xxx’</p>
+<p> git config –global user.email <a href="mailto:example@xx.com" target="_blank" rel="noopener">example@xx.com</a></p>
+<p> git config –list 查看配置信息</p>
+</li>
+<li><p>本地分支与远程分支建立关联</p>
+<p> git remote add origin yougithub</p>
+</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/28/Git/" data-id="cjp1891xr0005ggns4u5z5jbd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/28/Git/" data-id="cjq4jl7w6000ksgns9db913rt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/27/ES6-Promise/" data-id="cjp1891vw0000ggnshqjcg0z6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/27/ES6-Promise/" data-id="cjq4jl7up000bsgnsiq0ty6w7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/27/ES6-class/" data-id="cjp1891xh0004ggnsel66ed5k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/27/ES6-class/" data-id="cjq4jl7u90009sgnscdseylil" class="article-share-link">Share</a>
       
       
     </footer>
@@ -306,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/26/ES6-五/" data-id="cjp1891y70007ggnskpjf6023" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/26/ES6-五/" data-id="cjq4jl7w0000jsgns4qu3rdan" class="article-share-link">Share</a>
       
       
     </footer>
@@ -432,7 +523,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/26/ES6-四/" data-id="cjp1891z7000aggnsw0sm522y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/26/ES6-四/" data-id="cjq4jl7vj000hsgnsq0noij2o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -567,7 +658,7 @@ return false
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/ES6-三/" data-id="cjp1891xy0006ggnsgorc0f72" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/24/ES6-三/" data-id="cjq4jl7va000fsgnsp3r4yfc8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -653,7 +744,7 @@ let b = 2;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/ES6-二/" data-id="cjp1891ym0009ggns76qoxaqb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/ES6-二/" data-id="cjq4jl7v0000dsgnscbg8rmux" class="article-share-link">Share</a>
       
       
     </footer>
@@ -776,7 +867,7 @@ let b = 2;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/22/ES6/" data-id="cjp1891zu000dggnshvgjtxbi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/22/ES6/" data-id="cjq4jl7vt000isgnswdn515sl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -834,88 +925,7 @@ let b = 2;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/17/Less/" data-id="cjp189201000eggns6balqhwo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2018/11/16/webpack/" class="article-date">
-  <time datetime="2018-11-16T10:30:34.000Z" itemprop="datePublished">2018-11-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/11/16/webpack/">webpack</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><ol>
-<li>前端工程化</li>
-<li>自动化构建工具</li>
-<li>webpack</li>
-</ol>
-<h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><p>前端工程化是根据业务特点，将前端开发流程规范化，标准化，它包括了开发流程，技术选型，代码规范，构建发布等，用于提升前端工程的开发效率和代码质量。<br><img src="../image/webpack.png" alt="前端工程化"></p>
-<h2 id="自动化构建工具"><a href="#自动化构建工具" class="headerlink" title="自动化构建工具"></a>自动化构建工具</h2><ol>
-<li>Grunt</li>
-<li>Gulp</li>
-<li>Fis3（百度的）</li>
-<li>Webpack</li>
-</ol>
-<h2 id="深入浅出webpack"><a href="#深入浅出webpack" class="headerlink" title="深入浅出webpack"></a>深入浅出webpack</h2><p><img src="../image/web2.png" alt="webpack官网图"></p>
-<p>使用</p>
-<ol>
-<li>全局安装webpack  npm包管理工 具  node</li>
-<li>初始化当前项目 npm init</li>
-<li>局部安装wepack（开始新项目前，最好在局部安装webpack防止冲突）</li>
-<li>执行webpack !报错 –&gt; 新建默认的入口文件 ./src/index.js</li>
-<li>规定webpack处理打包方式 –&gt; shell语句(在窗口上输的命令行语句)和配置文件（webpack.config.js 可以是其他名字,可配置两个文件，根据webpack –config=文件名选择）</li>
-<li>webpack –watch 开启监听 –&gt; 自动打包</li>
-<li>webpack-sev-server 自动监听打包，自动刷新需改成绝对路径</li>
-<li>loader</li>
-<li>plugin</li>
-<li>webpack 简单工作流程<br><img src="../image/web3.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">WARNING in configuration</span><br><span class="line">The &apos;mode&apos; option has not been set, webpack will fallback to &apos;production&apos; for this value. Set &apos;mode&apos; option to &apos;development&apos; or &apos;production&apos; to enable defaults for each environment.</span><br><span class="line">You can also set it to &apos;none&apos; to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/</span><br><span class="line">警告</span><br><span class="line">设置当前环境变量去掉</span><br><span class="line">webpack --mode=development</span><br><span class="line">因为把环境设置为了开发环境</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>webpack4以前需要配置文件，webpack4后不配置的话，默认入口文件为src/index.js，出口文件为dist/main.js</p>
-<p><code>npm install webpack webpack-cli -g</code></p>
-<p>webpack-cli webpack接口工具</p>
-<p>安装cnpm</p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<p>发送项目的时候可以把node——modules 删掉，package.json 不能删 npm install的时候就可以根据package.json 下载相关工具和插件</p>
-<h2 id="webpack安装与使用"><a href="#webpack安装与使用" class="headerlink" title="webpack安装与使用"></a>webpack安装与使用</h2><ul>
-<li>入口（entry）</li>
-<li>输出（output）</li>
-<li>解析器（loader）解析不认识的文件</li>
-<li>插件（plugins）</li>
-</ul>
-<p>webpack </p>
-<p>webpack –watch 监听文件变化</p>
-<p>webpack-dev-server 开启服务器 可自动刷新（先下载，因为有时候不在本地预览了 npm install webpack-dev-server -D ）</p>
-<p> <img src="../image/webp.jpg" alt="webpack的看法"></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">var path = require(&apos;path&apos;);</span><br><span class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">var Uglify = require(&apos;uglifyjs-webpack-plugin&apos;);</span><br><span class="line">var Minify = require(&apos;mini-css-extract-plugin&apos;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    //入口文件</span><br><span class="line">    entry:&#123;</span><br><span class="line">        main:&apos;./src/main.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    //输出</span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:&apos;[name].js&apos;,</span><br><span class="line">        path:path.resolve(__dirname,&apos;dist&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    //设置环境变量</span><br><span class="line">    mode:&apos;development&apos;,</span><br><span class="line">    //开启服务器</span><br><span class="line">    devServer:&#123;</span><br><span class="line">        contentBase:&apos;dist&apos;,</span><br><span class="line">        port:9999</span><br><span class="line">    &#125;,</span><br><span class="line">    //应用loader</span><br><span class="line">    module:&#123;</span><br><span class="line">        rules:[</span><br><span class="line">            //css loader</span><br><span class="line">            &#123;</span><br><span class="line">                test:/\.css$/,</span><br><span class="line">                // use:[&apos;style-loader&apos;,&apos;css-loader&apos;]</span><br><span class="line">                use:[Minify.loader,&apos;css-loader&apos;]</span><br><span class="line">            &#125;,</span><br><span class="line">            //html loader</span><br><span class="line">            // &#123;</span><br><span class="line">            // 	test:/\.html$/,</span><br><span class="line">            // 	use:[</span><br><span class="line">            // 		//单独抽离的html文件进行配置</span><br><span class="line">            // 		&#123;</span><br><span class="line">            // 			loader:&apos;file-loader&apos;,</span><br><span class="line">            // 			options:&#123;</span><br><span class="line">            // 				name:&apos;index.html&apos;</span><br><span class="line">            // 			&#125;</span><br><span class="line">            // 		&#125;,</span><br><span class="line">            // 		//单独抽离html文件（要不全跑到bundel）</span><br><span class="line">            // 		&#123;</span><br><span class="line">            // 			loader:&apos;extract-loader&apos;</span><br><span class="line">            // 		&#125;,</span><br><span class="line">            // 		//找到html文件</span><br><span class="line">            // 		&#123;</span><br><span class="line">            // 			loader:&apos;html-loader&apos;</span><br><span class="line">            // 		&#125;</span><br><span class="line">            // 	]</span><br><span class="line">            // &#125;,</span><br><span class="line">            //js loader</span><br><span class="line">            // &#123;</span><br><span class="line">            // 	test:/\.js$/,</span><br><span class="line">            // 	use:[&apos;babel-loader&apos;]</span><br><span class="line">            // &#125;,</span><br><span class="line">            //img loader</span><br><span class="line">            &#123;</span><br><span class="line">                test:/\.(png|jpg)$/,</span><br><span class="line">                use:[</span><br><span class="line">                    &#123;</span><br><span class="line">                        loader:&apos;url-loader&apos;,</span><br><span class="line">                        options:&#123;</span><br><span class="line">                            limit:8192,</span><br><span class="line">                            // name:&quot;img/[name].[ext]&quot;</span><br><span class="line">                            name:&quot;[name].[hash:8].[ext]&quot;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    //应用插件</span><br><span class="line">    plugins:[</span><br><span class="line">        new HtmlWebpackPlugin(&#123;</span><br><span class="line">            title:&apos;title&apos;,</span><br><span class="line">            template:&apos;./src/index.html&apos;,</span><br><span class="line">            minify:&#123;</span><br><span class="line">                collapseWhitespace:true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;),</span><br><span class="line">        new Uglify(),</span><br><span class="line">        new Minify(&#123;</span><br><span class="line">            filename:&apos;[name]_[contenthash:8].css&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">var UglifyJSPlugin = require(&apos;uglifyjs-webpack-plugin&apos;);</span><br><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);</span><br><span class="line">var providePlugin = new webpack.ProvidePlugin(&#123;$: &apos;jquery&apos;, jQuery: &apos;jquery&apos;, &apos;window.jQuery&apos;: &apos;jquery&apos;&#125;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        index: &apos;./src/js/index.js&apos;,</span><br><span class="line">        goodsInfo: &apos;./src/js/goodsInfo.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &apos;[name].js&apos;,</span><br><span class="line">        path: __dirname + &apos;/out&apos;,</span><br><span class="line">        publicPath: &apos;http://localhost:8080/out&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;test: /.js$/, use: [&apos;babel-loader&apos;]&#125;,</span><br><span class="line">            // // &#123;test: /.css$/, use: [&apos;style-loader&apos;,&apos;css-loader&apos;]&#125;,</span><br><span class="line">            // &#123;</span><br><span class="line">            //     test: /.css$/,</span><br><span class="line">            //     use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">            //       fallback: &quot;style-loader&quot;,</span><br><span class="line">            //       use: &quot;css-loader&quot;</span><br><span class="line">            //     &#125;)</span><br><span class="line">            // &#125;,</span><br><span class="line">            &#123;test: /.jpg|png|gif|svg$/, use: [&apos;url-loader?limit=8192&amp;name=./[name].[ext]&apos;]&#125;, </span><br><span class="line">            &#123;test: /.less$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;]&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        new UglifyJSPlugin(),</span><br><span class="line">        new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">            name: &quot;commons&quot;,</span><br><span class="line">            filename: &quot;commons.js&quot;,</span><br><span class="line">            minChunks:2&#125;),  </span><br><span class="line">        new ExtractTextPlugin(&quot;[name].css&quot;), </span><br><span class="line">        providePlugin     </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/16/webpack/" data-id="cjp189210000kggnsg6of3sya" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/17/Less/" data-id="cjq4jl7wz000qsgnstybk2zoo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -948,7 +958,7 @@ let b = 2;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
     </div>
   </div>
 
@@ -959,6 +969,10 @@ let b = 2;
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+          </li>
         
           <li>
             <a href="/blog/2018/11/28/Git/">Git</a>
@@ -974,10 +988,6 @@ let b = 2;
         
           <li>
             <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/26/ES6-四/">ES6(四)</a>
           </li>
         
       </ul>
@@ -1005,6 +1015,12 @@ let b = 2;
     <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+    <a href="/blog/Interview" class="mobile-nav-link">Interview</a>
+  
+    <a href="/blog/Unique" class="mobile-nav-link">Unique</a>
+  
+    <a href="/blog/Vue" class="mobile-nav-link">Vue</a>
   
 </nav>
     

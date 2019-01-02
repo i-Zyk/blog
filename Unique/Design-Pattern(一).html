@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Design Pattern | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="设计模式 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。 就是想出套路做事情  模式是什么？ 模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论。  设计模式的目的 使用设计模式的目的：为了代码">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Design Pattern">
+<meta property="og:url" content="http://yoursite.com/Unique/Design-Pattern(一).html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="设计模式 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。 就是想出套路做事情  模式是什么？ 模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论。  设计模式的目的 使用设计模式的目的：为了代码">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-12T01:24:32.938Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Design Pattern">
+<meta name="twitter:description" content="设计模式 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。 就是想出套路做事情  模式是什么？ 模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论。  设计模式的目的 使用设计模式的目的：为了代码">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
+        
+          <a class="main-nav-link" href="/blog/Interview">Interview</a>
+        
+          <a class="main-nav-link" href="/blog/Unique">Unique</a>
+        
+          <a class="main-nav-link" href="/blog/Vue">Vue</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/Unique/Design-Pattern(一).html" class="article-date">
+  <time datetime="2018-12-11T07:11:53.000Z" itemprop="datePublished">2018-12-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Design Pattern
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><ul>
+<li>什么是设计模式，原则</li>
+<li>设计模式详解</li>
+<li>UML，贪吃蛇</li>
+</ul>
+<h2 id="什么是设计模式？"><a href="#什么是设计模式？" class="headerlink" title="什么是设计模式？"></a>什么是设计模式？</h2><ul>
+<li>设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。</li>
+<li>就是想出套路做事情</li>
+</ul>
+<h2 id="模式是什么？"><a href="#模式是什么？" class="headerlink" title="模式是什么？"></a>模式是什么？</h2><ul>
+<li>模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论。</li>
+</ul>
+<h2 id="设计模式的目的"><a href="#设计模式的目的" class="headerlink" title="设计模式的目的"></a>设计模式的目的</h2><ul>
+<li>使用设计模式的目的：为了代码可重用性、让代码更容易被他人理解、保证代码可靠性。设计模式使代码编写真正工程化；设计模式是 软件工程 的基石脉络，如同大厦的结构一样。</li>
+</ul>
+<h2 id="举个栗子-高斯大神"><a href="#举个栗子-高斯大神" class="headerlink" title="举个栗子-高斯大神"></a>举个栗子-高斯大神</h2><ul>
+<li>1 + 2 = ？</li>
+<li>1 + 2 + 3 = ？</li>
+<li>1 + 2 + 3 + … + n = ？</li>
+<li>高斯求和</li>
+</ul>
+<h2 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h2><ul>
+<li>没有套路做事情没效率，很笨拙，重用性太小，情况再复杂的时候难度就很大，有了套路更容易的解决一些复杂的问题，让开发变的更高效</li>
+</ul>
+<h2 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h2><ul>
+<li>js设计模式、js模式</li>
+</ul>
+<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    // 原则 设计模式</span><br><span class="line">    // 菊与刀 + 规训与惩罚</span><br><span class="line">    // 你觉得对人 最大的约束力是什么</span><br><span class="line">    // 法律 === bug底线</span><br><span class="line">    // 仁义礼智信 =&gt; 伦理道德 === 原则</span><br><span class="line">    // 知书达理  买菜不能缺斤少两 诚实守信  在公交车上主动让座 尊老爱幼</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="创建型模式-研究高效的创建对象"><a href="#创建型模式-研究高效的创建对象" class="headerlink" title="创建型模式-研究高效的创建对象"></a>创建型模式-研究高效的创建对象</h2><ul>
+<li>单例模式</li>
+<li>抽象工厂模式</li>
+<li>建造者模式</li>
+<li>工厂模式</li>
+<li>原型模式</li>
+</ul>
+<h2 id="结构型模式-设计对象的结构和关系"><a href="#结构型模式-设计对象的结构和关系" class="headerlink" title="结构型模式-设计对象的结构和关系"></a>结构型模式-设计对象的结构和关系</h2><ul>
+<li>适配器模式</li>
+<li>桥接模式</li>
+<li>装饰模式</li>
+<li>组合模式</li>
+<li>外观模式</li>
+<li>亨元模式</li>
+<li>代理模式</li>
+</ul>
+<h2 id="行为型模式-设计对象的行为"><a href="#行为型模式-设计对象的行为" class="headerlink" title="行为型模式-设计对象的行为"></a>行为型模式-设计对象的行为</h2><ul>
+<li>模板方法模式，命令模式，迭代器模式，观察者模式，中介者模式，备忘录模式，解释器模式，状态模式，策略模式，职责链模式，访问者模式</li>
+</ul>
+<h2 id="谈一下设计模式的六大原则"><a href="#谈一下设计模式的六大原则" class="headerlink" title="谈一下设计模式的六大原则"></a>谈一下设计模式的六大原则</h2><ul>
+<li>减少耦合，增强复用性，降低代码的开发维护扩展成本（降低代码的复杂程度，合理的减少耦合度）</li>
+</ul>
+<h2 id="简单说一下耦合"><a href="#简单说一下耦合" class="headerlink" title="简单说一下耦合"></a>简单说一下耦合</h2><ul>
+<li>耦合关系是指某两个事物之间如果存在一种相互作用、相互影响的关系，那么这种关系就称”耦合关系”。</li>
+</ul>
+<h2 id="耦合度和复杂度的危害"><a href="#耦合度和复杂度的危害" class="headerlink" title="耦合度和复杂度的危害"></a>耦合度和复杂度的危害</h2><ul>
+<li>复杂度：高，代码质量不高，可维护性差，复用性差，不易扩展。</li>
+<li>耦合度：无 不可能，低 合理，过高不容易维护。但有复用性和扩展性。</li>
+</ul>
+<h2 id="开发时的流程"><a href="#开发时的流程" class="headerlink" title="开发时的流程"></a>开发时的流程</h2><ul>
+<li>优先降低复杂度，尽量降低耦合度</li>
+</ul>
+<ol>
+<li>利用单一职责原则，开闭原则，里氏代换原则降低复杂度。</li>
+<li>通过迪米特法则减少耦合度</li>
+<li>通过依赖倒置原则消除可以没有的耦合</li>
+</ol>
+<h2 id="使用设计模式的六大原则之一"><a href="#使用设计模式的六大原则之一" class="headerlink" title="使用设计模式的六大原则之一"></a>使用设计模式的六大原则之一</h2><ul>
+<li>单一职责原则 single Responsibility principle</li>
+<li>（一个方法只做一件事情，请求数据的函数你就不要渲染数据了，吃放上厕所别用同一个地方）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 反模式</span><br><span class="line">function View (url, data, dom, flag) &#123;</span><br><span class="line">    if (localStorage.getItem(&apos;list&apos;) &amp;&amp; !flag) &#123;</span><br><span class="line">        var arr = JSON.parse(localStorage.getItem(&apos;list&apos;));</span><br><span class="line">         arr.forEach(function (ele, index) &#123;</span><br><span class="line">            htmlStr += &apos;&lt;li&gt;&apos;+ ele.name +&apos;&lt;/li&gt;&apos;</span><br><span class="line">        &#125;);</span><br><span class="line">        dom.innerHTML = htmlStr;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        // 获取数据的功能</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: url,</span><br><span class="line">            data: data,</span><br><span class="line">            success: function (json) &#123;</span><br><span class="line">                var arr = JSON.parse(json);</span><br><span class="line">                // 缓存数据</span><br><span class="line">                localStore.setItem(&apos;list&apos;, json);</span><br><span class="line">                // 渲染数据功能</span><br><span class="line">                var htmlStr = &apos;&apos;;</span><br><span class="line">                arr.forEach(function (ele, index) &#123;</span><br><span class="line">                    htmlStr += &apos;&lt;li&gt;&apos;+ ele.name +&apos;&lt;/li&gt;&apos;</span><br><span class="line">                &#125;);</span><br><span class="line">                dom.innerHTML = htmlStr;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)；</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">View(&apos;xxx&apos;, &apos;page=1&apos;, ul)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">// 按照单一职责原则</span><br><span class="line"></span><br><span class="line">function GetData(callBackArr) &#123;</span><br><span class="line">    this.getData = function (url, param) &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: url,</span><br><span class="line">            data: param,</span><br><span class="line">            success: function (json) &#123;</span><br><span class="line">                callBackArr.forEach(function (ele, index) &#123;</span><br><span class="line">                    ele.do(json);</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var oG = new GetData([oR, oC]);</span><br><span class="line">  </span><br><span class="line">// 根据数据渲染</span><br><span class="line">function Render (dom) &#123;</span><br><span class="line">    this.do = function (data) &#123;</span><br><span class="line">        var htmlStr = &apos;&apos;;</span><br><span class="line">        arr.forEach(function (ele, index) &#123;</span><br><span class="line">            htmlStr += &apos;&lt;li&gt;&apos;+ ele.name +&apos;&lt;/li&gt;&apos;</span><br><span class="line">        &#125;);</span><br><span class="line">        dom.innerHTML = htmlStr;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var oR = new Render(ul);</span><br><span class="line">oR.do(data);</span><br><span class="line">// 数据缓存</span><br><span class="line">function CacheData (type) &#123;</span><br><span class="line">     this.do = function (data) &#123;</span><br><span class="line">         // 缓存数据</span><br><span class="line">         localStorage.setItem(type, data)</span><br><span class="line">    &#125;</span><br><span class="line">    this.returnCacheData = function () &#123;</span><br><span class="line">        return localStorage.getItem(type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var oC = new CacheData(&apos;list&apos;)</span><br><span class="line"></span><br><span class="line">// 如果是离线的情况下 我们直接取缓存数据 并且点击按钮也不通过网络获取数据</span><br><span class="line">// 不离线 通过缓存获取数据 点击按钮通过网络获取数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 离线</span><br><span class="line">    if (oC.returnCacheData()) &#123;</span><br><span class="line">        if (!navigator.onLine) &#123;</span><br><span class="line">            oG.getData();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            oR.do( oC.returnCacheData() );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        oG.getData();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用设计模式的六大原则之二"><a href="#使用设计模式的六大原则之二" class="headerlink" title="使用设计模式的六大原则之二"></a>使用设计模式的六大原则之二</h2><ul>
+<li>开闭原则 OCP</li>
+<li>一个软件实体如类、模块和函数应该对扩展开放，对修改关闭</li>
+<li>面向扩展开放，面向修改关闭 jquery extend，同时增强代码复用性。</li>
+</ul>
+<h2 id="使用设计模式的六大原则之三"><a href="#使用设计模式的六大原则之三" class="headerlink" title="使用设计模式的六大原则之三"></a>使用设计模式的六大原则之三</h2><ul>
+<li>里氏代换原则 L Subsituation Principle</li>
+<li>任何基类可以出现的地方，子类一定可以出现。通俗的来讲就是：子类可以扩展父类的功能，但不能改变父类原有的功能。</li>
+<li>一个宴会邀请父亲去，父亲去不了儿子去。</li>
+<li>一个父类可以访问的接口，父类忙着其他事情，子类可以去访问。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle () &#123;</span><br><span class="line">    this.width = 0;</span><br><span class="line">    this.height = 0;</span><br><span class="line">    this.setWidth = function (width) &#123;</span><br><span class="line">        this.width = width;</span><br><span class="line">    &#125;</span><br><span class="line">    this.setHeight = function (height) &#123;</span><br><span class="line">        this.height = height;</span><br><span class="line">    &#125;</span><br><span class="line">    this.getWidth = function () &#123;</span><br><span class="line">        return this.width;</span><br><span class="line">    &#125;</span><br><span class="line">    this.getHeight = function () &#123;</span><br><span class="line">        return this.height;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Square.prototype = new Rectangle();</span><br><span class="line">function Square () &#123;</span><br><span class="line">    this.setWidth = function (width) &#123;</span><br><span class="line">        this.width = width;</span><br><span class="line">        this.height = width;</span><br><span class="line">    &#125;</span><br><span class="line">    this.setHeight = function (height) &#123;</span><br><span class="line">        this.setWidth(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var oR = new Rectangle();</span><br><span class="line">oR.setWidth(200);</span><br><span class="line">oR.setHeight(100);</span><br><span class="line"></span><br><span class="line">var oS = new Square();</span><br><span class="line">oS.setWidth(200);</span><br><span class="line">oS.setHeight(200);</span><br><span class="line"></span><br><span class="line">function Resize (o) &#123;</span><br><span class="line">    while(o.getHeight() &lt;= o.getWidth()) &#123;</span><br><span class="line">        o.setHeight( o.getWidth() + 1 );</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;over&apos;);</span><br><span class="line">&#125;</span><br><span class="line">Resize(oR)</span><br><span class="line">Resize(oS) // 出错</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="使用设计模式的六大原则之四"><a href="#使用设计模式的六大原则之四" class="headerlink" title="使用设计模式的六大原则之四"></a>使用设计模式的六大原则之四</h2><ul>
+<li>迪米特法则（最小知道原则）LD<br>一个接口和一个方法，传入的参数越少越好。降低耦合度的同时也会让复杂程度降低。</li>
+<li>谍战片中间谍，两个同一伙间谍互相不知道，为什么要这样呢，</li>
+<li>为了最大程度较少伤害，死只死一条线上的人。</li>
+<li>形成的关联越少越好 依赖最少。</li>
+</ul>
+<h2 id="使用设计模式的六大原则之五"><a href="#使用设计模式的六大原则之五" class="headerlink" title="使用设计模式的六大原则之五"></a>使用设计模式的六大原则之五</h2><ul>
+<li>依赖倒置原则 DIP</li>
+<li>最常用的原则，依赖接口，不依赖方法，底层的东西不用了解，我们只需要知道表现就可以。降低耦合度</li>
+<li>前端应用中可以理解成多者之间依赖状态，而不依赖彼此。</li>
+<li>Js中没有接口的概念</li>
+</ul>
+<h2 id="使用设计模式的六大原则之六"><a href="#使用设计模式的六大原则之六" class="headerlink" title="使用设计模式的六大原则之六"></a>使用设计模式的六大原则之六</h2><ul>
+<li>接口分离原则 ISP</li>
+<li>把大接口拆分小接口，不能一个接口全部实现增删改查</li>
+<li>比如我写作业，要细分成，写数学，写英语，写语文等作业。同时降低耦合度了</li>
+</ul>
+<h2 id="画图总结"><a href="#画图总结" class="headerlink" title="画图总结"></a>画图总结</h2><ul>
+<li>代码是一团乱麻，先靠单一 开闭 里氏给它分成很多块哈，最小知道让他们关系变得弱化，最后需要依赖倒置把没必要的耦合给它消除了。</li>
+</ul>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><ul>
+<li>代码质量的高低是素质，学会权衡才是高价值的开发经验</li>
+</ul>
+<h2 id="先原则，在模式"><a href="#先原则，在模式" class="headerlink" title="先原则，在模式"></a>先原则，在模式</h2><ul>
+<li>原则是理论，模式是在理论上的具体方式，我希望并建议你考试100分，但都是理论具体还需要落在实际方式方法上，但不可以追求，其中有时间成本问题，用更多时间去玩还能保证不低的分数也是可以的。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Unique/Design-Pattern(一).html" data-id="cjq4jl7o70005sgns163k24p0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/28/Git/">Git</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-Promise/">ES6-Promise</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-class/">ES6-class</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+    <a href="/blog/Interview" class="mobile-nav-link">Interview</a>
+  
+    <a href="/blog/Unique" class="mobile-nav-link">Unique</a>
+  
+    <a href="/blog/Vue" class="mobile-nav-link">Vue</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

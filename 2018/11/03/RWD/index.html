@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-17T01:15:02.653Z">
+<meta property="og:updated_time" content="2018-12-11T04:02:50.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;RWD&#39;">
 <meta name="twitter:description" content="CSS3内容总结  选择器  背景和边框  文字和颜色  盒模型、弹性盒子  动画  响应式布局   响应式布局为了适应不同屏幕大小，将弹性网格布局，弹性图片，媒体和媒体查询整合起来，将其命名为响应式设计（Response Web Design 简称RWD） 响应式设计的三个条件：  网站必须建立灵活的网格基础（设置的宽高不能够固定）  引用到网站的图片必须是可伸缩的（页面中用到图片不固定宽高）">
@@ -51,6 +51,12 @@
           <a class="main-nav-link" href="/blog/archives">Archives</a>
         
           <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
+        
+          <a class="main-nav-link" href="/blog/Interview">Interview</a>
+        
+          <a class="main-nav-link" href="/blog/Unique">Unique</a>
+        
+          <a class="main-nav-link" href="/blog/Vue">Vue</a>
         
       </nav>
       <nav id="sub-nav">
@@ -278,11 +284,33 @@
 <p>@media screen and (min-width:768px)</p>
 <p>@media screen and (min-width:480px)</p>
 <p>在设置时，需要注意先后顺序，不然后面的会覆盖前面的样式。</p>
+<h2 id="布局方式"><a href="#布局方式" class="headerlink" title="布局方式"></a>布局方式</h2><ol>
+<li><p>移动端布局：</p>
+<ul>
+<li>大型网站：<br>移动端与PC端是两个网站（淘宝，小米），地址一般都不同<br>更高级的做法是相同，但对不同的设备吐出不同的代码(github.com)</li>
+<li>个人网站：<br>移动端与pc端共用一份代码（个人博客）</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li>移动端自身布局（此处指布局的技术方案）：<ul>
+<li>重布局（设计方向）<br>   使用rem单位实现网站等比缩放（小米淘宝移动端首页）<br>   这种方案在不考虑文字的时候，甚至可以不需要viewport声明</li>
+<li>重内容<br>   使用<meta name="viewport" content="width=device-width">让移动端初始包含块跟手机屏幕大小成正相关，使用px为基本单位来实现布局，可以做到屏幕越大字越多。<br>   这种做法也叫流式布局（github.com移动端，z.cn,<a href="https://bbs.et8.net/bbs/getnew.php" target="_blank" rel="noopener">https://bbs.et8.net/bbs/getnew.php</a>)</li>
+<li>两者都需要<br>   声明viewport为device-width<br>   布局使用rem等比缩放<br>   文字使用px为单位(屏幕越大字越多)</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>实现等比缩放网站：<br>视觉稿宽度为X<br>希望代码中X就直接等于浏览器窗口，也即手机屏幕的宽度，也即100vw<br>需要找一个单位，让<br>Xunit = 100vw<br>unit = 100vw / X<br>rem,em<br>由于em会随着继承而发生变化，所以选用rem单位<br>所以我们希望<br>1rem = 100vw / X<br>html {font-size: calc(100vw / X)}<br>由于一些浏览器会限制最小字号，所以：<br>html {font-size: calc(100vw / X * 100)}<br>代码中就直接使用测量出来的值除以100来书写了。</p>
+</li>
+<li><p>如果网站用户都是Android 4.4以上的浏览器<br>直接将viewport的宽度声明为视觉稿的宽度，然后全部使用px单位开发：<br><meta name="viewport" content="width=X"><br>测量出来是多少就直接写多px，连小数点都不需要移动。</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjp1891yd0008ggnsdj28bii5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/03/RWD/" data-id="cjq4jl7wf000msgnsobduj30l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +355,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
     </div>
   </div>
 
@@ -338,6 +366,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+          </li>
         
           <li>
             <a href="/blog/2018/11/28/Git/">Git</a>
@@ -353,10 +385,6 @@
         
           <li>
             <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2018/11/26/ES6-四/">ES6(四)</a>
           </li>
         
       </ul>
@@ -384,6 +412,12 @@
     <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+    <a href="/blog/Interview" class="mobile-nav-link">Interview</a>
+  
+    <a href="/blog/Unique" class="mobile-nav-link">Unique</a>
+  
+    <a href="/blog/Vue" class="mobile-nav-link">Vue</a>
   
 </nav>
     

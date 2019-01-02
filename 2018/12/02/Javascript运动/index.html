@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Javascript运动 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="匀速运动123456789101112131415161718var oDiv = document.getElementsByTagName(&amp;apos;div&amp;apos;)[0]; var oBtn = document.getElementById(&amp;apos;btn&amp;apos;); btn.onclick = function () &amp;#123;    clearInterval(time">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript运动">
+<meta property="og:url" content="http://yoursite.com/2018/12/02/Javascript运动/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="匀速运动123456789101112131415161718var oDiv = document.getElementsByTagName(&amp;apos;div&amp;apos;)[0]; var oBtn = document.getElementById(&amp;apos;btn&amp;apos;); btn.onclick = function () &amp;#123;    clearInterval(time">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-03T04:34:08.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript运动">
+<meta name="twitter:description" content="匀速运动123456789101112131415161718var oDiv = document.getElementsByTagName(&amp;apos;div&amp;apos;)[0]; var oBtn = document.getElementById(&amp;apos;btn&amp;apos;); btn.onclick = function () &amp;#123;    clearInterval(time">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/Cultural-and-art">Cultural-and-art</a>
+        
+          <a class="main-nav-link" href="/blog/Interview">Interview</a>
+        
+          <a class="main-nav-link" href="/blog/Unique">Unique</a>
+        
+          <a class="main-nav-link" href="/blog/Vue">Vue</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Javascript运动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/12/02/Javascript运动/" class="article-date">
+  <time datetime="2018-12-02T06:12:13.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript运动
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="匀速运动"><a href="#匀速运动" class="headerlink" title="匀速运动"></a>匀速运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var oDiv = document.getElementsByTagName(&apos;div&apos;)[0]; </span><br><span class="line">var oBtn = document.getElementById(&apos;btn&apos;); </span><br><span class="line">btn.onclick = function () &#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    var iSpeed = 300 - oDiv.offsetLeft &gt; 0 ? 7 : -7;</span><br><span class="line">    timer = setInterval(function () &#123;</span><br><span class="line">        if (Math.abs(300 - oDiv.offsetLeft) &lt; Math.abs(iSpeed)) &#123;</span><br><span class="line">            clearInterval(timer);</span><br><span class="line">            oDiv.style.left = &apos;300px&apos;;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            oDiv.style.left = oDiv.offsetLeft + iSpeed + &apos;px&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,30)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function startMove() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="缓冲运动-物体的速度-距离目标点越近-就越小-当到达目标点时-速度减小为0"><a href="#缓冲运动-物体的速度-距离目标点越近-就越小-当到达目标点时-速度减小为0" class="headerlink" title="缓冲运动  物体的速度 距离目标点越近 就越小 当到达目标点时 速度减小为0"></a>缓冲运动  物体的速度 距离目标点越近 就越小 当到达目标点时 速度减小为0</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function startMove (dom, target) &#123;</span><br><span class="line">    cleartInterval(timer);</span><br><span class="line">    var iSpeed = null;</span><br><span class="line">    timer = setInterval(function () &#123;</span><br><span class="line">        iSpeed = (target - oDiv.offsetLeft) / 7;</span><br><span class="line">        </span><br><span class="line">        iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</span><br><span class="line">        if (oDiv.offsetLeft == target) &#123;</span><br><span class="line">            clearInterval(timer)</span><br><span class="line">        &#125;esle &#123;</span><br><span class="line">            oDiv.style.left = oDiv.offsetLeft + iSpeed + &apos;px&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多物体运动"><a href="#多物体运动" class="headerlink" title="多物体运动"></a>多物体运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function getStyle(dom, attr) &#123;</span><br><span class="line">    if (window.getComputed) &#123;</span><br><span class="line">        return window.getComputed(dom, null)[attr]</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return dom.currentStyle[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function startMove(dom, target) &#123;</span><br><span class="line">    clearInterval (dom.timer);</span><br><span class="line">    var iSpeed = null, iCur = null;</span><br><span class="line">    dom.timer = setInterval(function () &#123;</span><br><span class="line">        iCur = parseInt( getStyle(dom, &apos;width&apos;));// opacity 要 *100</span><br><span class="line">        iSpeed = ( target - iCur) / 7;</span><br><span class="line"></span><br><span class="line">        iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</span><br><span class="line">        if (iCur == target) &#123;</span><br><span class="line">            clearInteral(dom..timer);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            dom.style.width = iCur + iSpeed + &apos;px&apos;; // /100</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多物体不同值运动"><a href="#多物体不同值运动" class="headerlink" title="多物体不同值运动"></a>多物体不同值运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function getStyle(dom, attr) &#123;</span><br><span class="line">    if (window.getComputed) &#123;</span><br><span class="line">        return window.getComputed(dom, null)[attr]</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return dom.currentStyle[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">functon startMoe( dom, attr target) &#123;</span><br><span class="line">    clearInterval(dom.tmer);</span><br><span class="line">    var iSpeed = null, iCur = null;</span><br><span class="line">    dom.timer = setInterval(function() &#123;</span><br><span class="line">        if(attr == &apos;opacity&apos;) &#123;</span><br><span class="line">            iCur = parseFloat( getStyle(dom, attr) ) * 100;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            iCur = parseInt( getStyle(dom, attr));</span><br><span class="line">        &#125;</span><br><span class="line">        iSpeed = (target - iCur) / 7;</span><br><span class="line">        iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</span><br><span class="line">        if(iCur == target) &#123;</span><br><span class="line">            clearInterval(dom.timer);</span><br><span class="line">        &#125;</span><br><span class="line">        if(attr == &apos;&apos;opacity&apos;) &#123;</span><br><span class="line">            dom.style.opacity = ( iCur + iSpeed) / 100;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            dom.style[attr] = iCur + iSpeed + &apos;px&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多物体多值运动-回调机制"><a href="#多物体多值运动-回调机制" class="headerlink" title="多物体多值运动 + 回调机制"></a>多物体多值运动 + 回调机制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">oTopDiv.onclick = function() &#123;</span><br><span class="line">    startMove(this, &#123;width: 400, height:400, left:200, top: 300, opacity: 50&#125;, function() &#123;</span><br><span class="line">        startMove(oBottomDiv, &#123;width: 400, height:400, left:200, top: 300, opacity: 50&#125;,function()&#123;</span><br><span class="line">            alert(&apos;over&apos;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function getStyle(dom, attr) &#123;</span><br><span class="line">    if (window.getComputed) &#123;</span><br><span class="line">        return window.getComputed(dom, null)[attr]</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return dom.currentStyle[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function startMove (dom, attrObj, callback) &#123;</span><br><span class="line">    clearInterval(dom,.timer);</span><br><span class="line">    var iSpeed = null, iCur = null;</span><br><span class="line">    dom.timer = setInterval(function() &#123;</span><br><span class="line">        var bStop = true;</span><br><span class="line">        for (var attr in attrObj) &#123;</span><br><span class="line">            if (attr == &apos;opacity&apos;) &#123;</span><br><span class="line">                iCur = parseFloat(getStyle(dom, attr)) * 100 </span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                iCur = parseInt( getStyle(dom, attr) );</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            iSpeed = (attrObj[attr] - iCur) / 7;</span><br><span class="line">            iSpeed = iSpeed &gt; 0 ? Math.ceil(iSpeed) : Math:.floor(iSpeed);</span><br><span class="line"></span><br><span class="line">            if(attr == &apos;opacity&apos;) &#123;</span><br><span class="line">                dom.style.opacity = (iCur + iSpeed) / 100;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                dom.style[attr] = iCur + iSpeed + &apos;px&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            if(iCur != attrObj[attr]) &#123;</span><br><span class="line">                bStop = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (bStop) &#123;</span><br><span class="line">            clearInteravl(dom.timer);</span><br><span class="line">            typeof callback == &apos;function&apos; &amp;&amp; callback()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="弹性运动"><a href="#弹性运动" class="headerlink" title="弹性运动"></a>弹性运动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var oLiArry = Array.prototype.slice.call(document.getElementsByClassName(&apos;nav&apos;),0);</span><br><span class="line">var oBg = document.getElementsByClassName(&apos;bg&apos;)[0];</span><br><span class="line">oLiArray.forEach(function(ele, index) &#123;</span><br><span class="line">    ele.onmouseenter = function () &#123;</span><br><span class="line">        newLeft = this.offsetLeft;</span><br><span class="line">        startMove(oBg, newLeft);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">function startMove(obj, target) &#123;</span><br><span class="line">    clearInterval(obj.timer);</span><br><span class="line">    var iSpeed = 40, a, u = 0.8;</span><br><span class="line">    obj.timer = setInteral(function()&#123;</span><br><span class="line">        a = (target - obj.offsetLeft) / 8;</span><br><span class="line">        iSpeed = iSpeed + a;</span><br><span class="line">        iSpeed = iSpeed * u;</span><br><span class="line"></span><br><span class="line">        if (Math.abs(iSpeed) &lt;= 1 &amp;&amp; Math.abs(target - obj.offsetLeft) &lt;= 1) &#123;</span><br><span class="line">            clearInter(obj.timer);</span><br><span class="line">            obj.style.left = target + &apos;px&apos;;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            obj.style.let = obj.offsetLeft + iSpeed + &apos;px&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 30)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/02/Javascript运动/" data-id="cjq4jl7wb000lsgnsztoibuvm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2018/11/28/Git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2018/12/02/Javascript运动/">Javascript运动</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/28/Git/">Git</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-Promise/">ES6-Promise</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/27/ES6-class/">ES6-class</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/11/26/ES6-五/">ES6(五)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/Cultural-and-art" class="mobile-nav-link">Cultural-and-art</a>
+  
+    <a href="/blog/Interview" class="mobile-nav-link">Interview</a>
+  
+    <a href="/blog/Unique" class="mobile-nav-link">Unique</a>
+  
+    <a href="/blog/Vue" class="mobile-nav-link">Vue</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
